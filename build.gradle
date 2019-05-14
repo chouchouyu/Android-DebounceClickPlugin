@@ -1,15 +1,26 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
     repositories {
-        google()
-        jcenter()
+//        google()
+//        jcenter()
+        jcenter {
+            url 'http://jcenter.bintray.com'
+        }
+
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        maven {
+            url '../repository'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
-        
-
+        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
+        classpath 'org.aspectj:aspectjtools:1.8.6'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -17,11 +28,33 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
+//        google()
+//        jcenter()
+//        jcenter{
+//            url 'http://jcenter.bintray.com'
+//        }
+//        mavenCentral()
+//        maven { url "https://jitpack.io" }
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+        maven { url 'https://dl.bintray.com/wusanm/maven' }
+        mavenCentral()
+        maven { url 'https://maven.google.com' } //add this code
         jcenter()
+        maven {
+            url '../repository'
+        }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+artifacts {
+    file('infors-plugin-runtime-release.aar')
+}
+
