@@ -40,6 +40,6 @@ class DoubleClickPlugin implements Plugin<Project> {
 
         def variantWeavedClassesMap = new LinkedHashMap<String, List<WeavedClass>>()
         AppExtension appExtension = project.extensions.findByType(AppExtension.class)
-        appExtension.registerTransform(new DoubleClickTransform(project, variantWeavedClassesMap))
+        appExtension.registerTransform(new DoubleClickTransform(project, variantWeavedClassesMap, !hasApp))
     }
 }

@@ -16,7 +16,7 @@ dependencies {
     compile gradleApi()
     compile localGroovy()
     compile 'commons-io:commons-io:2.6'
-    compile 'org.ow2.asm:asm:7.0'
+    compile 'org.ow2.asm:asm:6.0'
     compile 'org.ow2.asm:asm-commons:6.0'
 }
 
