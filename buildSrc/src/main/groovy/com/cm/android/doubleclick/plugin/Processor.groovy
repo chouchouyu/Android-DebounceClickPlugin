@@ -3,7 +3,10 @@ package com.cm.android.doubleclick.plugin
 import com.google.common.collect.ImmutableMap
 import com.google.common.collect.Iterables
 import groovy.transform.PackageScope
+import org.gradle.api.GradleException
 import org.gradle.api.Project
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.ClassWriter
 
 import java.nio.file.FileSystems
 import java.nio.file.FileVisitResult
@@ -60,7 +63,7 @@ class Processor {
             @Override
             FileVisitResult visitFile(Path inputPath, BasicFileAttributes attrs) throws IOException {
                 Path outputPath = Utils.toOutputPath(output, input, inputPath)
-                directRun(inputPath, outputPath, weavedClasses)
+                directRun(project, inputPath, outputPath, weavedClasses)
                 return FileVisitResult.CONTINUE
             }
 
@@ -74,14 +77,52 @@ class Processor {
     }
 
     @PackageScope
-    static void directRun(Path input, Path output,
+    static void directRun(Project project, Path input, Path output,
                           List<WeavedClass> weavedClasses) {
-//        if (Utils.isMatchCondition(input.toString())) {
-//            byte[] inputBytes = Files.readAllBytes(input)
-//            byte[] outputBytes = visitAndReturnBytecode(inputBytes, weavedClasses)
-//            Files.write(output, outputBytes)
-//        } else {
-        Files.copy(input, output)
+
+
+        if (Utils.isMatchCondition(input.toString())) {
+            project.logger.error("directRun-INPUT: ${input.toString()}")
+            byte[] inputBytes = Files.readAllBytes(input)
+            byte[] outputBytes = visitAndReturnBytecode(inputBytes, weavedClasses)
+            Files.write(output, outputBytes)
+        } else {
+            Files.copy(input, output)
+        }
+    }
+
+    private byte[] visitAndReturnBytecode(byte[] originBytes,
+                                          List<WeavedClass> weavedClasses) {
+
+        ClassReader classReader = new ClassReader(originBytes)
+        ClassWriter classWriter =
+                new CompactClassWriter(classReader,
+                        ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS)
+
+        Map<String, List<MethodDelegate>> map = preCheckAndRetrieve(originBytes)
+//        DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(classWriter, map)
+//        try {
+//            classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
+//            //move to visit end?
+//            weavedClasses.add(classAdapter.getWovenClass())
+//            return classWriter.toByteArray()
+//        } catch (Exception e) {
+//            new GradleException("Exception occurred when visit code \n " + e.printStackTrace())
 //        }
+
+        return originBytes
+    }
+
+    private Map<String, List<MethodDelegate>> preCheckAndRetrieve(byte[] bytes) {
+
+        ClassReader classReader = new ClassReader(bytes)
+        PreCheckVisitorAdapter preCheckVisitorAdapter = new PreCheckVisitorAdapter()
+        try {
+            classReader.accept(preCheckVisitorAdapter, ClassReader.SKIP_FRAMES)
+        } catch (Exception e) {
+            println "Exception occurred when visit code \n " + e.printStackTrace()
+        }
+
+        return preCheckVisitorAdapter.getUnWeavedClassMap()
     }
 }
