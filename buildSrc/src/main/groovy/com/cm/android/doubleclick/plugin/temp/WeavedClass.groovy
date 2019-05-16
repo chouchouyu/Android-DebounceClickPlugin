@@ -1,4 +1,4 @@
-package com.cm.android.doubleclick.plugin
+package com.cm.android.doubleclick.plugin.temp
 
 class WeavedClass implements Serializable {
 

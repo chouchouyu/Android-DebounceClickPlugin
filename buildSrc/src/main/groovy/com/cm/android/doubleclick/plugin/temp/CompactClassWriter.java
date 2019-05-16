@@ -1,4 +1,4 @@
-package com.cm.android.doubleclick.plugin;
+package com.cm.android.doubleclick.plugin.temp;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;

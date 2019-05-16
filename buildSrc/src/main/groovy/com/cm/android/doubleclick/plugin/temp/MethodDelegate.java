@@ -1,4 +1,4 @@
-package com.cm.android.doubleclick.plugin;
+package com.cm.android.doubleclick.plugin.temp;
 
 import java.util.Objects;
 
@@ -19,7 +19,7 @@ public class MethodDelegate {
     this.desc = desc;
   }
 
-  boolean match(int access, String name, String desc) {
+  public boolean match(int access, String name, String desc) {
     return this.access == access &&
         Objects.equals(this.name, name) &&
         Objects.equals(this.desc, desc);

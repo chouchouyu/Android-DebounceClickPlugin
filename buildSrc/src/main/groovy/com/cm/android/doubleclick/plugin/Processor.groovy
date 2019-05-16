@@ -1,5 +1,11 @@
 package com.cm.android.doubleclick.plugin
 
+import com.android.SdkConstants
+import com.cm.android.doubleclick.plugin.temp.CompactClassWriter
+import com.cm.android.doubleclick.plugin.temp.MethodDelegate
+import com.cm.android.doubleclick.plugin.temp.PreCheckVisitorAdapter
+import com.cm.android.doubleclick.plugin.temp.Utils
+import com.cm.android.doubleclick.plugin.temp.WeavedClass
 import com.google.common.collect.ImmutableMap
 import com.google.common.collect.Iterables
 import groovy.transform.PackageScope
@@ -81,8 +87,10 @@ class Processor {
                           List<WeavedClass> weavedClasses) {
 
 
-        if (Utils.isMatchCondition(input.toString())) {
-            project.logger.error("directRun-INPUT: ${input.toString()}")
+        if (Utils.isMatchCondition(project,input.toString())) {
+            project.logger.error("directRun-INPUT: ${input.toString()}" + input.toString().endsWith(SdkConstants.DOT_CLASS)
+                    + " 2." + !input.toString().matches('.*/R\\$.*\\.class|.*/R\\.class')
+                    + " 3 " + !input.toString().matches('.*/BuildConfig\\.class'))
             byte[] inputBytes = Files.readAllBytes(input)
             byte[] outputBytes = visitAndReturnBytecode(inputBytes, weavedClasses)
             Files.write(output, outputBytes)
@@ -94,21 +102,22 @@ class Processor {
     private byte[] visitAndReturnBytecode(byte[] originBytes,
                                           List<WeavedClass> weavedClasses) {
 
+
         ClassReader classReader = new ClassReader(originBytes)
         ClassWriter classWriter =
                 new CompactClassWriter(classReader,
                         ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS)
 
         Map<String, List<MethodDelegate>> map = preCheckAndRetrieve(originBytes)
-//        DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(classWriter, map)
-//        try {
-//            classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
-//            //move to visit end?
-//            weavedClasses.add(classAdapter.getWovenClass())
-//            return classWriter.toByteArray()
-//        } catch (Exception e) {
-//            new GradleException("Exception occurred when visit code \n " + e.printStackTrace())
-//        }
+        DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(classWriter, map)
+        try {
+            classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
+            //move to visit end?
+            weavedClasses.add(classAdapter.getWovenClass())
+            return classWriter.toByteArray()
+        } catch (Exception e) {
+            new GradleException("Exception occurred when visit code \n " + e.printStackTrace())
+        }
 
         return originBytes
     }

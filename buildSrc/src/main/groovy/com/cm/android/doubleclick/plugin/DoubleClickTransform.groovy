@@ -8,9 +8,12 @@ import com.android.build.api.transform.TransformException
 import com.android.build.api.transform.TransformInvocation
 import com.android.build.api.transform.TransformOutputProvider
 import com.android.build.gradle.internal.pipeline.TransformManager
+import com.cm.android.doubleclick.plugin.temp.Constant
+import com.cm.android.doubleclick.plugin.temp.DoubleClickExtension
+import com.cm.android.doubleclick.plugin.temp.Utils
+import com.cm.android.doubleclick.plugin.temp.WeavedClass
 import com.google.common.base.Joiner
 import com.google.common.collect.ImmutableList
-import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
 
 import java.nio.file.Files
@@ -22,7 +25,6 @@ import static com.google.common.base.Preconditions.checkNotNull
 class DoubleClickTransform extends Transform {
 
     Project project
-    DoubleClickExtension extention
     Map<String, List<WeavedClass>> weavedVariantClassesMap
     File debounceOutDir
     def isliberary
@@ -30,7 +32,6 @@ class DoubleClickTransform extends Transform {
     DoubleClickTransform(Project project,
                          Map<String, List<WeavedClass>> weavedVariantClassesMap, boolean isliberary) {
         this.project = project
-        this.extention = project."${Constant.EXTENTION}"
         this.weavedVariantClassesMap = weavedVariantClassesMap
         this.isliberary = isliberary
         this.debounceOutDir = new File(Joiner.on(File.separatorChar).join(project.buildDir,
@@ -53,7 +54,7 @@ class DoubleClickTransform extends Transform {
 
     @Override
     Set<QualifiedContent.Scope> getScopes() {
-        if (isliberary) return TransformManager.SCOPE_FULL_LIBRARY
+        if (isliberary) return TransformManager.PROJECT
         return TransformManager.SCOPE_FULL_PROJECT
 
     }
@@ -76,7 +77,6 @@ class DoubleClickTransform extends Transform {
         TransformOutputProvider outputProvider = checkNotNull(invocation.getOutputProvider(),
                 "Missing output object for run " + getName())
         if (!invocation.isIncremental()) outputProvider.deleteAll()
-
 
 
         invocation.inputs.each { inputs ->
@@ -111,7 +111,7 @@ class DoubleClickTransform extends Transform {
                             break
                     }
                 } else {
-                    Processor.run(project,inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
+                    Processor.run(project, inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
                 }
             }
 
@@ -143,7 +143,7 @@ class DoubleClickTransform extends Transform {
                             case Status.ADDED:
                             case Status.CHANGED:
                                 //direct run byte code
-                                Processor.directRun(inputPath, outputPath, weavedClassesContainer)
+                                Processor.directRun(project,inputPath, outputPath, weavedClassesContainer)
                                 break
                             case Status.REMOVED:
                                 Files.deleteIfExists(outputPath)
@@ -151,7 +151,7 @@ class DoubleClickTransform extends Transform {
                         }
                     }
                 } else {
-                    Processor.run(project,inputRoot, outputRoot, weavedClassesContainer, Processor.FileType.FILE)
+                    Processor.run(project, inputRoot, outputRoot, weavedClassesContainer, Processor.FileType.FILE)
                 }
             }
         }
