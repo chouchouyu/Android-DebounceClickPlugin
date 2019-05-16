@@ -3,6 +3,7 @@ package com.cm.android.doubleclick.plugin
 import com.google.common.collect.ImmutableMap
 import com.google.common.collect.Iterables
 import groovy.transform.PackageScope
+import org.gradle.api.Project
 
 import java.nio.file.FileSystems
 import java.nio.file.FileVisitResult
@@ -19,37 +20,41 @@ class Processor {
     }
 
     @PackageScope
-    static void run(Path input, Path output, List<WeavedClass> weavedClasses,
+    static void run(Project project, Path input, Path output, List<WeavedClass> weavedClasses,
                     FileType fileType) throws IOException {
 
         switch (fileType) {
 
             case FileType.JAR:
-                processJar(input, output, weavedClasses)
+                processJar(project, input, output, weavedClasses)
                 break
 
             case FileType.FILE:
-                processFile(input, output, weavedClasses)
+                processFile(project, input, output, weavedClasses)
                 break
         }
     }
 
-    private static void processJar(Path input, Path output, List<WeavedClass> weavedClasses) {
+    private static void processJar(Project project, Path input, Path output, List<WeavedClass> weavedClasses) {
 
         Map<String, String> env = ImmutableMap.of('create', 'true')
         URI inputUri = URI.create("jar:file:$input")
         URI outputUri = URI.create("jar:file:$output")
 
+        if (!output.toFile().exists()) {
+            com.google.common.io.Files.createParentDirs(output.toFile())
+        }
         FileSystems.newFileSystem(inputUri, env).withCloseable { inputFileSystem ->
             FileSystems.newFileSystem(outputUri, env).withCloseable { outputFileSystem ->
                 Path inputRoot = Iterables.getOnlyElement(inputFileSystem.rootDirectories)
                 Path outputRoot = Iterables.getOnlyElement(outputFileSystem.rootDirectories)
-                processFile(inputRoot, outputRoot, weavedClasses)
+
+                processFile(project, inputRoot, outputRoot, weavedClasses)
             }
         }
     }
 
-    private static void processFile(Path input, Path output, List<WeavedClass> weavedClasses) {
+    private static void processFile(Project project, Path input, Path output, List<WeavedClass> weavedClasses) {
 
         Files.walkFileTree(input, new SimpleFileVisitor<Path>() {
             @Override

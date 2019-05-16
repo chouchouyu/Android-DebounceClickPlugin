@@ -37,6 +37,7 @@ class DoubleClickTransform extends Transform {
                 FD_OUTPUTS,
                 Constant.EXTENTION,
                 'logs'))
+        project.logger.error("isliberary: ${isliberary} ")
     }
 
 
@@ -110,7 +111,7 @@ class DoubleClickTransform extends Transform {
                             break
                     }
                 } else {
-                    Processor.run(inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
+                    Processor.run(project,inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
                 }
             }
 
@@ -150,7 +151,7 @@ class DoubleClickTransform extends Transform {
                         }
                     }
                 } else {
-                    Processor.run(inputRoot, outputRoot, weavedClassesContainer, Processor.FileType.FILE)
+                    Processor.run(project,inputRoot, outputRoot, weavedClassesContainer, Processor.FileType.FILE)
                 }
             }
         }
