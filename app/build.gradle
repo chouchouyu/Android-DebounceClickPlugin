@@ -12,9 +12,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    defaultConfig {
-        multiDexEnabled true
-    }
+//    defaultConfig {
+//        multiDexEnabled true
+//    }
     buildTypes {
         release {
             minifyEnabled false
@@ -28,5 +28,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:28.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.1.3'
     compile project(':double-click-java')
-    compile 'com.android.support:multidex:1.0.1'
+//    compile 'com.android.support:multidex:1.0.1'
 }

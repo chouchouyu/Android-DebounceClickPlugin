@@ -139,7 +139,7 @@ class Utils implements Opcodes {
 
     static void addDebouncedAnno(MethodVisitor mv) {
         AnnotationVisitor annotationVisitor =
-                mv.visitAnnotation(Constant.agentClassName, false);
+                mv.visitAnnotation(Constant.trackAnnoClassName, false);
         annotationVisitor.visitEnd();
     }
 

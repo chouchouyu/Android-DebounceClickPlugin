@@ -5,8 +5,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import static java.lang.annotation.RetentionPolicy.CLASS;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Target({ElementType.METHOD})
-@Retention(CLASS)
+@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RUNTIME)
 public @interface DoubleClickMark {
 }

@@ -1,5 +1,6 @@
-package com.cm.android.doubleclick.plugin.temp;
+package com.cm.android.doubleclick.plugin.temp
 
+import org.gradle.api.Project;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
@@ -15,24 +16,29 @@ import static org.objectweb.asm.Opcodes.*;
  */
 class View$OnClickListenerMethodAdapter extends MethodVisitor {
 
-    private boolean weaved;
+    private boolean weaved
     private MethodVisitor methodVisitor
-    View$OnClickListenerMethodAdapter(MethodVisitor methodVisitor) {
+    private Project project
+
+    View$OnClickListenerMethodAdapter(Project project, MethodVisitor methodVisitor) {
         super(Opcodes.ASM6, methodVisitor)
         this.methodVisitor = methodVisitor
+        this.project = project;
     }
+
 
     @Override
     void visitCode() {
         super.visitCode();
-
+        project.logger.error('1---------------Anno')
         if (weaved) return;
 
         addDebouncedAnno(mv);
-
-        methodVisitor.visitVarInsn(ALOAD, 1);
-        methodVisitor.visitMethodInsn(INVOKESTATIC, Constant.agentClassName,
-                "maybe", "(Landroid/view/View;)Z", false);
+        project.logger.error('2---------------Anno')
+//        methodVisitor.visitVarInsn(ALOAD, 1);
+//        methodVisitor.visitMethodInsn(INVOKESTATIC, Constant.agentClassName,
+//                "maybe", "(Landroid/view/View;)Z", false);
+        project.logger.error('3---------------Anno')
 //        Label label = new Label();
 //        methodVisitor.visitJumpInsn(IFNE, label);
 //        methodVisitor.visitInsn(RETURN);
@@ -41,11 +47,12 @@ class View$OnClickListenerMethodAdapter extends MethodVisitor {
     }
 
     @Override
-    public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
+    AnnotationVisitor visitAnnotation(String desc, boolean visible) {
 
+        project.logger.error(visible+'4---------------Anno'+desc)
         /*Lcom/smartdengg/clickdebounce/Debounced;*/
-        weaved = desc.equals(Constant.trackAnnoClassName);
-
+//        weaved = desc.equals(Constant.trackAnnoClassName);
+//        project.logger.error('5---------------Anno')
         return super.visitAnnotation(desc, visible);
     }
 }

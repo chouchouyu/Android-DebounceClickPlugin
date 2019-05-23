@@ -11,7 +11,7 @@ class Constant {
     def static final EXTENTION = "DoubleClick"
 
 
-    public static final String trackAnnoClassName = "com/cm/android/doubleclick/java/DoubleClickMark";
+    public static final String trackAnnoClassName = "Lcom/cm/android/doubleclick/java/DoubleClickMark";
 
     public static final String agentClassName = "com/cm/android/doubleclick/java/DebouncedPredictor";
 

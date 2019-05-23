@@ -82,8 +82,7 @@ class Processor {
             project.logger.error("directRun-INPUT: ${input.toString()} ")
             byte[] inputBytes = Files.readAllBytes(input)
             byte[] outputBytes = visitAndReturnBytecode(project, inputBytes, weavedClasses)
-
-            project.logger.error("7 ======================"+Files.write(output, outputBytes).toAbsolutePath())
+            Files.write(output, outputBytes)
         } else {
             Files.copy(input, output)
         }
