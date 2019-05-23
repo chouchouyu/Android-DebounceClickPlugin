@@ -2,6 +2,7 @@ package com.cm.android.doubleclick.plugin.asm
 
 import com.cm.android.doubleclick.plugin.utils.MethodHookMap
 import org.objectweb.asm.AnnotationVisitor
+import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
@@ -27,8 +28,13 @@ class OnClick$MethodAdapter extends MethodVisitor implements Opcodes {
         addInforsAnno(mv);
 
         methodVisitor.visitVarInsn(ALOAD, 1)
-        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, MethodHookMap.agentClassName, "maybe", "(Landroid/view/View;)V", false)
+        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, MethodHookMap.agentClassName, "shouldDoClick", "(Landroid/view/View;)V", false)
 
+        Label label = new Label();
+        methodVisitor.visitJumpInsn(IFNE, label);
+        methodVisitor.visitInsn(RETURN);
+        methodVisitor.visitLabel(label);
+        methodVisitor.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
     }
 
     @Override
