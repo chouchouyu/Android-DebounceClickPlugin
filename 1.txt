@@ -1,2309 +1,663 @@
-:buildSrc:compileJava NO-SOURCE
-:buildSrc:compileGroovy
-:buildSrc:processResources UP-TO-DATE
-:buildSrc:classes
-:buildSrc:jar
-:buildSrc:assemble
-:buildSrc:compileTestJava NO-SOURCE
-:buildSrc:compileTestGroovy NO-SOURCE
-:buildSrc:processTestResources NO-SOURCE
-:buildSrc:testClasses UP-TO-DATE
-:buildSrc:test NO-SOURCE
-:buildSrc:check UP-TO-DATE
-:buildSrc:build
-The CompileOptions.bootClasspath property has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the CompileOptions.bootstrapClasspath property instead.
-	at org.gradle.api.tasks.compile.CompileOptions.setBootClasspath(CompileOptions.java:273)
-	at org.gradle.api.tasks.compile.CompileOptions_Decorated.setBootClasspath(Unknown Source)
-	at com.android.build.gradle.tasks.factory.JavaCompileConfigAction.execute(JavaCompileConfigAction.java:82)
-	at com.android.build.gradle.tasks.factory.JavaCompileConfigAction.execute(JavaCompileConfigAction.java:34)
-	at org.gradle.api.internal.tasks.DefaultTaskContainer.create(DefaultTaskContainer.java:148)
-	at com.android.build.gradle.internal.TaskContainerAdaptor.create(TaskContainerAdaptor.java:59)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:47)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:89)
-	at com.android.build.gradle.internal.TaskManager.createJavacTask(TaskManager.java:1124)
-	at com.android.build.gradle.internal.ApplicationTaskManager.lambda$createTasksForVariantData$12(ApplicationTaskManager.java:210)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.internal.ApplicationTaskManager.createTasksForVariantData(ApplicationTaskManager.java:199)
-	at com.android.build.gradle.internal.VariantManager.createTasksForVariantData(VariantManager.java:460)
-	at com.android.build.gradle.internal.VariantManager.lambda$createAndroidTasks$1(VariantManager.java:282)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.internal.VariantManager.createAndroidTasks(VariantManager.java:278)
-	at com.android.build.gradle.BasePlugin.lambda$createAndroidTasks$6(BasePlugin.java:601)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.createAndroidTasks(BasePlugin.java:596)
-	at com.android.build.gradle.BasePlugin.lambda$null$4(BasePlugin.java:526)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.lambda$createTasks$5(BasePlugin.java:522)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:91)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:80)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:42)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:230)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:149)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:58)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:324)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:234)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:140)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy24.afterEvaluate(Unknown Source)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.notifyAfterEvaluate(LifecycleProjectEvaluator.java:76)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.doConfigure(LifecycleProjectEvaluator.java:70)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.access$100(LifecycleProjectEvaluator.java:34)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$ConfigureProject.run(LifecycleProjectEvaluator.java:110)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.evaluate(LifecycleProjectEvaluator.java:50)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:666)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:135)
-	at org.gradle.execution.TaskPathProjectEvaluator.configure(TaskPathProjectEvaluator.java:35)
-	at org.gradle.execution.TaskPathProjectEvaluator.configureHierarchy(TaskPathProjectEvaluator.java:62)
-	at org.gradle.configuration.DefaultBuildConfigurer.configure(DefaultBuildConfigurer.java:38)
-	at org.gradle.initialization.DefaultGradleLauncher$ConfigureBuild.run(DefaultGradleLauncher.java:249)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.initialization.DefaultGradleLauncher.configureBuild(DefaultGradleLauncher.java:167)
-	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:126)
-	at org.gradle.initialization.DefaultGradleLauncher.executeTasks(DefaultGradleLauncher.java:109)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:78)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:75)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:152)
-	at org.gradle.internal.invocation.GradleBuildController.doBuild(GradleBuildController.java:100)
-	at org.gradle.internal.invocation.GradleBuildController.run(GradleBuildController.java:75)
-	at org.gradle.tooling.internal.provider.ExecuteBuildActionRunner.run(ExecuteBuildActionRunner.java:28)
-	at org.gradle.launcher.exec.ChainingBuildActionRunner.run(ChainingBuildActionRunner.java:35)
-	at org.gradle.tooling.internal.provider.ValidatingBuildActionRunner.run(ValidatingBuildActionRunner.java:32)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner$1.run(RunAsBuildOperationBuildActionRunner.java:43)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner.run(RunAsBuildOperationBuildActionRunner.java:40)
-	at org.gradle.tooling.internal.provider.SubscribableBuildActionRunner.run(SubscribableBuildActionRunner.java:51)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:47)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:30)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:39)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:80)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:53)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:57)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:32)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:36)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:43)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:29)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:69)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:30)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:59)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:44)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:45)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:30)
-	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:67)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:26)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:34)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:74)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:72)
-	at org.gradle.util.Swapper.swap(Swapper.java:38)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:72)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:55)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:62)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:82)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:50)
-	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:295)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.lang.Thread.run(Thread.java:748)
-The setTestClassesDir(File) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the setTestClassesDirs(FileCollection) method instead.
-	at org.gradle.api.tasks.testing.Test.setTestClassesDir(Test.java:684)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest_Decorated.setTestClassesDir(Unknown Source)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest$ConfigAction.execute(AndroidUnitTest.java:106)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest$ConfigAction.execute(AndroidUnitTest.java:68)
-	at org.gradle.api.internal.tasks.DefaultTaskContainer.create(DefaultTaskContainer.java:148)
-	at com.android.build.gradle.internal.TaskContainerAdaptor.create(TaskContainerAdaptor.java:59)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:47)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:89)
-	at com.android.build.gradle.internal.TaskManager.createRunUnitTestTask(TaskManager.java:1550)
-	at com.android.build.gradle.internal.TaskManager.createUnitTestVariantTasks(TaskManager.java:1354)
-	at com.android.build.gradle.internal.VariantManager.createTasksForVariantData(VariantManager.java:454)
-	at com.android.build.gradle.internal.VariantManager.lambda$createAndroidTasks$1(VariantManager.java:282)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.internal.VariantManager.createAndroidTasks(VariantManager.java:278)
-	at com.android.build.gradle.BasePlugin.lambda$createAndroidTasks$6(BasePlugin.java:601)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.createAndroidTasks(BasePlugin.java:596)
-	at com.android.build.gradle.BasePlugin.lambda$null$4(BasePlugin.java:526)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.lambda$createTasks$5(BasePlugin.java:522)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:91)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:80)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:42)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:230)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:149)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:58)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:324)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:234)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:140)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy24.afterEvaluate(Unknown Source)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.notifyAfterEvaluate(LifecycleProjectEvaluator.java:76)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.doConfigure(LifecycleProjectEvaluator.java:70)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.access$100(LifecycleProjectEvaluator.java:34)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$ConfigureProject.run(LifecycleProjectEvaluator.java:110)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.evaluate(LifecycleProjectEvaluator.java:50)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:666)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:135)
-	at org.gradle.execution.TaskPathProjectEvaluator.configure(TaskPathProjectEvaluator.java:35)
-	at org.gradle.execution.TaskPathProjectEvaluator.configureHierarchy(TaskPathProjectEvaluator.java:62)
-	at org.gradle.configuration.DefaultBuildConfigurer.configure(DefaultBuildConfigurer.java:38)
-	at org.gradle.initialization.DefaultGradleLauncher$ConfigureBuild.run(DefaultGradleLauncher.java:249)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.initialization.DefaultGradleLauncher.configureBuild(DefaultGradleLauncher.java:167)
-	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:126)
-	at org.gradle.initialization.DefaultGradleLauncher.executeTasks(DefaultGradleLauncher.java:109)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:78)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:75)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:152)
-	at org.gradle.internal.invocation.GradleBuildController.doBuild(GradleBuildController.java:100)
-	at org.gradle.internal.invocation.GradleBuildController.run(GradleBuildController.java:75)
-	at org.gradle.tooling.internal.provider.ExecuteBuildActionRunner.run(ExecuteBuildActionRunner.java:28)
-	at org.gradle.launcher.exec.ChainingBuildActionRunner.run(ChainingBuildActionRunner.java:35)
-	at org.gradle.tooling.internal.provider.ValidatingBuildActionRunner.run(ValidatingBuildActionRunner.java:32)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner$1.run(RunAsBuildOperationBuildActionRunner.java:43)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner.run(RunAsBuildOperationBuildActionRunner.java:40)
-	at org.gradle.tooling.internal.provider.SubscribableBuildActionRunner.run(SubscribableBuildActionRunner.java:51)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:47)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:30)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:39)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:80)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:53)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:57)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:32)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:36)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:43)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:29)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:69)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:30)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:59)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:44)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:45)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:30)
-	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:67)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:26)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:34)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:74)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:72)
-	at org.gradle.util.Swapper.swap(Swapper.java:38)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:72)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:55)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:62)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:82)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:50)
-	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:295)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.lang.Thread.run(Thread.java:748)
-The getTestClassesDir() method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the getTestClassesDirs() method instead.
-	at org.gradle.api.tasks.testing.Test.getTestClassesDir(Test.java:669)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest_Decorated.getTestClassesDir(Unknown Source)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest.getCandidateClassFiles(AndroidUnitTest.java:58)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest_Decorated.getCandidateClassFiles(Unknown Source)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest$ConfigAction.configureSources(AndroidUnitTest.java:186)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest$ConfigAction.execute(AndroidUnitTest.java:108)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest$ConfigAction.execute(AndroidUnitTest.java:68)
-	at org.gradle.api.internal.tasks.DefaultTaskContainer.create(DefaultTaskContainer.java:148)
-	at com.android.build.gradle.internal.TaskContainerAdaptor.create(TaskContainerAdaptor.java:59)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:47)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:89)
-	at com.android.build.gradle.internal.TaskManager.createRunUnitTestTask(TaskManager.java:1550)
-	at com.android.build.gradle.internal.TaskManager.createUnitTestVariantTasks(TaskManager.java:1354)
-	at com.android.build.gradle.internal.VariantManager.createTasksForVariantData(VariantManager.java:454)
-	at com.android.build.gradle.internal.VariantManager.lambda$createAndroidTasks$1(VariantManager.java:282)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.internal.VariantManager.createAndroidTasks(VariantManager.java:278)
-	at com.android.build.gradle.BasePlugin.lambda$createAndroidTasks$6(BasePlugin.java:601)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.createAndroidTasks(BasePlugin.java:596)
-	at com.android.build.gradle.BasePlugin.lambda$null$4(BasePlugin.java:526)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.lambda$createTasks$5(BasePlugin.java:522)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:91)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:80)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:42)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:230)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:149)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:58)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:324)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:234)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:140)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy24.afterEvaluate(Unknown Source)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.notifyAfterEvaluate(LifecycleProjectEvaluator.java:76)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.doConfigure(LifecycleProjectEvaluator.java:70)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.access$100(LifecycleProjectEvaluator.java:34)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$ConfigureProject.run(LifecycleProjectEvaluator.java:110)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.evaluate(LifecycleProjectEvaluator.java:50)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:666)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:135)
-	at org.gradle.execution.TaskPathProjectEvaluator.configure(TaskPathProjectEvaluator.java:35)
-	at org.gradle.execution.TaskPathProjectEvaluator.configureHierarchy(TaskPathProjectEvaluator.java:62)
-	at org.gradle.configuration.DefaultBuildConfigurer.configure(DefaultBuildConfigurer.java:38)
-	at org.gradle.initialization.DefaultGradleLauncher$ConfigureBuild.run(DefaultGradleLauncher.java:249)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.initialization.DefaultGradleLauncher.configureBuild(DefaultGradleLauncher.java:167)
-	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:126)
-	at org.gradle.initialization.DefaultGradleLauncher.executeTasks(DefaultGradleLauncher.java:109)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:78)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:75)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:152)
-	at org.gradle.internal.invocation.GradleBuildController.doBuild(GradleBuildController.java:100)
-	at org.gradle.internal.invocation.GradleBuildController.run(GradleBuildController.java:75)
-	at org.gradle.tooling.internal.provider.ExecuteBuildActionRunner.run(ExecuteBuildActionRunner.java:28)
-	at org.gradle.launcher.exec.ChainingBuildActionRunner.run(ChainingBuildActionRunner.java:35)
-	at org.gradle.tooling.internal.provider.ValidatingBuildActionRunner.run(ValidatingBuildActionRunner.java:32)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner$1.run(RunAsBuildOperationBuildActionRunner.java:43)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner.run(RunAsBuildOperationBuildActionRunner.java:40)
-	at org.gradle.tooling.internal.provider.SubscribableBuildActionRunner.run(SubscribableBuildActionRunner.java:51)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:47)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:30)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:39)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:80)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:53)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:57)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:32)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:36)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:43)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:29)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:69)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:30)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:59)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:44)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:45)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:30)
-	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:67)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:26)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:34)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:74)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:72)
-	at org.gradle.util.Swapper.swap(Swapper.java:38)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:72)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:55)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:62)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:82)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:50)
-	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:295)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.lang.Thread.run(Thread.java:748)
-The ConfigurableReport.setDestination(Object) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the method ConfigurableReport.setDestination(File) instead.
-	at org.gradle.api.reporting.internal.SimpleReport.setDestination(SimpleReport.java:76)
-	at org.gradle.api.internal.tasks.testing.DefaultJUnitXmlReport_Decorated.setDestination(Unknown Source)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest$ConfigAction.execute(AndroidUnitTest.java:158)
-	at com.android.build.gradle.tasks.factory.AndroidUnitTest$ConfigAction.execute(AndroidUnitTest.java:68)
-	at org.gradle.api.internal.tasks.DefaultTaskContainer.create(DefaultTaskContainer.java:148)
-	at com.android.build.gradle.internal.TaskContainerAdaptor.create(TaskContainerAdaptor.java:59)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:47)
-	at com.android.build.gradle.internal.scope.AndroidTaskRegistry.create(AndroidTaskRegistry.java:89)
-	at com.android.build.gradle.internal.TaskManager.createRunUnitTestTask(TaskManager.java:1550)
-	at com.android.build.gradle.internal.TaskManager.createUnitTestVariantTasks(TaskManager.java:1354)
-	at com.android.build.gradle.internal.VariantManager.createTasksForVariantData(VariantManager.java:454)
-	at com.android.build.gradle.internal.VariantManager.lambda$createAndroidTasks$1(VariantManager.java:282)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.internal.VariantManager.createAndroidTasks(VariantManager.java:278)
-	at com.android.build.gradle.BasePlugin.lambda$createAndroidTasks$6(BasePlugin.java:601)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.createAndroidTasks(BasePlugin.java:596)
-	at com.android.build.gradle.BasePlugin.lambda$null$4(BasePlugin.java:526)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:81)
-	at com.android.build.gradle.BasePlugin.lambda$createTasks$5(BasePlugin.java:522)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:91)
-	at org.gradle.internal.event.BroadcastDispatch$ActionInvocationHandler.dispatch(BroadcastDispatch.java:80)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:42)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:230)
-	at org.gradle.internal.event.BroadcastDispatch$SingletonDispatch.dispatch(BroadcastDispatch.java:149)
-	at org.gradle.internal.event.AbstractBroadcastDispatch.dispatch(AbstractBroadcastDispatch.java:58)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:324)
-	at org.gradle.internal.event.BroadcastDispatch$CompositeDispatch.dispatch(BroadcastDispatch.java:234)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:140)
-	at org.gradle.internal.event.ListenerBroadcast.dispatch(ListenerBroadcast.java:37)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy24.afterEvaluate(Unknown Source)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.notifyAfterEvaluate(LifecycleProjectEvaluator.java:76)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.doConfigure(LifecycleProjectEvaluator.java:70)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.access$100(LifecycleProjectEvaluator.java:34)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator$ConfigureProject.run(LifecycleProjectEvaluator.java:110)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.configuration.project.LifecycleProjectEvaluator.evaluate(LifecycleProjectEvaluator.java:50)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:666)
-	at org.gradle.api.internal.project.DefaultProject.evaluate(DefaultProject.java:135)
-	at org.gradle.execution.TaskPathProjectEvaluator.configure(TaskPathProjectEvaluator.java:35)
-	at org.gradle.execution.TaskPathProjectEvaluator.configureHierarchy(TaskPathProjectEvaluator.java:62)
-	at org.gradle.configuration.DefaultBuildConfigurer.configure(DefaultBuildConfigurer.java:38)
-	at org.gradle.initialization.DefaultGradleLauncher$ConfigureBuild.run(DefaultGradleLauncher.java:249)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.initialization.DefaultGradleLauncher.configureBuild(DefaultGradleLauncher.java:167)
-	at org.gradle.initialization.DefaultGradleLauncher.doBuildStages(DefaultGradleLauncher.java:126)
-	at org.gradle.initialization.DefaultGradleLauncher.executeTasks(DefaultGradleLauncher.java:109)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:78)
-	at org.gradle.internal.invocation.GradleBuildController$1.call(GradleBuildController.java:75)
-	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:152)
-	at org.gradle.internal.invocation.GradleBuildController.doBuild(GradleBuildController.java:100)
-	at org.gradle.internal.invocation.GradleBuildController.run(GradleBuildController.java:75)
-	at org.gradle.tooling.internal.provider.ExecuteBuildActionRunner.run(ExecuteBuildActionRunner.java:28)
-	at org.gradle.launcher.exec.ChainingBuildActionRunner.run(ChainingBuildActionRunner.java:35)
-	at org.gradle.tooling.internal.provider.ValidatingBuildActionRunner.run(ValidatingBuildActionRunner.java:32)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner$1.run(RunAsBuildOperationBuildActionRunner.java:43)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.launcher.exec.RunAsBuildOperationBuildActionRunner.run(RunAsBuildOperationBuildActionRunner.java:40)
-	at org.gradle.tooling.internal.provider.SubscribableBuildActionRunner.run(SubscribableBuildActionRunner.java:51)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:47)
-	at org.gradle.launcher.exec.InProcessBuildActionExecuter.execute(InProcessBuildActionExecuter.java:30)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:39)
-	at org.gradle.launcher.exec.BuildTreeScopeBuildActionExecuter.execute(BuildTreeScopeBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:80)
-	at org.gradle.tooling.internal.provider.ContinuousBuildActionExecuter.execute(ContinuousBuildActionExecuter.java:53)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:57)
-	at org.gradle.tooling.internal.provider.ServicesSetupBuildActionExecuter.execute(ServicesSetupBuildActionExecuter.java:32)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:36)
-	at org.gradle.tooling.internal.provider.GradleThreadBuildActionExecuter.execute(GradleThreadBuildActionExecuter.java:25)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:43)
-	at org.gradle.tooling.internal.provider.ParallelismConfigurationBuildActionExecuter.execute(ParallelismConfigurationBuildActionExecuter.java:29)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:69)
-	at org.gradle.tooling.internal.provider.StartParamsValidatingActionExecuter.execute(StartParamsValidatingActionExecuter.java:30)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:59)
-	at org.gradle.tooling.internal.provider.SessionFailureReportingActionExecuter.execute(SessionFailureReportingActionExecuter.java:44)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:45)
-	at org.gradle.tooling.internal.provider.SetupLoggingActionExecuter.execute(SetupLoggingActionExecuter.java:30)
-	at org.gradle.launcher.daemon.server.exec.ExecuteBuild.doBuild(ExecuteBuild.java:67)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.WatchForDisconnection.execute(WatchForDisconnection.java:37)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ResetDeprecationLogger.execute(ResetDeprecationLogger.java:26)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon.execute(RequestStopIfSingleUsedDaemon.java:34)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:74)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput$2.call(ForwardClientInput.java:72)
-	at org.gradle.util.Swapper.swap(Swapper.java:38)
-	at org.gradle.launcher.daemon.server.exec.ForwardClientInput.execute(ForwardClientInput.java:72)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogAndCheckHealth.execute(LogAndCheckHealth.java:55)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.LogToClient.doBuild(LogToClient.java:62)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment.doBuild(EstablishBuildEnvironment.java:82)
-	at org.gradle.launcher.daemon.server.exec.BuildCommandOnly.execute(BuildCommandOnly.java:36)
-	at org.gradle.launcher.daemon.server.api.DaemonCommandExecution.proceed(DaemonCommandExecution.java:122)
-	at org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy$1.run(StartBuildOrRespondWithBusy.java:50)
-	at org.gradle.launcher.daemon.server.DaemonStateCoordinator$1.run(DaemonStateCoordinator.java:295)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.lang.Thread.run(Thread.java:748)
-:app:preBuild UP-TO-DATE
-:app:preDebugBuild UP-TO-DATE
-:app:checkDebugManifest
-:app:preReleaseBuild UP-TO-DATE
-:app:prepareAndroidArchCoreRuntime111Library
-:app:prepareAndroidArchLifecycleLivedata111Library
-:app:prepareAndroidArchLifecycleLivedataCore111Library
-:app:prepareAndroidArchLifecycleRuntime111Library
-:app:prepareAndroidArchLifecycleViewmodel111Library
-:app:prepareComAndroidSupportAnimatedVectorDrawable2800Library
-:app:prepareComAndroidSupportAppcompatV72800Library
-:app:prepareComAndroidSupportAsynclayoutinflater2800Library
-:app:prepareComAndroidSupportConstraintConstraintLayout113Library
-:app:prepareComAndroidSupportCoordinatorlayout2800Library
-:app:prepareComAndroidSupportCursoradapter2800Library
-:app:prepareComAndroidSupportCustomview2800Library
-:app:prepareComAndroidSupportDocumentfile2800Library
-:app:prepareComAndroidSupportDrawerlayout2800Library
-:app:prepareComAndroidSupportInterpolator2800Library
-:app:prepareComAndroidSupportLoader2800Library
-:app:prepareComAndroidSupportLocalbroadcastmanager2800Library
-:app:prepareComAndroidSupportPrint2800Library
-:app:prepareComAndroidSupportSlidingpanelayout2800Library
-:app:prepareComAndroidSupportSupportCompat2800Library
-:app:prepareComAndroidSupportSupportCoreUi2800Library
-:app:prepareComAndroidSupportSupportCoreUtils2800Library
-:app:prepareComAndroidSupportSupportFragment2800Library
-:app:prepareComAndroidSupportSupportVectorDrawable2800Library
-:app:prepareComAndroidSupportSwiperefreshlayout2800Library
-:app:prepareComAndroidSupportVersionedparcelable2800Library
-:app:prepareComAndroidSupportViewpager2800Library
-:app:prepareDebugDependencies
-:app:compileDebugAidl
-:app:compileDebugRenderscript
-:app:generateDebugBuildConfig
-:app:generateDebugResValues
-:app:generateDebugResources
-:app:mergeDebugResources
-:app:processDebugManifest
-:app:processDebugResources
-:app:generateDebugSources
-:app:incrementalDebugJavaCompilationSafeguard
-:app:javaPreCompileDebug
-:app:compileDebugJavaWithJavac
-:app:compileDebugNdk NO-SOURCE
-:app:compileDebugSources
-:app:mergeDebugShaders
-:app:compileDebugShaders
-:app:generateDebugAssets
-:app:mergeDebugAssets
-:app:transformClassesWithDoubleClickForDebug8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-directRun-INPUT: /Users/admin/DoubleClickPlugin/app/build/intermediates/classes/debug/com/cm/android/MainActivity.class 
-1 ======================
-2 ======================
-3 ======================
-4 ======================
-7 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-directRun-INPUT: /Users/admin/DoubleClickPlugin/app/build/intermediates/classes/debug/com/cm/android/BaseActivity.class 
-1 ======================
-2 ======================
-3 ======================
-4 ======================
-7 ======================
-8 ======================
-directRun-INPUT: /Users/admin/DoubleClickPlugin/app/build/intermediates/classes/debug/com/cm/android/DebouncedView$OnClickListener.class 
-1 ======================
-2 ======================
-3 ======================
-4 ======================
-7 ======================
-8 ======================
-8 ======================
-directRun-INPUT: /Users/admin/DoubleClickPlugin/app/build/intermediates/classes/debug/com/cm/android/SecondActivity.class 
-1 ======================
-2 ======================
-3 ======================
-4 ======================
-7 ======================
-8 ======================
-directRun-INPUT: /Users/admin/DoubleClickPlugin/app/build/intermediates/classes/debug/com/cm/android/MyApp.class 
-1 ======================
-2 ======================
-3 ======================
-4 ======================
-7 ======================
-directRun-INPUT: /Users/admin/DoubleClickPlugin/app/build/intermediates/classes/debug/com/cm/android/MainActivity$1.class 
-1 ======================
-2 ======================
-3 ======================
-4 ======================
-7 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
-8 ======================
 
-:app:transformClassesWithDexForDebugDex: Error converting bytecode to dex:
-Cause: java.lang.RuntimeException: Exception parsing classes
-    UNEXPECTED TOP-LEVEL EXCEPTION:
-    java.lang.RuntimeException: Exception parsing classes
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:781)
-    	at com.android.dx.command.dexer.Main.processFileBytes(Main.java:747)
-    	at com.android.dx.command.dexer.Main.access$1200(Main.java:88)
-    	at com.android.dx.command.dexer.Main$FileBytesConsumer.processFileBytes(Main.java:1689)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:170)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.process(ClassPathOpener.java:144)
-    	at com.android.dx.command.dexer.Main.processOne(Main.java:695)
-    	at com.android.dx.command.dexer.Main.processAllFiles(Main.java:592)
-    	at com.android.dx.command.dexer.Main.runMonoDex(Main.java:321)
-    	at com.android.dx.command.dexer.Main.run(Main.java:292)
-    	at com.android.builder.internal.compiler.DexWrapper.run(DexWrapper.java:54)
-    	at com.android.builder.core.DexByteCodeConverter.lambda$dexInProcess$0(DexByteCodeConverter.java:174)
-    	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-    	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-    	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-    	at java.lang.Thread.run(Thread.java:748)
-    Caused by: com.android.dx.cf.iface.ParseException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:156)
-    	at com.android.dx.cf.direct.AttributeListParser.parseIfNecessary(AttributeListParser.java:115)
-    	at com.android.dx.cf.direct.AttributeListParser.getEndOffset(AttributeListParser.java:96)
-    	at com.android.dx.cf.direct.MemberListParser.parse(MemberListParser.java:213)
-    	at com.android.dx.cf.direct.MemberListParser.parseIfNecessary(MemberListParser.java:108)
-    	at com.android.dx.cf.direct.MethodListParser.getList(MethodListParser.java:54)
-    	at com.android.dx.cf.direct.DirectClassFile.parse0(DirectClassFile.java:542)
-    	at com.android.dx.cf.direct.DirectClassFile.parse(DirectClassFile.java:406)
-    	at com.android.dx.cf.direct.DirectClassFile.parseToInterfacesIfNecessary(DirectClassFile.java:388)
-    	at com.android.dx.cf.direct.DirectClassFile.getMagic(DirectClassFile.java:251)
-    	at com.android.dx.command.dexer.Main.parseClass(Main.java:793)
-    	at com.android.dx.command.dexer.Main.access$1600(Main.java:88)
-    	at com.android.dx.command.dexer.Main$ClassParserTask.call(Main.java:1728)
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:779)
-    	... 23 more
-    Caused by: java.lang.IllegalArgumentException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.rop.type.Type.intern(Type.java:335)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotation(AnnotationParser.java:248)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotations(AnnotationParser.java:223)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotationAttribute(AnnotationParser.java:152)
-    	at com.android.dx.cf.direct.StdAttributeFactory.runtimeInvisibleAnnotations(StdAttributeFactory.java:616)
-    	at com.android.dx.cf.direct.StdAttributeFactory.parse0(StdAttributeFactory.java:148)
-    	at com.android.dx.cf.direct.AttributeFactory.parse(AttributeFactory.java:96)
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:142)
-    	... 36 more
-    
-Dex: Error converting bytecode to dex:
-Cause: java.lang.RuntimeException: Exception parsing classes
-    UNEXPECTED TOP-LEVEL EXCEPTION:
-    java.lang.RuntimeException: Exception parsing classes
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:781)
-    	at com.android.dx.command.dexer.Main.processFileBytes(Main.java:747)
-    	at com.android.dx.command.dexer.Main.access$1200(Main.java:88)
-    	at com.android.dx.command.dexer.Main$FileBytesConsumer.processFileBytes(Main.java:1689)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:170)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.process(ClassPathOpener.java:144)
-    	at com.android.dx.command.dexer.Main.processOne(Main.java:695)
-    	at com.android.dx.command.dexer.Main.processAllFiles(Main.java:592)
-    	at com.android.dx.command.dexer.Main.runMonoDex(Main.java:321)
-    	at com.android.dx.command.dexer.Main.run(Main.java:292)
-    	at com.android.builder.internal.compiler.DexWrapper.run(DexWrapper.java:54)
-    	at com.android.builder.core.DexByteCodeConverter.lambda$dexInProcess$0(DexByteCodeConverter.java:174)
-    	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-    	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-    	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-    	at java.lang.Thread.run(Thread.java:748)
-    Caused by: com.android.dx.cf.iface.ParseException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:156)
-    	at com.android.dx.cf.direct.AttributeListParser.parseIfNecessary(AttributeListParser.java:115)
-    	at com.android.dx.cf.direct.AttributeListParser.getEndOffset(AttributeListParser.java:96)
-    	at com.android.dx.cf.direct.MemberListParser.parse(MemberListParser.java:213)
-    	at com.android.dx.cf.direct.MemberListParser.parseIfNecessary(MemberListParser.java:108)
-    	at com.android.dx.cf.direct.MethodListParser.getList(MethodListParser.java:54)
-    	at com.android.dx.cf.direct.DirectClassFile.parse0(DirectClassFile.java:542)
-    	at com.android.dx.cf.direct.DirectClassFile.parse(DirectClassFile.java:406)
-    	at com.android.dx.cf.direct.DirectClassFile.parseToInterfacesIfNecessary(DirectClassFile.java:388)
-    	at com.android.dx.cf.direct.DirectClassFile.getMagic(DirectClassFile.java:251)
-    	at com.android.dx.command.dexer.Main.parseClass(Main.java:793)
-    	at com.android.dx.command.dexer.Main.access$1600(Main.java:88)
-    	at com.android.dx.command.dexer.Main$ClassParserTask.call(Main.java:1728)
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:779)
-    	... 23 more
-    Caused by: java.lang.IllegalArgumentException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.rop.type.Type.intern(Type.java:335)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotation(AnnotationParser.java:248)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotations(AnnotationParser.java:223)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotationAttribute(AnnotationParser.java:152)
-    	at com.android.dx.cf.direct.StdAttributeFactory.runtimeInvisibleAnnotations(StdAttributeFactory.java:616)
-    	at com.android.dx.cf.direct.StdAttributeFactory.parse0(StdAttributeFactory.java:148)
-    	at com.android.dx.cf.direct.AttributeFactory.parse(AttributeFactory.java:96)
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:142)
-    	... 36 more
-    
-Dex: Error converting bytecode to dex:
-Cause: java.lang.RuntimeException: Exception parsing classes
-    UNEXPECTED TOP-LEVEL EXCEPTION:
-    java.lang.RuntimeException: Exception parsing classes
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:781)
-    	at com.android.dx.command.dexer.Main.processFileBytes(Main.java:747)
-    	at com.android.dx.command.dexer.Main.access$1200(Main.java:88)
-    	at com.android.dx.command.dexer.Main$FileBytesConsumer.processFileBytes(Main.java:1689)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:170)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.process(ClassPathOpener.java:144)
-    	at com.android.dx.command.dexer.Main.processOne(Main.java:695)
-    	at com.android.dx.command.dexer.Main.processAllFiles(Main.java:592)
-    	at com.android.dx.command.dexer.Main.runMonoDex(Main.java:321)
-    	at com.android.dx.command.dexer.Main.run(Main.java:292)
-    	at com.android.builder.internal.compiler.DexWrapper.run(DexWrapper.java:54)
-    	at com.android.builder.core.DexByteCodeConverter.lambda$dexInProcess$0(DexByteCodeConverter.java:174)
-    	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-    	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-    	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-    	at java.lang.Thread.run(Thread.java:748)
-    Caused by: com.android.dx.cf.iface.ParseException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:156)
-    	at com.android.dx.cf.direct.AttributeListParser.parseIfNecessary(AttributeListParser.java:115)
-    	at com.android.dx.cf.direct.AttributeListParser.getEndOffset(AttributeListParser.java:96)
-    	at com.android.dx.cf.direct.MemberListParser.parse(MemberListParser.java:213)
-    	at com.android.dx.cf.direct.MemberListParser.parseIfNecessary(MemberListParser.java:108)
-    	at com.android.dx.cf.direct.MethodListParser.getList(MethodListParser.java:54)
-    	at com.android.dx.cf.direct.DirectClassFile.parse0(DirectClassFile.java:542)
-    	at com.android.dx.cf.direct.DirectClassFile.parse(DirectClassFile.java:406)
-    	at com.android.dx.cf.direct.DirectClassFile.parseToInterfacesIfNecessary(DirectClassFile.java:388)
-    	at com.android.dx.cf.direct.DirectClassFile.getMagic(DirectClassFile.java:251)
-    	at com.android.dx.command.dexer.Main.parseClass(Main.java:793)
-    	at com.android.dx.command.dexer.Main.access$1600(Main.java:88)
-    	at com.android.dx.command.dexer.Main$ClassParserTask.call(Main.java:1728)
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:779)
-    	... 23 more
-    Caused by: java.lang.IllegalArgumentException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.rop.type.Type.intern(Type.java:335)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotation(AnnotationParser.java:248)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotations(AnnotationParser.java:223)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotationAttribute(AnnotationParser.java:152)
-    	at com.android.dx.cf.direct.StdAttributeFactory.runtimeInvisibleAnnotations(StdAttributeFactory.java:616)
-    	at com.android.dx.cf.direct.StdAttributeFactory.parse0(StdAttributeFactory.java:148)
-    	at com.android.dx.cf.direct.AttributeFactory.parse(AttributeFactory.java:96)
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:142)
-    	... 36 more
-    
-Dex: Error converting bytecode to dex:
-Cause: java.lang.RuntimeException: Exception parsing classes
-    UNEXPECTED TOP-LEVEL EXCEPTION:
-    java.lang.RuntimeException: Exception parsing classes
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:781)
-    	at com.android.dx.command.dexer.Main.processFileBytes(Main.java:747)
-    	at com.android.dx.command.dexer.Main.access$1200(Main.java:88)
-    	at com.android.dx.command.dexer.Main$FileBytesConsumer.processFileBytes(Main.java:1689)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:170)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.processDirectory(ClassPathOpener.java:229)
-    	at com.android.dx.cf.direct.ClassPathOpener.processOne(ClassPathOpener.java:158)
-    	at com.android.dx.cf.direct.ClassPathOpener.process(ClassPathOpener.java:144)
-    	at com.android.dx.command.dexer.Main.processOne(Main.java:695)
-    	at com.android.dx.command.dexer.Main.processAllFiles(Main.java:592)
-    	at com.android.dx.command.dexer.Main.runMonoDex(Main.java:321)
-    	at com.android.dx.command.dexer.Main.run(Main.java:292)
-    	at com.android.builder.internal.compiler.DexWrapper.run(DexWrapper.java:54)
-    	at com.android.builder.core.DexByteCodeConverter.lambda$dexInProcess$0(DexByteCodeConverter.java:174)
-    	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-    	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-    	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-    	at java.lang.Thread.run(Thread.java:748)
-    Caused by: com.android.dx.cf.iface.ParseException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:156)
-    	at com.android.dx.cf.direct.AttributeListParser.parseIfNecessary(AttributeListParser.java:115)
-    	at com.android.dx.cf.direct.AttributeListParser.getEndOffset(AttributeListParser.java:96)
-    	at com.android.dx.cf.direct.MemberListParser.parse(MemberListParser.java:213)
-    	at com.android.dx.cf.direct.MemberListParser.parseIfNecessary(MemberListParser.java:108)
-    	at com.android.dx.cf.direct.MethodListParser.getList(MethodListParser.java:54)
-    	at com.android.dx.cf.direct.DirectClassFile.parse0(DirectClassFile.java:542)
-    	at com.android.dx.cf.direct.DirectClassFile.parse(DirectClassFile.java:406)
-    	at com.android.dx.cf.direct.DirectClassFile.parseToInterfacesIfNecessary(DirectClassFile.java:388)
-    	at com.android.dx.cf.direct.DirectClassFile.getMagic(DirectClassFile.java:251)
-    	at com.android.dx.command.dexer.Main.parseClass(Main.java:793)
-    	at com.android.dx.command.dexer.Main.access$1600(Main.java:88)
-    	at com.android.dx.command.dexer.Main$ClassParserTask.call(Main.java:1728)
-    	at com.android.dx.command.dexer.Main.processClass(Main.java:779)
-    	... 23 more
-    Caused by: java.lang.IllegalArgumentException: bad descriptor: com/cm/android/doubleclick/java/DebouncedPredictor
-    	at com.android.dx.rop.type.Type.intern(Type.java:335)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotation(AnnotationParser.java:248)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotations(AnnotationParser.java:223)
-    	at com.android.dx.cf.direct.AnnotationParser.parseAnnotationAttribute(AnnotationParser.java:152)
-    	at com.android.dx.cf.direct.StdAttributeFactory.runtimeInvisibleAnnotations(StdAttributeFactory.java:616)
-    	at com.android.dx.cf.direct.StdAttributeFactory.parse0(StdAttributeFactory.java:148)
-    	at com.android.dx.cf.direct.AttributeFactory.parse(AttributeFactory.java:96)
-    	at com.android.dx.cf.direct.AttributeListParser.parse(AttributeListParser.java:142)
-    	... 36 more
-    
-4 errors; aborting
- FAILED
+------------------------------------------------------------
+Project :app
+------------------------------------------------------------
 
-FAILURE: Build failed with an exception.
+_debugAndroidTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
 
-* What went wrong:
-Execution failed for task ':app:transformClassesWithDexForDebug'.
-> com.android.build.api.transform.TransformException: java.lang.RuntimeException: com.android.ide.common.process.ProcessException: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: Return code 1 for dex process
+_debugAndroidTestApk - ## Internal use, do not manually configure ##
+\--- com.android.support:multidex-instrumentation:1.0.1
+     \--- com.android.support:multidex:1.0.1
 
-* Try:
-Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+_debugAndroidTestCompile - ## Internal use, do not manually configure ##
+\--- com.android.support:multidex-instrumentation:1.0.1
+     \--- com.android.support:multidex:1.0.1
 
-* Exception is:
-org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:transformClassesWithDexForDebug'.
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeActions(ExecuteActionsTaskExecuter.java:100)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:70)
-	at org.gradle.api.internal.tasks.execution.OutputDirectoryCreatingTaskExecuter.execute(OutputDirectoryCreatingTaskExecuter.java:51)
-	at org.gradle.api.internal.tasks.execution.SkipUpToDateTaskExecuter.execute(SkipUpToDateTaskExecuter.java:62)
-	at org.gradle.api.internal.tasks.execution.ResolveTaskOutputCachingStateExecuter.execute(ResolveTaskOutputCachingStateExecuter.java:54)
-	at org.gradle.api.internal.tasks.execution.ValidatingTaskExecuter.execute(ValidatingTaskExecuter.java:60)
-	at org.gradle.api.internal.tasks.execution.SkipEmptySourceFilesTaskExecuter.execute(SkipEmptySourceFilesTaskExecuter.java:97)
-	at org.gradle.api.internal.tasks.execution.CleanupStaleOutputsExecuter.execute(CleanupStaleOutputsExecuter.java:87)
-	at org.gradle.api.internal.tasks.execution.ResolveTaskArtifactStateTaskExecuter.execute(ResolveTaskArtifactStateTaskExecuter.java:52)
-	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:52)
-	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:54)
-	at org.gradle.api.internal.tasks.execution.ExecuteAtMostOnceTaskExecuter.execute(ExecuteAtMostOnceTaskExecuter.java:43)
-	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:34)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker$1.run(DefaultTaskGraphExecuter.java:248)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:241)
-	at org.gradle.execution.taskgraph.DefaultTaskGraphExecuter$EventFiringTaskWorker.execute(DefaultTaskGraphExecuter.java:230)
-	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker.processTask(DefaultTaskPlanExecutor.java:123)
-	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker.access$200(DefaultTaskPlanExecutor.java:79)
-	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker$1.execute(DefaultTaskPlanExecutor.java:104)
-	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker$1.execute(DefaultTaskPlanExecutor.java:98)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionPlan.execute(DefaultTaskExecutionPlan.java:626)
-	at org.gradle.execution.taskgraph.DefaultTaskExecutionPlan.executeWithTask(DefaultTaskExecutionPlan.java:581)
-	at org.gradle.execution.taskgraph.DefaultTaskPlanExecutor$TaskExecutorWorker.run(DefaultTaskPlanExecutor.java:98)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-Caused by: java.lang.RuntimeException: com.android.build.api.transform.TransformException: java.lang.RuntimeException: com.android.ide.common.process.ProcessException: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: Return code 1 for dex process
-	at com.android.builder.profile.Recorder$Block.handleException(Recorder.java:55)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:104)
-	at com.android.build.gradle.internal.pipeline.TransformTask.transform(TransformTask.java:176)
-	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:73)
-	at org.gradle.api.internal.project.taskfactory.IncrementalTaskAction.doExecute(IncrementalTaskAction.java:46)
-	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:39)
-	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:26)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter$1.run(ExecuteActionsTaskExecuter.java:121)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:336)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor$RunnableBuildOperationWorker.execute(DefaultBuildOperationExecutor.java:328)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.execute(DefaultBuildOperationExecutor.java:199)
-	at org.gradle.internal.progress.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:110)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeAction(ExecuteActionsTaskExecuter.java:110)
-	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeActions(ExecuteActionsTaskExecuter.java:92)
-	... 29 more
-Caused by: com.android.build.api.transform.TransformException: java.lang.RuntimeException: com.android.ide.common.process.ProcessException: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: Return code 1 for dex process
-	at com.android.build.gradle.internal.transforms.DexTransform.transform(DexTransform.java:453)
-	at com.android.build.gradle.internal.pipeline.TransformTask$2.call(TransformTask.java:185)
-	at com.android.build.gradle.internal.pipeline.TransformTask$2.call(TransformTask.java:181)
-	at com.android.builder.profile.ThreadRecorder.record(ThreadRecorder.java:102)
-	... 41 more
-Caused by: java.lang.RuntimeException: com.android.ide.common.process.ProcessException: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: Return code 1 for dex process
-	at com.android.ide.common.internal.WaitableExecutor.waitForTasksWithQuickFail(WaitableExecutor.java:147)
-	at com.android.build.gradle.internal.transforms.DexTransform.transform(DexTransform.java:408)
-	... 44 more
-Caused by: com.android.ide.common.process.ProcessException: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: Return code 1 for dex process
-	at com.android.builder.core.DexByteCodeConverter.dexInProcess(DexByteCodeConverter.java:180)
-	at com.android.builder.core.DexByteCodeConverter.runDexer(DexByteCodeConverter.java:158)
-	at com.android.builder.core.AndroidBuilder.preDexLibraryNoCache(AndroidBuilder.java:1464)
-	at com.android.builder.core.AndroidBuilder.preDexLibrary(AndroidBuilder.java:1423)
-	at com.android.build.gradle.internal.transforms.DexTransform$PreDexTask.lambda$call$0(DexTransform.java:503)
-	at com.android.build.gradle.internal.transforms.DexTransform$PreDexTask.call(DexTransform.java:549)
-	at com.android.build.gradle.internal.transforms.DexTransform$PreDexTask.call(DexTransform.java:457)
-Caused by: java.util.concurrent.ExecutionException: com.android.ide.common.process.ProcessException: Return code 1 for dex process
-	at com.android.builder.core.DexByteCodeConverter.dexInProcess(DexByteCodeConverter.java:178)
-	... 6 more
-Caused by: com.android.ide.common.process.ProcessException: Return code 1 for dex process
-	at com.android.builder.internal.compiler.DexWrapper$DexProcessResult.assertNormalExitValue(DexWrapper.java:117)
-	at com.android.builder.core.DexByteCodeConverter.lambda$dexInProcess$0(DexByteCodeConverter.java:175)
+_debugAndroidTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
 
+_debugAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
 
-* Get more help at https://help.gradle.org
+_debugApk - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.android.support:appcompat-v7:28.0.0
+|    +--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-compat:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:collections:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- android.arch.lifecycle:runtime:1.1.1
+|    |    |    +--- android.arch.lifecycle:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    +--- android.arch.core:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    \--- com.android.support:versionedparcelable:28.0.0
+|    |         +--- com.android.support:support-annotations:28.0.0
+|    |         \--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:cursoradapter:28.0.0
+|    |    \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-core-utils:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:documentfile:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
+|    |    |    |    +--- android.arch.core:runtime:1.1.1
+|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
+|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
+|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
+|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
+|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    +--- com.android.support:localbroadcastmanager:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:print:28.0.0
+|    |         \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-fragment:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:support-core-ui:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    |    +--- com.android.support:customview:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:viewpager:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:drawerlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:interpolator:28.0.0
+|    |    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
+|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
+|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0 (*)
+|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
+|    +--- com.android.support:support-vector-drawable:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    \--- com.android.support:animated-vector-drawable:28.0.0
+|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
+|         \--- com.android.support:support-core-ui:28.0.0 (*)
++--- com.android.support.constraint:constraint-layout:1.1.3
+|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
+\--- project :double-click-java
 
-BUILD FAILED in 17s
-44 actionable tasks: 44 executed
+_debugCompile - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.android.support:appcompat-v7:28.0.0
+|    +--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-compat:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:collections:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- android.arch.lifecycle:runtime:1.1.1
+|    |    |    +--- android.arch.lifecycle:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    +--- android.arch.core:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    \--- com.android.support:versionedparcelable:28.0.0
+|    |         +--- com.android.support:support-annotations:28.0.0
+|    |         \--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:cursoradapter:28.0.0
+|    |    \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-core-utils:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:documentfile:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
+|    |    |    |    +--- android.arch.core:runtime:1.1.1
+|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
+|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
+|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
+|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
+|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    +--- com.android.support:localbroadcastmanager:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:print:28.0.0
+|    |         \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-fragment:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:support-core-ui:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    |    +--- com.android.support:customview:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:viewpager:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:drawerlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:interpolator:28.0.0
+|    |    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
+|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
+|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0 (*)
+|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
+|    +--- com.android.support:support-vector-drawable:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    \--- com.android.support:animated-vector-drawable:28.0.0
+|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
+|         \--- com.android.support:support-core-ui:28.0.0 (*)
++--- com.android.support.constraint:constraint-layout:1.1.3
+|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
+\--- project :double-click-java
+
+_debugJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_debugUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_debugUnitTestApk - ## Internal use, do not manually configure ##
+No dependencies
+
+_debugUnitTestCompile - ## Internal use, do not manually configure ##
+No dependencies
+
+_debugUnitTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_releaseAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_releaseApk - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.android.support:appcompat-v7:28.0.0
+|    +--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-compat:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:collections:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- android.arch.lifecycle:runtime:1.1.1
+|    |    |    +--- android.arch.lifecycle:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    +--- android.arch.core:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    \--- com.android.support:versionedparcelable:28.0.0
+|    |         +--- com.android.support:support-annotations:28.0.0
+|    |         \--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:cursoradapter:28.0.0
+|    |    \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-core-utils:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:documentfile:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
+|    |    |    |    +--- android.arch.core:runtime:1.1.1
+|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
+|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
+|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
+|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
+|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    +--- com.android.support:localbroadcastmanager:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:print:28.0.0
+|    |         \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-fragment:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:support-core-ui:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    |    +--- com.android.support:customview:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:viewpager:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:drawerlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:interpolator:28.0.0
+|    |    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
+|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
+|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0 (*)
+|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
+|    +--- com.android.support:support-vector-drawable:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    \--- com.android.support:animated-vector-drawable:28.0.0
+|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
+|         \--- com.android.support:support-core-ui:28.0.0 (*)
++--- com.android.support.constraint:constraint-layout:1.1.3
+|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
+\--- project :double-click-java
+
+_releaseCompile - ## Internal use, do not manually configure ##
++--- com.android.support:multidex:1.0.1
++--- com.android.support:appcompat-v7:28.0.0
+|    +--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-compat:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:collections:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- android.arch.lifecycle:runtime:1.1.1
+|    |    |    +--- android.arch.lifecycle:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    +--- android.arch.core:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    \--- com.android.support:versionedparcelable:28.0.0
+|    |         +--- com.android.support:support-annotations:28.0.0
+|    |         \--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:cursoradapter:28.0.0
+|    |    \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-core-utils:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:documentfile:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
+|    |    |    |    +--- android.arch.core:runtime:1.1.1
+|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
+|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
+|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
+|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
+|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    +--- com.android.support:localbroadcastmanager:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:print:28.0.0
+|    |         \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-fragment:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:support-core-ui:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    |    +--- com.android.support:customview:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:viewpager:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:drawerlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:interpolator:28.0.0
+|    |    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
+|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
+|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0 (*)
+|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
+|    +--- com.android.support:support-vector-drawable:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    \--- com.android.support:animated-vector-drawable:28.0.0
+|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
+|         \--- com.android.support:support-core-ui:28.0.0 (*)
++--- com.android.support.constraint:constraint-layout:1.1.3
+|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
+\--- project :double-click-java
+
+_releaseJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+_releaseUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
+No dependencies
+
+_releaseUnitTestApk - ## Internal use, do not manually configure ##
+No dependencies
+
+_releaseUnitTestCompile - ## Internal use, do not manually configure ##
+No dependencies
+
+_releaseUnitTestJackPlugin - ## Internal use, do not manually configure ##
+No dependencies
+
+androidJacocoAgent - The Jacoco agent to use to get coverage data.
+\--- org.jacoco:org.jacoco.agent:0.7.5.201505241946
+
+androidJacocoAnt - The Jacoco ant tasks to use to get execute Gradle tasks.
+\--- org.jacoco:org.jacoco.ant:0.7.5.201505241946
+     +--- org.jacoco:org.jacoco.core:0.7.5.201505241946
+     |    \--- org.ow2.asm:asm-debug-all:5.0.1
+     +--- org.jacoco:org.jacoco.report:0.7.5.201505241946
+     |    +--- org.jacoco:org.jacoco.core:0.7.5.201505241946 (*)
+     |    \--- org.ow2.asm:asm-debug-all:5.0.1
+     \--- org.jacoco:org.jacoco.agent:0.7.5.201505241946
+
+androidTestAnnotationProcessor - Classpath for the annotation processor for 'androidTest'.
+No dependencies
+
+androidTestApk - Classpath packaged with the compiled 'androidTest' classes.
+No dependencies
+
+androidTestCompile - Classpath for compiling the androidTest sources.
+No dependencies
+
+androidTestJackPlugin - Classpath for the 'androidTest' Jack plugins.
+No dependencies
+
+androidTestProvided - Classpath for only compiling the androidTest sources.
+No dependencies
+
+androidTestWearApp - Link to a wear app to embed for object 'androidTest'.
+No dependencies
+
+annotationProcessor - Classpath for the annotation processor for 'main'.
+No dependencies
+
+apk - Classpath packaged with the compiled 'main' classes.
+No dependencies
+
+archives - Configuration for archive artifacts.
+No dependencies
+
+compile - Classpath for compiling the main sources.
++--- com.android.support:appcompat-v7:28.0.0
+|    +--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-compat:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:collections:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- android.arch.lifecycle:runtime:1.1.1
+|    |    |    +--- android.arch.lifecycle:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    +--- android.arch.core:common:1.1.1
+|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    \--- com.android.support:versionedparcelable:28.0.0
+|    |         +--- com.android.support:support-annotations:28.0.0
+|    |         \--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:collections:28.0.0 (*)
+|    +--- com.android.support:cursoradapter:28.0.0
+|    |    \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-core-utils:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:documentfile:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
+|    |    |    |    +--- android.arch.core:runtime:1.1.1
+|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
+|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
+|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
+|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
+|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
+|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
+|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
+|    |    +--- com.android.support:localbroadcastmanager:28.0.0
+|    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:print:28.0.0
+|    |         \--- com.android.support:support-annotations:28.0.0
+|    +--- com.android.support:support-fragment:28.0.0
+|    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    +--- com.android.support:support-core-ui:28.0.0
+|    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    |    +--- com.android.support:customview:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    +--- com.android.support:viewpager:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:drawerlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
+|    |    |    +--- com.android.support:interpolator:28.0.0
+|    |    |    |    \--- com.android.support:support-annotations:28.0.0
+|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
+|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
+|    |    |    |    +--- com.android.support:support-annotations:28.0.0
+|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
+|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    +--- com.android.support:loader:28.0.0 (*)
+|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
+|    +--- com.android.support:support-vector-drawable:28.0.0
+|    |    +--- com.android.support:support-annotations:28.0.0
+|    |    \--- com.android.support:support-compat:28.0.0 (*)
+|    \--- com.android.support:animated-vector-drawable:28.0.0
+|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
+|         \--- com.android.support:support-core-ui:28.0.0 (*)
++--- com.android.support.constraint:constraint-layout:1.1.3
+|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
++--- project :double-click-java
+\--- com.android.support:multidex:1.0.1
+
+debugAnnotationProcessor - Classpath for the annotation processor for 'debug'.
+No dependencies
+
+debugApk - Classpath packaged with the compiled 'debug' classes.
+No dependencies
+
+debugCompile - Classpath for compiling the debug sources.
+No dependencies
+
+debugJackPlugin - Classpath for the 'debug' Jack plugins.
+No dependencies
+
+debugProvided - Classpath for only compiling the debug sources.
+No dependencies
+
+debugWearApp - Link to a wear app to embed for object 'debug'.
+No dependencies
+
+default - Configuration for default artifacts.
+No dependencies
+
+default-mapping - Configuration for default mapping artifacts.
+No dependencies
+
+default-metadata - Metadata for the produced APKs.
+No dependencies
+
+jackPlugin - Classpath for the 'main' Jack plugins.
+No dependencies
+
+provided - Classpath for only compiling the main sources.
+No dependencies
+
+releaseAnnotationProcessor - Classpath for the annotation processor for 'release'.
+No dependencies
+
+releaseApk - Classpath packaged with the compiled 'release' classes.
+No dependencies
+
+releaseCompile - Classpath for compiling the release sources.
+No dependencies
+
+releaseJackPlugin - Classpath for the 'release' Jack plugins.
+No dependencies
+
+releaseProvided - Classpath for only compiling the release sources.
+No dependencies
+
+releaseWearApp - Link to a wear app to embed for object 'release'.
+No dependencies
+
+testAnnotationProcessor - Classpath for the annotation processor for 'test'.
+No dependencies
+
+testApk - Classpath packaged with the compiled 'test' classes.
+No dependencies
+
+testCompile - Classpath for compiling the test sources.
+No dependencies
+
+testDebugAnnotationProcessor - Classpath for the annotation processor for 'testDebug'.
+No dependencies
+
+testDebugApk - Classpath packaged with the compiled 'testDebug' classes.
+No dependencies
+
+testDebugCompile - Classpath for compiling the testDebug sources.
+No dependencies
+
+testDebugJackPlugin - Classpath for the 'testDebug' Jack plugins.
+No dependencies
+
+testDebugProvided - Classpath for only compiling the testDebug sources.
+No dependencies
+
+testDebugWearApp - Link to a wear app to embed for object 'testDebug'.
+No dependencies
+
+testJackPlugin - Classpath for the 'test' Jack plugins.
+No dependencies
+
+testProvided - Classpath for only compiling the test sources.
+No dependencies
+
+testReleaseAnnotationProcessor - Classpath for the annotation processor for 'testRelease'.
+No dependencies
+
+testReleaseApk - Classpath packaged with the compiled 'testRelease' classes.
+No dependencies
+
+testReleaseCompile - Classpath for compiling the testRelease sources.
+No dependencies
+
+testReleaseJackPlugin - Classpath for the 'testRelease' Jack plugins.
+No dependencies
+
+testReleaseProvided - Classpath for only compiling the testRelease sources.
+No dependencies
+
+testReleaseWearApp - Link to a wear app to embed for object 'testRelease'.
+No dependencies
+
+testWearApp - Link to a wear app to embed for object 'test'.
+No dependencies
+
+wearApp - Link to a wear app to embed for object 'main'.
+No dependencies
+
+(*) - dependencies omitted (listed previously)

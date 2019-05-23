@@ -19,8 +19,11 @@ public class DebouncedPredictor {
 
     private static final Map<View, FrozenView> viewWeakHashMap = new WeakHashMap<>();
 
-    public static boolean shouldDoClick(View targetView) {
+    public static void maybe(View targetView) {
+        System.out.println("doubleclick -------------maybe  ");
+    }
 
+    public static boolean shouldDoClick(View targetView) {
         FrozenView frozenView = viewWeakHashMap.get(targetView);
         final long now = now();
 
@@ -41,6 +44,7 @@ public class DebouncedPredictor {
         System.out.println("doubleclick -------------fobbident  ");
         return false;
     }
+
 
     private static long now() {
         return TimeUnit.NANOSECONDS.toMillis(System.nanoTime());

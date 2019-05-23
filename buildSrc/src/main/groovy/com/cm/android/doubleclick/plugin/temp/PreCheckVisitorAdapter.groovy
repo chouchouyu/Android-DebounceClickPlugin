@@ -37,7 +37,7 @@ class PreCheckVisitorAdapter extends ClassVisitor implements Opcodes {
         return super.visitMethod(access, name, desc, signature, exceptions);
     }
 
-    public Map<String, List<MethodDelegate>> getUnWeavedClassMap() {
+    Map<String, List<MethodDelegate>> getUnWeavedClassMap() {
         return unWeavedClassMap;
     }
 

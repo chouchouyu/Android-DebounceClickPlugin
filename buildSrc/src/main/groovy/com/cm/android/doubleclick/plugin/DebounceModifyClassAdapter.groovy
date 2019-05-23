@@ -47,11 +47,10 @@ public class DebounceModifyClassAdapter extends ClassVisitor implements Opcodes 
 
 
         // android.view.View.OnClickListener.onClick(android.view.View)
-//        if (Utils.isViewOnclickMethod(access, name, desc) && isHit(access, name, desc)) {
-//            project.logger.error(access+"-----------"+name+"---"+desc)
-//            methodVisitor = new View$OnClickListenerMethodAdapter(methodVisitor);
-//            weavedClass.addDebouncedMethod(convertSignature(name, desc));
-//        }
+        if (Utils.isViewOnclickMethod(access, name, desc) && isHit(access, name, desc)) {
+            methodVisitor = new View$OnClickListenerMethodAdapter(methodVisitor);
+            weavedClass.addDebouncedMethod(convertSignature(name, desc));
+        }
 
 
         return methodVisitor;
@@ -75,6 +74,7 @@ public class DebounceModifyClassAdapter extends ClassVisitor implements Opcodes 
 
 
     WeavedClass getWovenClass() {
+        project.logger.error("-----------2222----------")
         return weavedClass;
     }
 }

@@ -16,9 +16,10 @@ import static org.objectweb.asm.Opcodes.*;
 class View$OnClickListenerMethodAdapter extends MethodVisitor {
 
     private boolean weaved;
-
+    private MethodVisitor methodVisitor
     View$OnClickListenerMethodAdapter(MethodVisitor methodVisitor) {
-        super(Opcodes.ASM6, methodVisitor);
+        super(Opcodes.ASM6, methodVisitor)
+        this.methodVisitor = methodVisitor
     }
 
     @Override
@@ -29,13 +30,14 @@ class View$OnClickListenerMethodAdapter extends MethodVisitor {
 
         addDebouncedAnno(mv);
 
-        mv.visitVarInsn(ALOAD, 1);
-        mv.visitMethodInsn(INVOKESTATIC, Constant.agentClassName,
-                "shouldDoClick", "(Landroid/view/View;)Z", false);
-        Label label = new Label();
-        mv.visitJumpInsn(IFNE, label);
-        mv.visitInsn(RETURN);
-        mv.visitLabel(label);
+        methodVisitor.visitVarInsn(ALOAD, 1);
+        methodVisitor.visitMethodInsn(INVOKESTATIC, Constant.agentClassName,
+                "maybe", "(Landroid/view/View;)Z", false);
+//        Label label = new Label();
+//        methodVisitor.visitJumpInsn(IFNE, label);
+//        methodVisitor.visitInsn(RETURN);
+//        methodVisitor.visitLabel(label);
+//        methodVisitor.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
     }
 
     @Override

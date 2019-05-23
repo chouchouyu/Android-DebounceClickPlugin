@@ -104,14 +104,14 @@ class DoubleClickTransform extends Transform {
                         case Status.ADDED:
                         case Status.CHANGED:
                             Files.deleteIfExists(outputPtah)
-                            Processor.run(inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
+                            Processor.run(project,inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
                             break
                         case Status.REMOVED:
                             Files.deleteIfExists(outputPtah)
                             break
                     }
                 } else {
-                    Processor.run(project, inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
+                    Processor.run(project,inputPath, outputPtah, weavedClassesContainer, Processor.FileType.JAR)
                 }
             }
 
@@ -143,7 +143,7 @@ class DoubleClickTransform extends Transform {
                             case Status.ADDED:
                             case Status.CHANGED:
                                 //direct run byte code
-                                Processor.directRun(project,inputPath, outputPath, weavedClassesContainer)
+                                Processor.directRun(project, inputPath, outputPath, weavedClassesContainer)
                                 break
                             case Status.REMOVED:
                                 Files.deleteIfExists(outputPath)

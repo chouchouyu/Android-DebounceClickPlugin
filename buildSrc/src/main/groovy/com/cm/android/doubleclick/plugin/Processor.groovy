@@ -1,6 +1,5 @@
 package com.cm.android.doubleclick.plugin
 
-import com.android.SdkConstants
 import com.cm.android.doubleclick.plugin.temp.CompactClassWriter
 import com.cm.android.doubleclick.plugin.temp.MethodDelegate
 import com.cm.android.doubleclick.plugin.temp.PreCheckVisitorAdapter
@@ -8,7 +7,6 @@ import com.cm.android.doubleclick.plugin.temp.Utils
 import com.cm.android.doubleclick.plugin.temp.WeavedClass
 import com.google.common.collect.ImmutableMap
 import com.google.common.collect.Iterables
-import groovy.transform.PackageScope
 import org.gradle.api.GradleException
 import org.gradle.api.Project
 import org.objectweb.asm.ClassReader
@@ -22,18 +20,15 @@ import java.nio.file.SimpleFileVisitor
 import java.nio.file.attribute.BasicFileAttributes
 
 class Processor {
-
     enum FileType {
         JAR,
         FILE
     }
 
-    @PackageScope
     static void run(Project project, Path input, Path output, List<WeavedClass> weavedClasses,
                     FileType fileType) throws IOException {
 
         switch (fileType) {
-
             case FileType.JAR:
                 processJar(project, input, output, weavedClasses)
                 break
@@ -45,7 +40,6 @@ class Processor {
     }
 
     private static void processJar(Project project, Path input, Path output, List<WeavedClass> weavedClasses) {
-
         Map<String, String> env = ImmutableMap.of('create', 'true')
         URI inputUri = URI.create("jar:file:$input")
         URI outputUri = URI.create("jar:file:$output")
@@ -82,7 +76,6 @@ class Processor {
         })
     }
 
-    @PackageScope
     static void directRun(Project project, Path input, Path output,
                           List<WeavedClass> weavedClasses) {
         if (Utils.isMatchCondition(project, input.toString())) {
@@ -103,22 +96,22 @@ class Processor {
         ClassWriter classWriter =
                 new CompactClassWriter(classReader,
                         ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS)
-        project.logger.error("1 ======================")
+//        project.logger.error("1 ======================")
         Map<String, List<MethodDelegate>> map = preCheckAndRetrieve(originBytes)
-        project.logger.error("2 ======================")
-        DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(project,classWriter, map)
-        project.logger.error("3 ======================")
+//        project.logger.error("2 ======================"+map.toString())
+        DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(project, classWriter, map)
+//        project.logger.error("3 ======================")
         try {
             classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
             //move to visit end?
             weavedClasses.add(classAdapter.getWovenClass())
-            project.logger.error("4 ======================")
+            project.logger.error(weavedClasses.toString()+"4 ======================"+classAdapter.getWovenClass().className.toString())
             return classWriter.toByteArray()
         } catch (Exception e) {
-            project.logger.error("5 ======================")
+//            project.logger.error("5 ======================")
             new GradleException("Exception occurred when visit code \n " + e.printStackTrace())
         }
-        project.logger.error("6 ======================")
+//        project.logger.error("6 ======================")
         return originBytes
     }
 
