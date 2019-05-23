@@ -85,44 +85,44 @@ class Processor {
     @PackageScope
     static void directRun(Project project, Path input, Path output,
                           List<WeavedClass> weavedClasses) {
-
-
-        if (Utils.isMatchCondition(project,input.toString())) {
-            project.logger.error("directRun-INPUT: ${input.toString()}" + input.toString().endsWith(SdkConstants.DOT_CLASS)
-                    + " 2." + !input.toString().matches('.*/R\\$.*\\.class|.*/R\\.class')
-                    + " 3 " + !input.toString().matches('.*/BuildConfig\\.class'))
+        if (Utils.isMatchCondition(project, input.toString())) {
+            project.logger.error("directRun-INPUT: ${input.toString()} ")
             byte[] inputBytes = Files.readAllBytes(input)
-            byte[] outputBytes = visitAndReturnBytecode(inputBytes, weavedClasses)
+            byte[] outputBytes = visitAndReturnBytecode(project, inputBytes, weavedClasses)
+            project.logger.error("7 ======================")
             Files.write(output, outputBytes)
         } else {
+            project.logger.error("8 ======================")
             Files.copy(input, output)
         }
     }
 
-    private byte[] visitAndReturnBytecode(byte[] originBytes,
-                                          List<WeavedClass> weavedClasses) {
-
-
+    private static byte[] visitAndReturnBytecode(Project project, byte[] originBytes,
+                                                 List<WeavedClass> weavedClasses) {
         ClassReader classReader = new ClassReader(originBytes)
         ClassWriter classWriter =
                 new CompactClassWriter(classReader,
                         ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS)
-
+        project.logger.error("1 ======================")
         Map<String, List<MethodDelegate>> map = preCheckAndRetrieve(originBytes)
-        DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(classWriter, map)
+        project.logger.error("2 ======================")
+        DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(project,classWriter, map)
+        project.logger.error("3 ======================")
         try {
             classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
             //move to visit end?
             weavedClasses.add(classAdapter.getWovenClass())
+            project.logger.error("4 ======================")
             return classWriter.toByteArray()
         } catch (Exception e) {
+            project.logger.error("5 ======================")
             new GradleException("Exception occurred when visit code \n " + e.printStackTrace())
         }
-
+        project.logger.error("6 ======================")
         return originBytes
     }
 
-    private Map<String, List<MethodDelegate>> preCheckAndRetrieve(byte[] bytes) {
+    private static Map<String, List<MethodDelegate>> preCheckAndRetrieve(byte[] bytes) {
 
         ClassReader classReader = new ClassReader(bytes)
         PreCheckVisitorAdapter preCheckVisitorAdapter = new PreCheckVisitorAdapter()

@@ -20,6 +20,10 @@ class DoubleClickPlugin implements Plugin<Project> {
             throw new IllegalStateException("'android' or 'android-library' plugin required.")
         }
 
+//        project.dependencies {
+//            compile project(':double-click-java')
+//        }
+
         project.extensions["${Constant.EXTENTION}"] = project.objects.newInstance(DoubleClickExtension)
 
 

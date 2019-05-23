@@ -38,7 +38,7 @@ class DoubleClickTransform extends Transform {
                 FD_OUTPUTS,
                 Constant.EXTENTION,
                 'logs'))
-        project.logger.error("isliberary: ${isliberary} ")
+//        project.logger.error("isliberary: ${isliberary} ")
     }
 
 
@@ -90,10 +90,10 @@ class DoubleClickTransform extends Transform {
                         Format.JAR).toPath()
 
                 /** *************************************************************/
-                project.logger.error("INPUT: ${inputPath.toString()}")
-                project.logger.error("CHANGED: ${jarInput.status} ")
-                project.logger.error("OUTPUT: ${outputPtah.toString()} ")
-                project.logger.error("INCREMENTAL: ${invocation.isIncremental()}")
+//                project.logger.error("INPUT: ${inputPath.toString()}")
+//                project.logger.error("CHANGED: ${jarInput.status} ")
+//                project.logger.error("OUTPUT: ${outputPtah.toString()} ")
+//                project.logger.error("INCREMENTAL: ${invocation.isIncremental()}")
                 /** *************************************************************/
 
                 if (invocation.isIncremental()) {
@@ -125,10 +125,10 @@ class DoubleClickTransform extends Transform {
                         Format.DIRECTORY).toPath()
 
                 /** *************************************************************/
-                project.logger.error("INPUT: ${inputRoot.toString()} ")
-                project.logger.error("CHANGED: ${directoryInput.changedFiles.size()} ")
-                project.logger.error("OUTPUT: ${outputRoot.toString()} ")
-                project.logger.error("INCREMENTAL: ${invocation.isIncremental()}")
+//                project.logger.error("INPUT: ${inputRoot.toString()} ")
+//                project.logger.error("CHANGED: ${directoryInput.changedFiles.size()} ")
+//                project.logger.error("OUTPUT: ${outputRoot.toString()} ")
+//                project.logger.error("INCREMENTAL: ${invocation.isIncremental()}")
                 /** *************************************************************/
 
                 if (invocation.isIncremental()) {

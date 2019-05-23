@@ -67,14 +67,14 @@ class Utils implements Opcodes {
 
         for (i in exclude) {
             if (pathName.contains(i)) {
-                project.logger.error("FILE--exclude " + pathName)
+//                project.logger.error("FILE--exclude " + pathName)
                 return false
             }
         }
 
         for (i in targetPackages) {
             if (pathName.contains(i)) {
-                project.logger.error("FILE--targetPackages " + pathName)
+//                project.logger.error("FILE--targetPackages " + pathName)
                 return true
             }
 
@@ -157,5 +157,6 @@ class Utils implements Opcodes {
         sb.append(")");
         return sb.toString();
     }
+
 
 }

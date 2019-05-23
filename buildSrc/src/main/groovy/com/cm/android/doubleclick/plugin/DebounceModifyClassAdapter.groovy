@@ -1,14 +1,14 @@
 package com.cm.android.doubleclick.plugin;
 
 import com.cm.android.doubleclick.plugin.temp.MethodDelegate;
-import com.cm.android.doubleclick.plugin.temp.Utils;
+import com.cm.android.doubleclick.plugin.temp.Utils
+import com.cm.android.doubleclick.plugin.temp.View$OnClickListenerMethodAdapter;
 import com.cm.android.doubleclick.plugin.temp.WeavedClass;
+import org.gradle.api.Project;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-import java.util.List;
-import java.util.Map;
 
 import static com.cm.android.doubleclick.plugin.temp.Utils.convertSignature;
 
@@ -23,11 +23,13 @@ public class DebounceModifyClassAdapter extends ClassVisitor implements Opcodes 
     private String className;
     private WeavedClass weavedClass;
     private Map<String, List<MethodDelegate>> unWovenClassMap;
+    private Project project;
 
-    public DebounceModifyClassAdapter(ClassVisitor classVisitor,
-                                      Map<String, List<MethodDelegate>> unWovenClassMap) {
+    DebounceModifyClassAdapter(Project project, ClassVisitor classVisitor,
+                               Map<String, List<MethodDelegate>> unWovenClassMap) {
         super(Opcodes.ASM6, classVisitor);
         this.unWovenClassMap = unWovenClassMap;
+        this.project = project;
     }
 
     @Override
@@ -43,17 +45,14 @@ public class DebounceModifyClassAdapter extends ClassVisitor implements Opcodes 
 
         MethodVisitor methodVisitor = cv.visitMethod(access, name, desc, signature, exceptions);
 
-        // android.view.View.OnClickListener.onClick(android.view.View)
-        if (Utils.isViewOnclickMethod(access, name, desc) && isHit(access, name, desc)) {
-            methodVisitor = new View$OnClickListenerMethodAdapter(methodVisitor);
-            weavedClass.addDebouncedMethod(convertSignature(name, desc));
-        }
 
-        // android.widget.AdapterView.OnItemClickListener.onItemClick(android.widget.AdapterView,android.view.View,int,long)
-        if (Utils.isListViewOnItemOnclickMethod(access, name, desc) && isHit(access, name, desc)) {
-            methodVisitor = new ListView$OnItemClickListenerMethodAdapter(methodVisitor);
-            weavedClass.addDebouncedMethod(convertSignature(name, desc));
-        }
+        // android.view.View.OnClickListener.onClick(android.view.View)
+//        if (Utils.isViewOnclickMethod(access, name, desc) && isHit(access, name, desc)) {
+//            project.logger.error(access+"-----------"+name+"---"+desc)
+//            methodVisitor = new View$OnClickListenerMethodAdapter(methodVisitor);
+//            weavedClass.addDebouncedMethod(convertSignature(name, desc));
+//        }
+
 
         return methodVisitor;
     }
@@ -63,7 +62,7 @@ public class DebounceModifyClassAdapter extends ClassVisitor implements Opcodes 
         boolean hitClass = unWovenClassMap.containsKey(className);
         if (hitClass) {
             List<MethodDelegate> methodDelegates = unWovenClassMap.get(weavedClass.className);
-            for (int i = 0, n = methodDelegates.size(); i < n; i++) {
+            for (int i = 0; i < methodDelegates.size(); i++) {
                 boolean hitMethod = methodDelegates.get(i).match(access, name, desc);
                 if (hitMethod) {
                     unWovenClassMap.remove(className);
@@ -74,7 +73,8 @@ public class DebounceModifyClassAdapter extends ClassVisitor implements Opcodes 
         return false;
     }
 
-    public WeavedClass getWovenClass() {
+
+    WeavedClass getWovenClass() {
         return weavedClass;
     }
 }
