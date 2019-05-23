@@ -82,10 +82,9 @@ class Processor {
             project.logger.error("directRun-INPUT: ${input.toString()} ")
             byte[] inputBytes = Files.readAllBytes(input)
             byte[] outputBytes = visitAndReturnBytecode(project, inputBytes, weavedClasses)
-            project.logger.error("7 ======================")
-            Files.write(output, outputBytes)
+
+            project.logger.error("7 ======================"+Files.write(output, outputBytes).toAbsolutePath())
         } else {
-            project.logger.error("8 ======================")
             Files.copy(input, output)
         }
     }
@@ -96,22 +95,18 @@ class Processor {
         ClassWriter classWriter =
                 new CompactClassWriter(classReader,
                         ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS)
-//        project.logger.error("1 ======================")
+
         Map<String, List<MethodDelegate>> map = preCheckAndRetrieve(originBytes)
-//        project.logger.error("2 ======================"+map.toString())
         DebounceModifyClassAdapter classAdapter = new DebounceModifyClassAdapter(project, classWriter, map)
-//        project.logger.error("3 ======================")
+
         try {
             classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
             //move to visit end?
             weavedClasses.add(classAdapter.getWovenClass())
-            project.logger.error(weavedClasses.toString()+"4 ======================"+classAdapter.getWovenClass().className.toString())
             return classWriter.toByteArray()
         } catch (Exception e) {
-//            project.logger.error("5 ======================")
             new GradleException("Exception occurred when visit code \n " + e.printStackTrace())
         }
-//        project.logger.error("6 ======================")
         return originBytes
     }
 
