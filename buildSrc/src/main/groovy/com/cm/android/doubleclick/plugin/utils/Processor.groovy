@@ -75,7 +75,7 @@ class Processor {
             }
         }
 
-        weavedBytes
+       return weavedBytes
 
     }
 

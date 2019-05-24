@@ -43,84 +43,23 @@ public class ModifyClassAdapter extends ClassVisitor implements Opcodes {
 
         MethodVisitor methodVisitor = cv.visitMethod(access, name, desc, signature, exceptions);
 
-//        if ((!MethodHookMap.isPublic(access)) && name.equals("showMessage") && desc.equals("(Ljava/lang/String;)V")) {
-//            println "wwwwwwww" + name + desc
-//            methodVisitor = new View$OnClickListenerMethodAdapter(methodVisitor);
-//            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//        }
-
-
-        /**
-         * Method 描述信息
-         */
-        String methodNameDesc = name + desc
-
-//        if (interfaces != null && interfaces.length > 0) {
-//            AnalyticsMethodCell cell = MethodHookMap.sInterfaceMethods.get(methodNameDesc)
-//            if (cell != null && interfaces.contains(cell.parent)) {
-//                methodVisitor = new Common$MethodAdapter(cell, methodVisitor);
-//                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//            }
-//        }
-//
-//
-        if (Utils.isViewOnclickMethod(access,name,desc)) {
+        // android.view.View.OnClickListener.onClick(android.view.View)
+        if ((Utils.isPublic(access) && !Utils.isStatic(access)) && //
+                name.equals("onClick") && //
+                desc.equals("(Landroid/view/View;)V")) {
             methodVisitor = new OnClick$MethodAdapter(methodVisitor);
             tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
         }
-//
-//
-//        if (mClassName == 'android/databinding/generated/callback/OnClickListener') {
-//            if (desc == 'onClick(Landroid/view/View;)V') {
-//                methodVisitor = new OnClick$MethodAdapter(methodVisitor);
-//                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//            }
-//        }
-//
-//
-//        if (desc == 'onDrawerOpened(Landroid/view/View;)V') {
-//            methodVisitor = new Drawer$MethodAdapter(name, methodVisitor);
-//            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//        } else if (desc == 'onDrawerClosed(Landroid/view/View;)V') {
-//            methodVisitor = new Drawer$MethodAdapter(name, methodVisitor);
-//            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//        }
-//
-//        /**
-//         * Menu
-//         * 目前支持 onContextItemSelected(MenuItem item)、onOptionsItemSelected(MenuItem item)
-//         */
-//        if (MethodHookMap.isTargetMenuMethodDesc(desc)) {
-//            if (MethodHookMap.isStatic(access)) {
-//                methodVisitor = new TrackMenuItem$MethodAdapter(true, methodVisitor);
-//            } else {
-//                methodVisitor = new TrackMenuItem$MethodAdapter(false, methodVisitor);
-//            }
-//            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//        }
-//
-//        /**
-//         * Fragment
-//         * 目前支持 android/support/v4/app/ListFragment 和 android/support/v4/app/Fragment
-//         */
-//        if (MethodHookMap.isInstanceOfFragment(superName)) {
-//            AnalyticsMethodCell cell = MethodHookMap.sFragmentMethods.get(methodNameDesc)
-//            if (cell != null) {
-//                methodVisitor = new Common$MethodAdapter(cell, methodVisitor);
-//                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//            }
-//        }
-//
-//
-//        /**
-//         * 处理 ViewPager
-//         */
-//        if (mClassName == 'android/support/v4/view/ViewPager' || mClassName == 'androidx/viewpager/widget/ViewPager') {
-//            if (desc == 'dispatchOnPageSelected(I)V') {
-//                methodVisitor = new ViewPager$MethodAdapter(name, methodVisitor);
-//                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//            }
-//        }
+
+
+        // android.widget.AdapterView.OnItemClickListener.onItemClick(android.widget.AdapterView,android.view.View,int,long)
+        if ((Utils.isPublic(access) && !Utils.isStatic(access)) && //
+                name.equals("onItemClick") && //
+                desc.equals("(Landroid/widget/AdapterView;Landroid/view/View;IJ)V")) {
+            methodVisitor = new ListView$OnItemClickListenerMethodAdapter(methodVisitor);
+            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+        }
+
 //
 //        if (name.trim().startsWith('lambda$') && MethodHookMap.isPrivate(access) && MethodHookMap.isSynthetic(access)) {
 //            if (desc == '(Landroid/view/MenuItem;)Z' && MethodHookMap.isStatic(access)) {

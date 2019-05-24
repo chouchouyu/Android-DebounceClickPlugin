@@ -7,6 +7,7 @@ import com.android.utils.FileUtils
 import com.cm.android.doubleclick.plugin.InforsExtension
 import org.gradle.api.Project
 import org.objectweb.asm.Opcodes
+
 class Utils implements Opcodes {
 
     static def shouldExcludeFile(def filePath) {
@@ -64,15 +65,17 @@ class Utils implements Opcodes {
     }
 
 
-    static def setIncludePackages(def includePackage, Project project) {
-        def butterknifePackage = ['butterknife.internal.DebouncingOnClickListener']
+    static def setIncludePackages(def extentPackage, Project project) {
+        def includePackage = ['butterknife.internal.DebouncingOnClickListener',
+                                  'com.jakewharton.rxbinding.view.ViewClickOnSubscribe',
+                                  'com.facebook.react.uimanager.NativeViewHierarchyManager']
         AppExtension android = project.extensions.getByType(AppExtension)
         def appPackageName = getAppPackageName(android)
-        butterknifePackage.add(appPackageName)
-        if (includePackage) {
-            butterknifePackage.addAll(includePackage)
+        includePackage.add(appPackageName)
+        if (extentPackage) {
+            includePackage.addAll(extentPackage)
         }
-        butterknifePackage
+        includePackage
     }
 
     /**
@@ -124,6 +127,7 @@ class Utils implements Opcodes {
                 name.equals("onClick") && //
                 desc.equals("(Landroid/view/View;)V");
     }
+
     static boolean isPrivate(int access) {
         return (access & ACC_PRIVATE) != 0;
     }

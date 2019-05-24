@@ -9,25 +9,24 @@ import org.objectweb.asm.Opcodes
 import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addInforsAnno
 import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.trackAnnoClassName
 
-class OnClick$MethodAdapter extends MethodVisitor implements Opcodes {
-
+class ListView$OnItemClickListenerMethodAdapter extends MethodVisitor implements Opcodes {
     private boolean traced
     private MethodVisitor methodVisitor
 
-    OnClick$MethodAdapter(MethodVisitor methodVisitor) {
+    ListView$OnItemClickListenerMethodAdapter(MethodVisitor methodVisitor) {
         super(Opcodes.ASM5, methodVisitor);
         this.methodVisitor = methodVisitor
     }
 
     @Override
-    public void visitCode() {
+      void visitCode() {
         super.visitCode();
 
         if (traced) return;
 
         addInforsAnno(mv);
 
-        methodVisitor.visitVarInsn(ALOAD, 1)
+        methodVisitor.visitVarInsn(ALOAD, 2)
         methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, MethodHookMap.agentClassName, "shouldDoClick", "(Landroid/view/View;)Z", false)
 
         Label label = new Label();

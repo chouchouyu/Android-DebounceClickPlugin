@@ -134,8 +134,8 @@ class DoubleClickPlugin implements Plugin<Project> {
             variantName = variant.name
 
             outputMappingFile =
-                    FileUtils.join(project.buildDir, AndroidProject.FD_OUTPUTS, 'infors', 'mapping',
-                            variant.name, 'InforsMapping.txt')
+                    FileUtils.join(project.buildDir, AndroidProject.FD_OUTPUTS, Constant.USER_CONFIG, 'mapping',
+                            variant.name, Constant.USER_CONFIG + 'Mapping.txt')
         }
         inforsTask.finalizedBy(outputMappingTask)
         outputMappingTask.onlyIf { inforsTask.didWork }
