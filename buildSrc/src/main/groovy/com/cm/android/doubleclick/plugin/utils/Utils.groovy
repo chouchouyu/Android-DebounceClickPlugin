@@ -56,6 +56,9 @@ class Utils implements Opcodes {
             if (pathName.contains(i)) {
                 return true
             }
+            if (pathName.contains('butterknife.internal.DebouncingOnClickListener')){
+                return false
+            }
         }
         return false
     }
@@ -66,8 +69,7 @@ class Utils implements Opcodes {
 
 
     static def setIncludePackages(def extentPackage, Project project) {
-        def includePackage = ['butterknife.internal.DebouncingOnClickListener',
-                                  'com.jakewharton.rxbinding.view.ViewClickOnSubscribe',
+        def includePackage = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe',
                                   'com.facebook.react.uimanager.NativeViewHierarchyManager']
         AppExtension android = project.extensions.getByType(AppExtension)
         def appPackageName = getAppPackageName(android)

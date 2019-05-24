@@ -1,4 +1,4 @@
-package com.cm.android;
+package com.github.susan.demo;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import com.github.susan.demo.SecondActivity;
 
 public class MainActivity extends Activity
         implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -19,6 +20,12 @@ public class MainActivity extends Activity
         findViewById(R.id.button1).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener((v) -> {
             Log.d(TAG, "onClick : " + this.getClass().getName());
+        });
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ButterKnifeActivity.class));
+            }
         });
     }
 

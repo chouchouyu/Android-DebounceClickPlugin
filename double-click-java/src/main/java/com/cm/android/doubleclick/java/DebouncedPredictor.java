@@ -2,7 +2,6 @@ package com.cm.android.doubleclick.java;
 
 import android.view.View;
 
-
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;

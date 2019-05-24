@@ -1,4 +1,4 @@
-package com.cm.android;
+package com.github.susan.demo;
 
 import android.app.Activity;
 import android.os.Bundle;

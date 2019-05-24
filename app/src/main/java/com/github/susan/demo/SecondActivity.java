@@ -1,11 +1,10 @@
-package com.cm.android;
+package com.github.susan.demo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
-import com.cm.android.R;
 
 /**
  * 创建时间:  2018/03/23 15:43 <br>

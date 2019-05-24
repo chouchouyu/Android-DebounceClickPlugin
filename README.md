@@ -1,8 +1,9 @@
 # DoubleClickPlugin
-1. 加注解后就不会影响
+1. 加注解后就不会影响 ok 
 2. Lambert ok
-3， butterknife https://www.2cto.com/kf/201609/547120.html 有防暴击
-4.databanding 
+3， butterknife https://www.2cto.com/kf/201609/547120.html 有防暴击 ok
+4.databanding  todo 没有成功 
+rxbinding todo
 
 1.自动化集成
 2.文档
@@ -39,3 +40,5 @@ public class com.cm.android.MainActivity extends android.app.Activity implements
    findViewById(R.id.button2).setOnClickListener((v) -> {
             Log.d(TAG, "onClick : " + this.getClass().getName());
         });
+        
+        gradlew -q app:dependencies >1.txt
