@@ -5,7 +5,15 @@
 4.databanding  ok但是 没有成功 
 rxbinding todo , 因为和butterknife一起可以用可以去除
 Annotation 改名字
-手动设置和 自动跳过功能
+
+
+onlyRxBinding true 
+
+SingleClickMarked
+SingleClickMark手动设置
+SingleClickIgnore自动跳过功能
+Mapping 文件显示
+混淆
 
 1.自动化集成
 2.文档
@@ -44,3 +52,6 @@ public class com.cm.android.MainActivity extends android.app.Activity implements
         });
         
         gradlew -q app:dependencies >1.txt
+        
+        
+   
