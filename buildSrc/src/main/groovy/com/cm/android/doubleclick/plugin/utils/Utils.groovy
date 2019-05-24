@@ -69,8 +69,8 @@ class Utils implements Opcodes {
 
 
     static def setIncludePackages(def extentPackage, Project project) {
-        def includePackage = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe',
-                                  'com.facebook.react.uimanager.NativeViewHierarchyManager']
+        def includePackage = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
+//                                  ,'com.facebook.react.uimanager.NativeViewHierarchyManager']
         AppExtension android = project.extensions.getByType(AppExtension)
         def appPackageName = getAppPackageName(android)
         includePackage.add(appPackageName)
