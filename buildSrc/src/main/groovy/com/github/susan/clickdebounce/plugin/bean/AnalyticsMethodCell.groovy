@@ -1,4 +1,4 @@
-package com.cm.android.doubleclick.plugin.bean
+package com.github.susan.clickdebounce.plugin.bean
 
 import groovy.lang.GroovyObject;
 import groovy.lang.MetaClass;

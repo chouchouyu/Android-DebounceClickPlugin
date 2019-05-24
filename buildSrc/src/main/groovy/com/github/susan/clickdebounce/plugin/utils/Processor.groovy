@@ -1,8 +1,8 @@
-package com.cm.android.doubleclick.plugin.utils
+package com.github.susan.clickdebounce.plugin.utils
 
-import com.cm.android.doubleclick.plugin.asm.CompactClassWriter
-import com.cm.android.doubleclick.plugin.asm.ModifyClassAdapter
-import com.cm.android.doubleclick.plugin.bean.TracedClass
+import com.github.susan.clickdebounce.plugin.asm.CompactClassWriter
+import com.github.susan.clickdebounce.plugin.asm.ModifyClassAdapter
+import com.github.susan.clickdebounce.plugin.bean.TracedClass
 import com.google.common.io.Files
 import org.apache.commons.io.IOUtils
 import groovy.transform.PackageScope
@@ -13,13 +13,13 @@ import org.gradle.api.Project
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
-import com.cm.android.doubleclick.plugin.DoubleClickExtension
+import com.github.susan.clickdebounce.plugin.DebounceClickExtension
 
 class Processor {
 
     @PackageScope
     static void transformJar(Project project, File inputJar, File outputJar,
-                             List<TracedClass> tracedClass, DoubleClickExtension extension) throws IOException {
+                             List<TracedClass> tracedClass, DebounceClickExtension extension) throws IOException {
         Files.createParentDirs(outputJar)
 
         new ZipOutputStream(new FileOutputStream(outputJar)).withCloseable { outputStream ->
@@ -40,7 +40,7 @@ class Processor {
         }
     }
 
-    static transformFile(Project project, File inputFile, File outputFile, List<TracedClass> tracedClasses, DoubleClickExtension extension) {
+    static transformFile(Project project, File inputFile, File outputFile, List<TracedClass> tracedClasses, DebounceClickExtension extension) {
 
         Files.createParentDirs(outputFile)
 
@@ -56,7 +56,7 @@ class Processor {
      * 真正修改类中方法字节码
      */
     @PackageScope
-    static byte[] modifyClass(Project project, String name, byte[] bytes, List<TracedClass> tracedClasses, DoubleClickExtension extension) {
+    static byte[] modifyClass(Project project, String name, byte[] bytes, List<TracedClass> tracedClasses, DebounceClickExtension extension) {
         def weavedBytes = bytes
 
         if (Utils.isMatchCondition(project, extension, name)) {

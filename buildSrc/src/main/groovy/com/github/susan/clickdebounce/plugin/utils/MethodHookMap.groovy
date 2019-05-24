@@ -1,7 +1,7 @@
-package com.cm.android.doubleclick.plugin.utils
+package com.github.susan.clickdebounce.plugin.utils
 
 
-import com.cm.android.doubleclick.plugin.bean.AnalyticsMethodCell
+import com.github.susan.clickdebounce.plugin.bean.AnalyticsMethodCell
 import jdk.internal.org.objectweb.asm.Opcodes
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.MethodVisitor

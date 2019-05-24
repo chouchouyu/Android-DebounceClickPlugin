@@ -1,11 +1,11 @@
-package com.cm.android.doubleclick.plugin.utils
+package com.github.susan.clickdebounce.plugin.utils
 
 import com.android.SdkConstants
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.utils.FileUtils
-import com.cm.android.doubleclick.plugin.DoubleClickExtension
+import com.github.susan.clickdebounce.plugin.DebounceClickExtension
 import org.gradle.api.Project
 import org.objectweb.asm.Opcodes
 
@@ -39,7 +39,7 @@ class Utils implements Opcodes {
     }
 
 
-    static boolean isMatchCondition(Project project, DoubleClickExtension extension, String name) {
+    static boolean isMatchCondition(Project project, DebounceClickExtension extension, String name) {
         name.endsWith(SdkConstants.DOT_CLASS) &&
                 shouldModifyClass(project, extension, name) &&
                 !shouldExcludeFile(name)
@@ -50,7 +50,7 @@ class Utils implements Opcodes {
      * @param className 形如 android.app.Fragment 的类名
      * @return
      */
-    static def shouldModifyClass(Project project, DoubleClickExtension extension, String className) {
+    static def shouldModifyClass(Project project, DebounceClickExtension extension, String className) {
         def targetPackages = setIncludePackages(extension.includePackages, project)
         def pathName = path2Classname(className);
         for (i in targetPackages) {

@@ -1,4 +1,4 @@
-package com.cm.android.doubleclick.plugin.utils
+package com.github.susan.clickdebounce.plugin.utils
 
 class Constant {
     /** 版本号 */

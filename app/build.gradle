@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: com.cm.android.doubleclick.plugin.DebounceClickPlugin
+apply plugin:  com.github.susan.clickdebounce.plugin.DebounceClickPlugin
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
 

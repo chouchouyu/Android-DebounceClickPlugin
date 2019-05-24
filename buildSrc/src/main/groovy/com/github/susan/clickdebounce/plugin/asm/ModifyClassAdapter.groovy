@@ -1,13 +1,13 @@
-package com.cm.android.doubleclick.plugin.asm
+package com.github.susan.clickdebounce.plugin.asm
 
-import com.cm.android.doubleclick.plugin.bean.AnalyticsMethodCell
-import com.cm.android.doubleclick.plugin.bean.TracedClass
-import com.cm.android.doubleclick.plugin.utils.Utils
+import com.github.susan.clickdebounce.plugin.bean.AnalyticsMethodCell
+import com.github.susan.clickdebounce.plugin.bean.TracedClass
+import com.github.susan.clickdebounce.plugin.utils.Utils
 import org.gradle.api.Project
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
-import com.cm.android.doubleclick.plugin.utils.MethodHookMap
+import com.github.susan.clickdebounce.plugin.utils.MethodHookMap
 
 /**
  * 创建时间: 2018/03/21 23:00 <br>

@@ -1,7 +1,7 @@
-package com.cm.android.doubleclick.plugin
+package com.github.susan.clickdebounce.plugin
 
-import com.cm.android.doubleclick.plugin.bean.TracedClass
-import com.cm.android.doubleclick.plugin.utils.Constant
+import com.github.susan.clickdebounce.plugin.bean.TracedClass
+import com.github.susan.clickdebounce.plugin.utils.Constant
 import org.apache.commons.io.FileUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.RegularFileProperty

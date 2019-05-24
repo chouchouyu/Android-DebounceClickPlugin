@@ -1,14 +1,14 @@
-package com.cm.android.doubleclick.plugin.asm
+package com.github.susan.clickdebounce.plugin.asm
 
-import com.cm.android.doubleclick.plugin.utils.MethodHookMap
+import com.github.susan.clickdebounce.plugin.utils.MethodHookMap
 import com.sun.org.apache.bcel.internal.generic.ALOAD
 import com.sun.org.apache.bcel.internal.generic.ILOAD
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
-import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addAnno
-import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.trackAnnoClassName
+import static com.github.susan.clickdebounce.plugin.utils.MethodHookMap.addAnno
+import static com.github.susan.clickdebounce.plugin.utils.MethodHookMap.trackAnnoClassName
 
 class Item$MethodAdapter extends MethodVisitor {
 
