@@ -16,9 +16,11 @@ class MethodHookMap {
 
 
     public static
-    final String agentClassName = "com/cm/android/doubleclick/java/DebouncedPredictor";
+    final String agentClassName = "com/github/susan/clickdebounce/java/ClickDebounceHandler";
     public static
-    final String trackAnnoClassName = "Lcom/cm/android/doubleclick/java/SingleClickAnno;";
+    final String trackAnnoClassName = "Lcom/github/susan/clickdebounce/java/ClickDebounceMark;"
+    public static
+    final String extraAnnoClassName = "Lcom/github/susan/clickdebounce/java/ClickDebounceExtra;"
 
     //    String name
 //    String desc

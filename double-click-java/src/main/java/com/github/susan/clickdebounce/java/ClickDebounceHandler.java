@@ -1,4 +1,4 @@
-package com.cm.android.doubleclick.java;
+package com.github.susan.clickdebounce.java;
 
 import android.view.View;
 
@@ -8,14 +8,14 @@ import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 
 
-public class DebouncedPredictor {
+public class ClickDebounceHandler {
 
     /**
      * Frozen window in millions, apps may override it.
      */
     public static long FROZEN_WINDOW_MILLIS = 300L;
 
-    private static final String TAG = DebouncedPredictor.class.getSimpleName();
+    private static final String TAG = ClickDebounceHandler.class.getSimpleName();
 
     private static final Map<View, FrozenView> viewWeakHashMap = new WeakHashMap<>();
 
