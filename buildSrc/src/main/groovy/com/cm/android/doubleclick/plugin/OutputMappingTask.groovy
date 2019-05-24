@@ -1,6 +1,7 @@
 package com.cm.android.doubleclick.plugin
 
 import com.cm.android.doubleclick.plugin.bean.TracedClass
+import com.cm.android.doubleclick.plugin.utils.Constant
 import org.apache.commons.io.FileUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.RegularFileProperty
@@ -12,8 +13,8 @@ import org.gradle.api.tasks.TaskAction
 
 class OutputMappingTask extends DefaultTask {
     {
-        group = 'Infors'
-        description = 'write Infors traced class mapping file'
+        group = Constant.USER_CONFIG
+        description = 'traced class mapping file of single click view'
     }
 
     @Input

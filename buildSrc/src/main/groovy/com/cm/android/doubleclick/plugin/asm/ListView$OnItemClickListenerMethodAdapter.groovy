@@ -6,7 +6,7 @@ import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
-import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addInforsAnno
+import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addAnno
 import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.trackAnnoClassName
 
 class ListView$OnItemClickListenerMethodAdapter extends MethodVisitor implements Opcodes {
@@ -24,7 +24,7 @@ class ListView$OnItemClickListenerMethodAdapter extends MethodVisitor implements
 
         if (traced) return;
 
-        addInforsAnno(mv);
+        addAnno(mv);
 
         methodVisitor.visitVarInsn(ALOAD, 2)
         methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, MethodHookMap.agentClassName, "shouldDoClick", "(Landroid/view/View;)Z", false)

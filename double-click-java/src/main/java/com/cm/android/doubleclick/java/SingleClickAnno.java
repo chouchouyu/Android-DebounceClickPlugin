@@ -9,5 +9,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RUNTIME)
-public @interface DoubleClickAnno {
+public @interface SingleClickAnno {
 }

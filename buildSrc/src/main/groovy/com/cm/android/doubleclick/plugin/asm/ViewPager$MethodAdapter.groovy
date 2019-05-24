@@ -6,7 +6,7 @@ import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
-import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addInforsAnno
+import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addAnno
 import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.trackAnnoClassName
 
 class ViewPager$MethodAdapter extends MethodVisitor {
@@ -25,7 +25,7 @@ class ViewPager$MethodAdapter extends MethodVisitor {
 
         if (traced) return;
 
-        addInforsAnno(mv);
+        addAnno(mv);
 
         methodVisitor.visitVarInsn(ALOAD, 0)
         methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, MethodHookMap.agentClassName, "trackViewOnClick", "(Landroid/view/View;)V", false)

@@ -2,15 +2,12 @@ package com.cm.android.doubleclick.plugin.asm
 
 import com.cm.android.doubleclick.plugin.utils.MethodHookMap
 import org.objectweb.asm.AnnotationVisitor
-import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
-import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addInforsAnno;
+import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addAnno;
 import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.trackAnnoClassName
 import static org.objectweb.asm.Opcodes.ALOAD
-import static org.objectweb.asm.Opcodes.IFNE
 import static org.objectweb.asm.Opcodes.INVOKESTATIC
-import static org.objectweb.asm.Opcodes.RETURN
 
 /**
  * 创建时间:  2018/03/09 19:48 <br>
@@ -31,7 +28,7 @@ class View$OnClickListenerMethodAdapter extends MethodVisitor {
 
         if (traced) return;
 
-        addInforsAnno(mv);
+        addAnno(mv);
 
         mv.visitVarInsn(ALOAD, 1)
         mv.visitMethodInsn(INVOKESTATIC, MethodHookMap.agentClassName, "trackViewOnClick", "(Landroid/view/View;)V", false)

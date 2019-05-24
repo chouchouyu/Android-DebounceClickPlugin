@@ -1,14 +1,10 @@
 package com.cm.android.doubleclick.plugin
 
-import com.android.build.api.transform.DirectoryInput
+
 import com.android.build.api.transform.Format
-import com.android.build.api.transform.JarInput
 import com.android.build.api.transform.QualifiedContent
-import com.android.build.api.transform.QualifiedContent.Scope
-import com.android.build.api.transform.QualifiedContent.ContentType
 import com.android.build.api.transform.Transform
 import com.android.build.api.transform.TransformException
-import com.android.build.api.transform.TransformInput
 import com.android.build.api.transform.TransformInvocation
 import com.android.build.api.transform.TransformOutputProvider
 import com.android.build.api.transform.Status
@@ -22,23 +18,25 @@ import com.android.utils.FileUtils
 import com.cm.android.doubleclick.plugin.utils.Utils
 
 
-class InforsTransform extends Transform {
+class DoubleClickTransform extends Transform {
 
     Project project
     Map<String, List<TracedClass>> tracedClassesMap
-    InforsExtension extension
+    DoubleClickExtension extension
     private Status status
+    private boolean isApp
 
-    InforsTransform(p, tracedClassesMap, extension) {
+    DoubleClickTransform(p, tracedClassesMap, extension, isApp) {
         this.project = p
         this.tracedClassesMap = tracedClassesMap
         this.extension = extension
+        this.isApp = isApp
     }
 
 
     @Override
     String getName() {
-        return InforsTransform.simpleName
+        return DoubleClickTransform.simpleName
     }
 
     @Override
@@ -48,7 +46,8 @@ class InforsTransform extends Transform {
 
     @Override
     Set<? super QualifiedContent.Scope> getScopes() {
-        return TransformManager.SCOPE_FULL_PROJECT
+        if (isApp) return TransformManager.SCOPE_FULL_PROJECT
+        return TransformManager.SCOPE_FULL_LIBRARY
     }
 
     @Override
@@ -94,14 +93,14 @@ class InforsTransform extends Transform {
                             break
                         case Status.ADDED:
                         case Status.CHANGED:
-                            Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer,extension)
+                            Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer, extension)
                             break
                         case Status.REMOVED:
                             FileUtils.delete(outputJar)
                             break
                     }
                 } else {
-                    Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer,extension)
+                    Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer, extension)
                 }
             }
 
@@ -130,7 +129,7 @@ class InforsTransform extends Transform {
                             case Status.CHANGED:
                                 if (!inputFile.isDirectory()) {
                                     File outputFile = Utils.toOutputFile(outputDir, inputDir, inputFile)
-                                    Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer,extension)
+                                    Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer, extension)
                                 }
                                 break
                             case Status.REMOVED:
@@ -142,7 +141,7 @@ class InforsTransform extends Transform {
                 } else {
                     for (File inputFile : FileUtils.getAllFiles(inputDir)) {
                         File outputFile = Utils.toOutputFile(outputDir, inputDir, inputFile)
-                        Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer,extension)
+                        Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer, extension)
                     }
                 }
             }
@@ -151,7 +150,7 @@ class InforsTransform extends Transform {
     }
 
     def welcome() {
-        def stream = InforsTransform.class.getClassLoader().getResourceAsStream('helpContent.groovy')
+        def stream = DoubleClickTransform.class.getClassLoader().getResourceAsStream('helpContent.groovy')
         def helpContent = new String(IOUtils.toByteArray(stream), 'UTF-8')
         println helpContent
     }

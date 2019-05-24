@@ -2,13 +2,11 @@ package com.cm.android.doubleclick.plugin.asm
 
 
 import com.cm.android.doubleclick.plugin.utils.MethodHookMap
-import org.gradle.util.TextUtil
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
-import org.w3c.dom.Text
 
-import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addInforsAnno
+import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addAnno
 import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.trackAnnoClassName
 
 class Drawer$MethodAdapter extends MethodVisitor {
@@ -29,7 +27,7 @@ class Drawer$MethodAdapter extends MethodVisitor {
 
         if (traced) return;
 
-        addInforsAnno(mv);
+        addAnno(mv);
 
 
 

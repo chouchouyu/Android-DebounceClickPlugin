@@ -1,5 +1,6 @@
 package com.cm.android.doubleclick.plugin
 
+import com.android.build.gradle.LibraryPlugin
 import com.android.utils.FileUtils
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin
@@ -7,7 +8,6 @@ import com.android.build.gradle.api.BaseVariant
 import com.cm.android.doubleclick.plugin.bean.TracedClass
 import com.cm.android.doubleclick.plugin.utils.Constant
 import com.cm.android.doubleclick.plugin.utils.Utils
-import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
@@ -21,78 +21,39 @@ class DoubleClickPlugin implements Plugin<Project> {
     void apply(Project project) {
 
         /* Extensions */
-        InforsExtension extension = project.extensions.create(Constant.USER_CONFIG, InforsExtension)
+        DoubleClickExtension extension = project.extensions.create(Constant.USER_CONFIG, DoubleClickExtension)
 
         project.logger.error("   Welcome to ${Constant.TAG}  !");
 
 
         /*
-            project.repositories.maven {
-                url "https://jitpack.io"
-            }
-
-            //    project.configurations.implementation.dependencies.add(
-            //        project.dependencies.create(project.rootProject.findProject("click-debounce-runtime")))
-
-            project.configurations.implementation.dependencies.add(
-                    project.dependencies.create('com.github.SmartDengg:asm-clickdebounce-runtime:1.0.0'))
-          */
-
-
-        final def variants
-        def hasApp = project.plugins.withType(AppPlugin)
-        if (!hasApp) {
-            throw new GradleException("'com.android.application' plugin required.")
-        } else {
-            variants = project.android.applicationVariants
+        project.repositories.maven {
+            url "https://jitpack.io"
         }
 
-//        addOkHttp3Aspect(project)
+        //    project.configurations.implementation.dependencies.add(
+        //        project.dependencies.create(project.rootProject.findProject("click-debounce-runtime")))
+
+        project.configurations.implementation.dependencies.add(
+                project.dependencies.create('com.github.SmartDengg:asm-clickdebounce-runtime:1.0.0'))
+*/
+
+        def hasApp = project.plugins.withType(AppPlugin)
+        def hasLib = project.plugins.withType(LibraryPlugin)
+        if (!hasApp && !hasLib) {
+            throw new IllegalStateException("'android' or 'android-library' plugin required.")
+        }
 
 
         def tracedClassesMap = new LinkedHashMap<String, List<TracedClass>>()
         AppExtension android = project.extensions.getByType(AppExtension)
-        android.registerTransform(new InforsTransform(project, tracedClassesMap, extension))
+        android.registerTransform(new DoubleClickTransform(project, tracedClassesMap, extension,!hasLib))
 
 
         project.afterEvaluate {
 
             Utils.forExtension(android) { variant ->
 
-//                JavaCompile javaCompile = variant.getJavaCompiler()
-//                javaCompile.doLast {
-//                    println("Aspactj manipulate")
-//                    String[] args = ["-showWeaveInfo",
-//                                     "-1.8",
-//                                     "-inpath", javaCompile.destinationDir.toString(),
-//                                     "-aspectpath", javaCompile.classpath.asPath,
-//                                     "-d", javaCompile.destinationDir.toString(),
-//                                     "-classpath", javaCompile.classpath.asPath,
-//                                     "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
-//
-//                    println("ajc args: " + Arrays.toString(args))
-//
-//                    MessageHandler handler = new MessageHandler(true);
-//                    new Main().run(args, handler)
-//
-//                    def log = project.logger
-//                    for (IMessage message : handler.getMessages(null, true)) {
-//                        switch (message.getKind()) {
-//                            case IMessage.ABORT:
-//                            case IMessage.ERROR:
-//                            case IMessage.FAIL:
-//                                log.error message.message, message.thrown
-//                                break;
-//                            case IMessage.WARNING:
-//                            case IMessage.INFO:
-//                                log.info message.message, message.thrown
-//                                break;
-//                            case IMessage.DEBUG:
-//                                log.debug message.message, message.thrown
-//                                break;
-//                        }
-//                    }
-//                }
 
                 createWriteMappingTask(project, variant, tracedClassesMap)
             }
@@ -106,13 +67,9 @@ class DoubleClickPlugin implements Plugin<Project> {
         def mappingTaskName = "outputMappingFor${variant.name.capitalize()}"
 
         //click-debounce-lib-android:  transformClassesWithInforsForRelease
-        Task inforsTask = project.tasks["transformClassesWithInforsTransformFor${variant.name.capitalize()}"]
+        Task mappingTask = project.tasks["transformClassesWithDoubleClickTransformFor${variant.name.capitalize()}"]
 
-//        SaveCfgTask saveCfgTask = project.tasks.create("infors${variant.name.capitalize()}saveCfg", SaveCfgTask)
-
-//        variant.outputs.first().processResources.dependsOn saveCfgTask
-
-        inforsTask.configure {
+        mappingTask.configure {
             def startTime
             doFirst {
                 startTime = System.nanoTime()
@@ -137,9 +94,9 @@ class DoubleClickPlugin implements Plugin<Project> {
                     FileUtils.join(project.buildDir, AndroidProject.FD_OUTPUTS, Constant.USER_CONFIG, 'mapping',
                             variant.name, Constant.USER_CONFIG + 'Mapping.txt')
         }
-        inforsTask.finalizedBy(outputMappingTask)
-        outputMappingTask.onlyIf { inforsTask.didWork }
-        outputMappingTask.dependsOn(inforsTask)
+        mappingTask.finalizedBy(outputMappingTask)
+        outputMappingTask.onlyIf { mappingTask.didWork }
+        outputMappingTask.dependsOn(mappingTask)
 
     }
 

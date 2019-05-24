@@ -13,13 +13,13 @@ import org.gradle.api.Project
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
-import com.cm.android.doubleclick.plugin.InforsExtension
+import com.cm.android.doubleclick.plugin.DoubleClickExtension
 
 class Processor {
 
     @PackageScope
     static void transformJar(Project project, File inputJar, File outputJar,
-                             List<TracedClass> tracedClass, InforsExtension extension) throws IOException {
+                             List<TracedClass> tracedClass, DoubleClickExtension extension) throws IOException {
         Files.createParentDirs(outputJar)
 
         new ZipOutputStream(new FileOutputStream(outputJar)).withCloseable { outputStream ->
@@ -40,7 +40,7 @@ class Processor {
         }
     }
 
-    static transformFile(Project project, File inputFile, File outputFile, List<TracedClass> tracedClasses, InforsExtension extension) {
+    static transformFile(Project project, File inputFile, File outputFile, List<TracedClass> tracedClasses, DoubleClickExtension extension) {
 
         Files.createParentDirs(outputFile)
 
@@ -56,7 +56,7 @@ class Processor {
      * 真正修改类中方法字节码
      */
     @PackageScope
-    static byte[] modifyClass(Project project, String name, byte[] bytes, List<TracedClass> tracedClasses, InforsExtension extension) {
+    static byte[] modifyClass(Project project, String name, byte[] bytes, List<TracedClass> tracedClasses, DoubleClickExtension extension) {
         def weavedBytes = bytes
 
         if (Utils.isMatchCondition(project, extension, name)) {

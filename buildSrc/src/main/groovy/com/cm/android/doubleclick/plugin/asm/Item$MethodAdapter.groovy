@@ -7,7 +7,7 @@ import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
-import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addInforsAnno
+import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.addAnno
 import static com.cm.android.doubleclick.plugin.utils.MethodHookMap.trackAnnoClassName
 
 class Item$MethodAdapter extends MethodVisitor {
@@ -26,7 +26,7 @@ class Item$MethodAdapter extends MethodVisitor {
 
         if (traced) return;
 
-        addInforsAnno(mv);
+        addAnno(mv);
 
 
         methodVisitor.visitVarInsn(ALOAD, 1)

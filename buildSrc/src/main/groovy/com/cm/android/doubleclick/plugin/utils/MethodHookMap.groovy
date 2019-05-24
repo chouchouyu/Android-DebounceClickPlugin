@@ -18,7 +18,7 @@ class MethodHookMap {
     public static
     final String agentClassName = "com/cm/android/doubleclick/java/DebouncedPredictor";
     public static
-    final String trackAnnoClassName = "Lcom/cm/android/doubleclick/java/DoubleClickAnno;";
+    final String trackAnnoClassName = "Lcom/cm/android/doubleclick/java/SingleClickAnno;";
 
     //    String name
 //    String desc
@@ -336,7 +336,7 @@ class MethodHookMap {
     }
 
 
-    static void addInforsAnno(MethodVisitor mv) {
+    static void addAnno(MethodVisitor mv) {
         AnnotationVisitor annotationVisitor =
                 mv.visitAnnotation(trackAnnoClassName, true);
         annotationVisitor.visitEnd();
