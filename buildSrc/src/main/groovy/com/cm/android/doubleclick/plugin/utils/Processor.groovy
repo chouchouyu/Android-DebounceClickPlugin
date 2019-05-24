@@ -65,7 +65,7 @@ class Processor {
                     new CompactClassWriter(classReader,
                             ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS)
 
-            ModifyClassAdapter classAdapter = new ModifyClassAdapter(name,classWriter)
+            ModifyClassAdapter classAdapter = new ModifyClassAdapter(project,name,classWriter)
             try {
                 classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
                 weavedBytes = classWriter.toByteArray()

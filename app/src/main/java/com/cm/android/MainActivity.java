@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import com.cm.android.R;
-import com.cm.android.doubleclick.java.DebouncedPredictor;
 
 public class MainActivity extends Activity
         implements View.OnClickListener, AdapterView.OnItemClickListener {
@@ -19,11 +17,8 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.button1).setOnClickListener(this);
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick : " + this.getClass().getName());
-            }
+        findViewById(R.id.button2).setOnClickListener((v) -> {
+            Log.d(TAG, "onClick : " + this.getClass().getName());
         });
     }
 

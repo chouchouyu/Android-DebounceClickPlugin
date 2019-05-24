@@ -3,6 +3,7 @@ package com.cm.android.doubleclick.plugin.asm
 import com.cm.android.doubleclick.plugin.bean.AnalyticsMethodCell
 import com.cm.android.doubleclick.plugin.bean.TracedClass
 import com.cm.android.doubleclick.plugin.utils.Utils
+import org.gradle.api.Project
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
@@ -20,10 +21,12 @@ public class ModifyClassAdapter extends ClassVisitor implements Opcodes {
     int access
     String[] interfaces
     private String mClassName
+    Project project
 
-    ModifyClassAdapter(String className, ClassVisitor classVisitor) {
+    ModifyClassAdapter(Project project, String className, ClassVisitor classVisitor) {
         super(Opcodes.ASM5, classVisitor);
         this.mClassName = className
+        this.project = project
     }
 
     @Override
@@ -52,7 +55,6 @@ public class ModifyClassAdapter extends ClassVisitor implements Opcodes {
         }
 
 
-        // android.widget.AdapterView.OnItemClickListener.onItemClick(android.widget.AdapterView,android.view.View,int,long)
         if ((Utils.isPublic(access) && !Utils.isStatic(access)) && //
                 name.equals("onItemClick") && //
                 desc.equals("(Landroid/widget/AdapterView;Landroid/view/View;IJ)V")) {
@@ -60,27 +62,12 @@ public class ModifyClassAdapter extends ClassVisitor implements Opcodes {
             tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
         }
 
-//
-//        if (name.trim().startsWith('lambda$') && MethodHookMap.isPrivate(access) && MethodHookMap.isSynthetic(access)) {
-//            if (desc == '(Landroid/view/MenuItem;)Z' && MethodHookMap.isStatic(access)) {
-//                AnalyticsMethodCell cell = MethodHookMap.sLambdaMethods.get(desc + '2')
-//                if (cell != null) {
-//                    methodVisitor = new Common$MethodAdapter(cell, methodVisitor);
-//                    tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//                }
-//            } else {
-//                AnalyticsMethodCell cell = MethodHookMap.sLambdaMethods.get(desc)
-//                if (cell != null) {
-//                    int paramStart = cell.paramsStart
-//                    if (MethodHookMap.isStatic(access)) {
-//                        paramStart = paramStart - 1
-//                    }
-//                    methodVisitor = new Common$MethodAdapter(cell, methodVisitor);
-//                    tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-//                }
-//            }
-//        }
-
+        if (name.trim().startsWith('lambda$') && Utils.isPrivate(access) && MethodHookMap.isSynthetic(access)) {
+            if (desc == '(Landroid/view/View;)V') {
+                methodVisitor = new OnClick$MethodAdapter(methodVisitor);
+                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+            }
+        }
 
         return methodVisitor;
     }
@@ -88,4 +75,5 @@ public class ModifyClassAdapter extends ClassVisitor implements Opcodes {
     TracedClass getTracedClass() {
         return tracedClass;
     }
+
 }

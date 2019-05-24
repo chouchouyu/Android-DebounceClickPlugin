@@ -22,6 +22,7 @@ public class DebouncedPredictor {
 
 
     public static boolean shouldDoClick(View targetView) {
+        System.out.println("--------shouldDoClick--------");
         FrozenView frozenView = viewWeakHashMap.get(targetView);
         final long now = now();
 

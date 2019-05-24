@@ -5,6 +5,7 @@ buildscript {
     repositories {
 //        google()
 //        jcenter()
+        mavenCentral()
         jcenter {
             url 'http://jcenter.bintray.com'
         }
@@ -22,6 +23,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.3.0'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
         classpath 'org.aspectj:aspectjtools:1.8.6'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -40,6 +42,7 @@ allprojects {
 //            url 'https://maven.google.com/'
 //            name 'Google'
 //        }
+        mavenCentral()
         maven { url 'https://dl.bintray.com/wusanm/maven' }
         mavenCentral()
         maven { url 'https://maven.google.com' } //add this code
