@@ -44,4 +44,14 @@
             android:background="@android:color/holo_red_light"
             android:padding="20dp"
             android:text="DataBinding capturing"/>
+
+
+    <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/holo_red_light"
+            android:padding="20dp"
+            android:text="RxBinding without ButterKnife capturing"/>
 </LinearLayout>

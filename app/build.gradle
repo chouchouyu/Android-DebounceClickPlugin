@@ -2,6 +2,11 @@ apply plugin: 'com.android.application'
 apply plugin: com.cm.android.doubleclick.plugin.DoubleClickPlugin
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
+
+DoubleClick {
+    //if your project contains rxbinding and without butterKnife
+    includePackages = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
+}
 android {
     compileSdkVersion 28
     buildToolsVersion '25.0.0'
@@ -18,13 +23,10 @@ android {
         enabled = true
     }
 
-//    defaultConfig {
-//        multiDexEnabled true
     //不要这么写
 //        jackOptions {
 //            enabled true
 //        }
-//    }
 
 
     buildTypes {
@@ -48,6 +50,8 @@ dependencies {
         }
     }
     compile project(':double-click-java')
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.jakewharton:butterknife:8.8.1'
+    compile 'com.jakewharton.rxbinding:rxbinding:1.0.0'
 }

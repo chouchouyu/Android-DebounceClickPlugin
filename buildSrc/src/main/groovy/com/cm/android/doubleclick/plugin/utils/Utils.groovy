@@ -3,6 +3,7 @@ package com.cm.android.doubleclick.plugin.utils
 import com.android.SdkConstants
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
+import com.android.build.gradle.LibraryExtension
 import com.android.utils.FileUtils
 import com.cm.android.doubleclick.plugin.DoubleClickExtension
 import org.gradle.api.Project
@@ -56,7 +57,7 @@ class Utils implements Opcodes {
             if (pathName.contains(i)) {
                 return true
             }
-            if (pathName.contains('butterknife.internal.DebouncingOnClickListener')){
+            if (pathName.contains('butterknife.internal.DebouncingOnClickListener')) {
                 return false
             }
         }
@@ -69,7 +70,8 @@ class Utils implements Opcodes {
 
 
     static def setIncludePackages(def extentPackage, Project project) {
-        def includePackage = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
+        def includePackage = []
+//        def includePackage = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
 //                                  ,'com.facebook.react.uimanager.NativeViewHierarchyManager']
         AppExtension android = project.extensions.getByType(AppExtension)
         def appPackageName = getAppPackageName(android)
@@ -104,13 +106,13 @@ class Utils implements Opcodes {
                 extension.applicationVariants.all(closure)
             }
         }
-//        if (extension instanceof LibraryExtension) {
-//            if (findExtensionType) {
-//                closure.call(false, true, false)
-//            } else {
-//                extension.libraryVariants.all(closure)
-//            }
-//        }
+        if (extension instanceof LibraryExtension) {
+            if (findExtensionType) {
+                closure.call(false, true, false)
+            } else {
+                extension.libraryVariants.all(closure)
+            }
+        }
 //        if (extension instanceof FeatureExtension) {
 //            if (findExtensionType) {
 //                closure.call(false, false, true)

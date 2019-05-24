@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".DataBindingActivity">
         </activity>
+        <activity android:name=".RxBinidingActivity">
+        </activity>
     </application>
 
 </manifest>
