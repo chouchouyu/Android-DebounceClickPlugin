@@ -2,9 +2,10 @@
 1. 加注解后就不会影响 ok 
 2. Lambert ok
 3， butterknife https://www.2cto.com/kf/201609/547120.html 有防暴击 ok
-4.databanding  todo 没有成功 
+4.databanding  ok但是 没有成功 
 rxbinding todo , 因为和butterknife一起可以用可以去除
 Annotation 改名字
+手动设置和 自动跳过功能
 
 1.自动化集成
 2.文档
