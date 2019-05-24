@@ -20,9 +20,6 @@ public class DebouncedPredictor {
 
     private static final Map<View, FrozenView> viewWeakHashMap = new WeakHashMap<>();
 
-    public static void maybe(View view) {
-        System.out.println("doubleclick -------------maybe  ");
-    }
 
     public static boolean shouldDoClick(View targetView) {
         FrozenView frozenView = viewWeakHashMap.get(targetView);
@@ -32,17 +29,14 @@ public class DebouncedPredictor {
             frozenView = new FrozenView(targetView);
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
             viewWeakHashMap.put(targetView, frozenView);
-            System.out.println("doubleclick -------------pass  ");
             return true;
         }
 
         if (now >= frozenView.getFrozenWindowTime()) {
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
-            System.out.println("doubleclick -------------pass  " + now);
             return true;
         }
 
-        System.out.println("doubleclick -------------fobbident  ");
         return false;
     }
 
