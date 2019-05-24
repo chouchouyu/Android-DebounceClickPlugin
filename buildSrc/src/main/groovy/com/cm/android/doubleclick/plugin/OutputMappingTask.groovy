@@ -14,7 +14,7 @@ import org.gradle.api.tasks.TaskAction
 class OutputMappingTask extends DefaultTask {
     {
         group = Constant.USER_CONFIG
-        description = 'traced class mapping file of single click view'
+        description = ' mapping file for view which prevent from debounces multiple clicks posted in a short time'
     }
 
     @Input

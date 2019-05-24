@@ -6,8 +6,10 @@
 rxbinding ok  , 因为和butterknife一起可以用可以去除 
 
 
-ClickDebounceAdd
-ClickDebounceIgnore
+1.改名
+2.改暴击方法
+3.extra
+4.Mapping文件
  
 
 SingleClickMarked

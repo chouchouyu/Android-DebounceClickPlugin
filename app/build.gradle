@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
-apply plugin: com.cm.android.doubleclick.plugin.DoubleClickPlugin
+apply plugin: com.cm.android.doubleclick.plugin.DebounceClickPlugin
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
 
-DoubleClick {
+DebounceClick {
     //if your project contains rxbinding and without butterKnife
     includePackages = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
 }

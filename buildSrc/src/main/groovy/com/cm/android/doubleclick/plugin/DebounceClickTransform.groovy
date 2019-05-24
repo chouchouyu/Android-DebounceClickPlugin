@@ -18,7 +18,7 @@ import com.android.utils.FileUtils
 import com.cm.android.doubleclick.plugin.utils.Utils
 
 
-class DoubleClickTransform extends Transform {
+class DebounceClickTransform extends Transform {
 
     Project project
     Map<String, List<TracedClass>> tracedClassesMap
@@ -26,7 +26,7 @@ class DoubleClickTransform extends Transform {
     private Status status
     private boolean isApp
 
-    DoubleClickTransform(p, tracedClassesMap, extension, isApp) {
+    DebounceClickTransform(p, tracedClassesMap, extension, isApp) {
         this.project = p
         this.tracedClassesMap = tracedClassesMap
         this.extension = extension
@@ -36,7 +36,7 @@ class DoubleClickTransform extends Transform {
 
     @Override
     String getName() {
-        return DoubleClickTransform.simpleName
+        return DebounceClickTransform.simpleName
     }
 
     @Override
@@ -57,7 +57,6 @@ class DoubleClickTransform extends Transform {
 
     @Override
     void transform(TransformInvocation invocation) throws TransformException, InterruptedException, IOException {
-//        welcome()
 
         def tracedClassesContainer = []
         tracedClassesMap[invocation.context.variantName] = tracedClassesContainer
@@ -149,9 +148,4 @@ class DoubleClickTransform extends Transform {
 
     }
 
-    def welcome() {
-        def stream = DoubleClickTransform.class.getClassLoader().getResourceAsStream('helpContent.groovy')
-        def helpContent = new String(IOUtils.toByteArray(stream), 'UTF-8')
-        println helpContent
-    }
 }

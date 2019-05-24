@@ -15,7 +15,7 @@ import com.android.builder.model.AndroidProject
 
 import java.util.concurrent.TimeUnit
 
-class DoubleClickPlugin implements Plugin<Project> {
+class DebounceClickPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
@@ -47,7 +47,7 @@ class DoubleClickPlugin implements Plugin<Project> {
 
         def tracedClassesMap = new LinkedHashMap<String, List<TracedClass>>()
         AppExtension android = project.extensions.getByType(AppExtension)
-        android.registerTransform(new DoubleClickTransform(project, tracedClassesMap, extension,!hasLib))
+        android.registerTransform(new DebounceClickTransform(project, tracedClassesMap, extension,!hasLib))
 
 
         project.afterEvaluate {
@@ -66,8 +66,7 @@ class DoubleClickPlugin implements Plugin<Project> {
 
         def mappingTaskName = "outputMappingFor${variant.name.capitalize()}"
 
-        //click-debounce-lib-android:  transformClassesWithInforsForRelease
-        Task mappingTask = project.tasks["transformClassesWithDoubleClickTransformFor${variant.name.capitalize()}"]
+        Task mappingTask = project.tasks["transformClassesWithDebounceClickTransformFor${variant.name.capitalize()}"]
 
         mappingTask.configure {
             def startTime
