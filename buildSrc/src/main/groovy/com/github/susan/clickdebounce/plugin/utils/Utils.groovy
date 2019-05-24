@@ -113,24 +113,12 @@ class Utils implements Opcodes {
                 extension.libraryVariants.all(closure)
             }
         }
-//        if (extension instanceof FeatureExtension) {
-//            if (findExtensionType) {
-//                closure.call(false, false, true)
-//            } else {
-//                extension.featureVariants.all(closure)
-//            }
-//        }
     }
 
     static File toOutputFile(File outputDir, File inputDir, File inputFile) {
         return new File(outputDir, FileUtils.relativePossiblyNonExistingPath(inputFile, inputDir))
     }
 
-    static boolean isViewOnclickMethod(int access, String name, String desc) {
-        return (Utils.isPublic(access) && !Utils.isStatic(access)) && //
-                name.equals("onClick") && //
-                desc.equals("(Landroid/view/View;)V");
-    }
 
     static boolean isPrivate(int access) {
         return (access & ACC_PRIVATE) != 0;

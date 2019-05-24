@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import com.github.susan.clickdebounce.java.ClickDebounceMark;
 import com.github.susan.demo.SecondActivity;
 
 public class MainActivity extends Activity

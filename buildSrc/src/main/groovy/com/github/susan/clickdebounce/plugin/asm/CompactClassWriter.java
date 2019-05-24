@@ -3,11 +3,6 @@ package com.github.susan.clickdebounce.plugin.asm;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 
-/**
- * 创建时间:  2018/03/27 14:49 <br>
- * 作者:  SmartDengg <br>
- * 描述:
- */
 public class CompactClassWriter extends ClassWriter {
 
     public CompactClassWriter(ClassReader classReader, int flags) {

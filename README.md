@@ -6,8 +6,8 @@
 rxbinding ok  , 因为和butterknife一起可以用可以去除 
 
 
-1.改名
-2.改暴击方法
+1.改名 ok 
+2.改暴击方法 觉得还是原来的好
 3.extra
 4.Mapping文件
  
@@ -57,4 +57,5 @@ public class com.cm.android.MainActivity extends android.app.Activity implements
         gradlew -q app:dependencies >1.txt
         
         
-   
+   https://blog.csdn.net/zhongweijian/article/details/7868644
+   使用ASM4.0实现AOP的功能，监控每个方法的执行时间
