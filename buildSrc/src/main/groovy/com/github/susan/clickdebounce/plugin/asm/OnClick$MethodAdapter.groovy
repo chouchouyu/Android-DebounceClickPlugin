@@ -30,16 +30,15 @@ class OnClick$MethodAdapter extends MethodVisitor implements Opcodes {
         methodVisitor.visitVarInsn(ALOAD, 1)
         methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, Utils.agentClassName, "shouldDoClick", "(Landroid/view/View;)Z", false)
 
-        Label label = new Label();
-        methodVisitor.visitJumpInsn(IFNE, label);
-        methodVisitor.visitInsn(RETURN);
-        methodVisitor.visitLabel(label);
-//        methodVisitor.visitFrame(Opcodes.F_SAME, 0, null, 0, null);
+        Label label = new Label()
+        methodVisitor.visitJumpInsn(IFNE, label)
+        methodVisitor.visitInsn(RETURN)
+        methodVisitor.visitLabel(label)
     }
 
     @Override
-    public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
-        traced = desc.equals(trackAnnoClassName);
+    AnnotationVisitor visitAnnotation(String desc, boolean visible) {
+        traced = desc.equals(trackAnnoClassName)
         return super.visitAnnotation(desc, visible);
     }
 }
