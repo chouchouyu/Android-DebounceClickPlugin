@@ -1,3 +1,0 @@
-Starting a Gradle Daemon, 1 incompatible Daemon could not be reused, use --status for details
-
-> Task :buildSrc:compileGroovy FAILED
