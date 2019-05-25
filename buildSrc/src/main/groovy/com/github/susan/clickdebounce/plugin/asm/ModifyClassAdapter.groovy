@@ -2,11 +2,11 @@ package com.github.susan.clickdebounce.plugin.asm
 
 import com.github.susan.clickdebounce.plugin.bean.TracedClass
 import com.github.susan.clickdebounce.plugin.utils.Utils
-import org.gradle.api.Project
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
 import com.github.susan.clickdebounce.plugin.utils.MethodHookMap
+
 
 class ModifyClassAdapter extends ClassVisitor implements Opcodes {
 
@@ -15,12 +15,10 @@ class ModifyClassAdapter extends ClassVisitor implements Opcodes {
     int access
     String[] interfaces
     private String mClassName
-    Project project
 
-    ModifyClassAdapter(Project project, String className, ClassVisitor classVisitor) {
+    ModifyClassAdapter( String className, ClassVisitor classVisitor) {
         super(Opcodes.ASM5, classVisitor);
         this.mClassName = className
-        this.project = project
     }
 
     @Override
@@ -37,24 +35,29 @@ class ModifyClassAdapter extends ClassVisitor implements Opcodes {
     @Override
     MethodVisitor visitMethod(int access, final String name, String desc, String signature,
                               String[] exceptions) {
-
         MethodVisitor methodVisitor = cv.visitMethod(access, name, desc, signature, exceptions);
 
+
         // android.view.View.OnClickListener.onClick(android.view.View)
-        if ((Utils.isPublic(access) && !Utils.isStatic(access)) && //
-                name.equals("onClick") && //
+        if ((Utils.isPublic(access) && !Utils.isStatic(access)) &&
                 desc.equals("(Landroid/view/View;)V")) {
-            methodVisitor = new OnClick$MethodAdapter(methodVisitor);
-            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+            if (name.equals("onClick")) {
+                methodVisitor = new OnClick$MethodAdapter(methodVisitor);
+                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+            } else {
+                methodVisitor = new ExtraOnClick$MethodAdapter(methodVisitor);
+                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+            }
+
         }
 
 
-        if ((Utils.isPublic(access) && !Utils.isStatic(access)) && //
-                name.equals("onItemClick") && //
-                desc.equals("(Landroid/widget/AdapterView;Landroid/view/View;IJ)V")) {
-            methodVisitor = new ListView$OnItemClickListenerMethodAdapter(methodVisitor);
-            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
-        }
+//        if ((Utils.isPublic(access) && !Utils.isStatic(access)) && //
+//                name.equals("onItemClick") && //
+//                desc.equals("(Landroid/widget/AdapterView;Landroid/view/View;IJ)V")) {
+//            methodVisitor = new ListView$OnItemClickListenerMethodAdapter(methodVisitor);
+//            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+//        }
 
         if (name.trim().startsWith('lambda$') && Utils.isPrivate(access) && MethodHookMap.isSynthetic(access)) {
             if (desc == '(Landroid/view/View;)V') {
@@ -62,6 +65,7 @@ class ModifyClassAdapter extends ClassVisitor implements Opcodes {
                 tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
             }
         }
+
 
         return methodVisitor;
     }

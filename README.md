@@ -59,3 +59,11 @@ public class com.cm.android.MainActivity extends android.app.Activity implements
         
    https://blog.csdn.net/zhongweijian/article/details/7868644
    使用ASM4.0实现AOP的功能，监控每个方法的执行时间
+   
+   
+   https://my.oschina.net/wensiqun/blog/117382
+   ASMSupport教程2：如何查看生成的class文件和查看log文件内容 原 荐
+   
+   
+   http://www.wangyuwei.me/2017/03/05/ASM%E5%AE%9E%E6%88%98%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95%E8%80%97%E6%97%B6/
+   ASM实战统计方法耗时（demo）

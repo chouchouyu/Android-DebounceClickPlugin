@@ -7,6 +7,7 @@ import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.api.BaseVariant
 import com.github.susan.clickdebounce.plugin.bean.TracedClass
 import com.github.susan.clickdebounce.plugin.utils.Constant
+import com.github.susan.clickdebounce.plugin.utils.Logger
 import com.github.susan.clickdebounce.plugin.utils.Utils
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -51,7 +52,7 @@ class DebounceClickPlugin implements Plugin<Project> {
 
 
         project.afterEvaluate {
-
+            Logger.setDebug(extension.debug)
             Utils.forExtension(android) { variant ->
 
 

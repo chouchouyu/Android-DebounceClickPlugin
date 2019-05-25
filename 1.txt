@@ -1,950 +1,167 @@
-
-------------------------------------------------------------
-Project :app
-------------------------------------------------------------
-
-_debugAndroidTestAnnotationProcessor - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugAndroidTestApk - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugAndroidTestCompile - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugAndroidTestJackPlugin - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugAnnotationProcessor - ## Internal use, do not manually configure ##
-+--- com.jakewharton:butterknife-compiler:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    +--- com.google.auto:auto-common:0.8
-|    |    \--- com.google.guava:guava:19.0
-|    \--- com.squareup:javapoet:1.9.0
-+--- com.android.databinding:compiler:2.3.0
-|    +--- com.android.databinding:baseLibrary:2.3.0
-|    \--- com.googlecode.juniversalchardet:juniversalchardet:1.0.3
-+--- com.android.support:appcompat-v7:28.0.0
-|    +--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-compat:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:collections:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- android.arch.lifecycle:runtime:1.1.1
-|    |    |    +--- android.arch.lifecycle:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    +--- android.arch.core:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    \--- com.android.support:versionedparcelable:28.0.0
-|    |         +--- com.android.support:support-annotations:28.0.0
-|    |         \--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:cursoradapter:28.0.0
-|    |    \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-core-utils:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:documentfile:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
-|    |    |    |    +--- android.arch.core:runtime:1.1.1
-|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
-|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
-|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
-|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
-|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    +--- com.android.support:localbroadcastmanager:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:print:28.0.0
-|    |         \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-fragment:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:support-core-ui:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    |    +--- com.android.support:customview:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:viewpager:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:drawerlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:interpolator:28.0.0
-|    |    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
-|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
-|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0 (*)
-|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
-|    +--- com.android.support:support-vector-drawable:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    \--- com.android.support:animated-vector-drawable:28.0.0
-|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
-|         \--- com.android.support:support-core-ui:28.0.0 (*)
-+--- com.android.support.constraint:constraint-layout:1.1.3
-|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
-+--- project :double-click-java
-+--- com.jakewharton:butterknife:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1 (*)
-|    +--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    \--- com.android.support:support-compat:25.3.0 -> 28.0.0 (*)
-+--- com.android.databinding:library:1.3.1
-|    +--- com.android.support:support-v4:21.0.3
-|    |    \--- com.android.support:support-annotations:21.0.3 -> 28.0.0
-|    \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-+--- com.android.databinding:baseLibrary:2.3.0
-\--- com.android.databinding:adapters:1.3.1
-     +--- com.android.databinding:library:1.3 -> 1.3.1 (*)
-     \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-
-_debugApk - ## Internal use, do not manually configure ##
-+--- com.android.support:appcompat-v7:28.0.0
-|    +--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-compat:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:collections:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- android.arch.lifecycle:runtime:1.1.1
-|    |    |    +--- android.arch.lifecycle:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    +--- android.arch.core:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    \--- com.android.support:versionedparcelable:28.0.0
-|    |         +--- com.android.support:support-annotations:28.0.0
-|    |         \--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:cursoradapter:28.0.0
-|    |    \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-core-utils:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:documentfile:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
-|    |    |    |    +--- android.arch.core:runtime:1.1.1
-|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
-|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
-|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
-|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
-|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    +--- com.android.support:localbroadcastmanager:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:print:28.0.0
-|    |         \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-fragment:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:support-core-ui:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    |    +--- com.android.support:customview:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:viewpager:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:drawerlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:interpolator:28.0.0
-|    |    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
-|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
-|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0 (*)
-|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
-|    +--- com.android.support:support-vector-drawable:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    \--- com.android.support:animated-vector-drawable:28.0.0
-|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
-|         \--- com.android.support:support-core-ui:28.0.0 (*)
-+--- com.android.support.constraint:constraint-layout:1.1.3
-|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
-+--- project :double-click-java
-+--- com.jakewharton:butterknife:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    +--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    \--- com.android.support:support-compat:25.3.0 -> 28.0.0 (*)
-+--- com.android.databinding:library:1.3.1
-|    +--- com.android.support:support-v4:21.0.3
-|    |    \--- com.android.support:support-annotations:21.0.3 -> 28.0.0
-|    \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-+--- com.android.databinding:baseLibrary:2.3.0
-\--- com.android.databinding:adapters:1.3.1
-     +--- com.android.databinding:library:1.3 -> 1.3.1 (*)
-     \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-
-_debugCompile - ## Internal use, do not manually configure ##
-+--- com.android.support:appcompat-v7:28.0.0
-|    +--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-compat:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:collections:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- android.arch.lifecycle:runtime:1.1.1
-|    |    |    +--- android.arch.lifecycle:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    +--- android.arch.core:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    \--- com.android.support:versionedparcelable:28.0.0
-|    |         +--- com.android.support:support-annotations:28.0.0
-|    |         \--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:cursoradapter:28.0.0
-|    |    \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-core-utils:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:documentfile:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
-|    |    |    |    +--- android.arch.core:runtime:1.1.1
-|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
-|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
-|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
-|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
-|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    +--- com.android.support:localbroadcastmanager:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:print:28.0.0
-|    |         \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-fragment:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:support-core-ui:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    |    +--- com.android.support:customview:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:viewpager:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:drawerlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:interpolator:28.0.0
-|    |    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
-|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
-|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0 (*)
-|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
-|    +--- com.android.support:support-vector-drawable:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    \--- com.android.support:animated-vector-drawable:28.0.0
-|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
-|         \--- com.android.support:support-core-ui:28.0.0 (*)
-+--- com.android.support.constraint:constraint-layout:1.1.3
-|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
-+--- project :double-click-java
-+--- com.jakewharton:butterknife:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    +--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    \--- com.android.support:support-compat:25.3.0 -> 28.0.0 (*)
-+--- com.android.databinding:library:1.3.1
-|    +--- com.android.support:support-v4:21.0.3
-|    |    \--- com.android.support:support-annotations:21.0.3 -> 28.0.0
-|    \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-+--- com.android.databinding:baseLibrary:2.3.0
-\--- com.android.databinding:adapters:1.3.1
-     +--- com.android.databinding:library:1.3 -> 1.3.1 (*)
-     \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-
-_debugJackPlugin - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugUnitTestApk - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugUnitTestCompile - ## Internal use, do not manually configure ##
-No dependencies
-
-_debugUnitTestJackPlugin - ## Internal use, do not manually configure ##
-No dependencies
-
-_releaseAnnotationProcessor - ## Internal use, do not manually configure ##
-+--- com.jakewharton:butterknife-compiler:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    +--- com.google.auto:auto-common:0.8
-|    |    \--- com.google.guava:guava:19.0
-|    \--- com.squareup:javapoet:1.9.0
-+--- com.android.databinding:compiler:2.3.0
-|    +--- com.android.databinding:baseLibrary:2.3.0
-|    \--- com.googlecode.juniversalchardet:juniversalchardet:1.0.3
-+--- com.android.support:appcompat-v7:28.0.0
-|    +--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-compat:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:collections:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- android.arch.lifecycle:runtime:1.1.1
-|    |    |    +--- android.arch.lifecycle:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    +--- android.arch.core:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    \--- com.android.support:versionedparcelable:28.0.0
-|    |         +--- com.android.support:support-annotations:28.0.0
-|    |         \--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:cursoradapter:28.0.0
-|    |    \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-core-utils:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:documentfile:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
-|    |    |    |    +--- android.arch.core:runtime:1.1.1
-|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
-|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
-|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
-|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
-|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    +--- com.android.support:localbroadcastmanager:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:print:28.0.0
-|    |         \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-fragment:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:support-core-ui:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    |    +--- com.android.support:customview:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:viewpager:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:drawerlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:interpolator:28.0.0
-|    |    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
-|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
-|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0 (*)
-|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
-|    +--- com.android.support:support-vector-drawable:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    \--- com.android.support:animated-vector-drawable:28.0.0
-|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
-|         \--- com.android.support:support-core-ui:28.0.0 (*)
-+--- com.android.support.constraint:constraint-layout:1.1.3
-|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
-+--- project :double-click-java
-+--- com.jakewharton:butterknife:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1 (*)
-|    +--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    \--- com.android.support:support-compat:25.3.0 -> 28.0.0 (*)
-+--- com.android.databinding:library:1.3.1
-|    +--- com.android.support:support-v4:21.0.3
-|    |    \--- com.android.support:support-annotations:21.0.3 -> 28.0.0
-|    \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-+--- com.android.databinding:baseLibrary:2.3.0
-\--- com.android.databinding:adapters:1.3.1
-     +--- com.android.databinding:library:1.3 -> 1.3.1 (*)
-     \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-
-_releaseApk - ## Internal use, do not manually configure ##
-+--- com.android.support:appcompat-v7:28.0.0
-|    +--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-compat:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:collections:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- android.arch.lifecycle:runtime:1.1.1
-|    |    |    +--- android.arch.lifecycle:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    +--- android.arch.core:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    \--- com.android.support:versionedparcelable:28.0.0
-|    |         +--- com.android.support:support-annotations:28.0.0
-|    |         \--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:cursoradapter:28.0.0
-|    |    \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-core-utils:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:documentfile:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
-|    |    |    |    +--- android.arch.core:runtime:1.1.1
-|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
-|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
-|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
-|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
-|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    +--- com.android.support:localbroadcastmanager:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:print:28.0.0
-|    |         \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-fragment:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:support-core-ui:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    |    +--- com.android.support:customview:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:viewpager:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:drawerlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:interpolator:28.0.0
-|    |    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
-|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
-|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0 (*)
-|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
-|    +--- com.android.support:support-vector-drawable:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    \--- com.android.support:animated-vector-drawable:28.0.0
-|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
-|         \--- com.android.support:support-core-ui:28.0.0 (*)
-+--- com.android.support.constraint:constraint-layout:1.1.3
-|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
-+--- project :double-click-java
-+--- com.jakewharton:butterknife:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    +--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    \--- com.android.support:support-compat:25.3.0 -> 28.0.0 (*)
-+--- com.android.databinding:library:1.3.1
-|    +--- com.android.support:support-v4:21.0.3
-|    |    \--- com.android.support:support-annotations:21.0.3 -> 28.0.0
-|    \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-+--- com.android.databinding:baseLibrary:2.3.0
-\--- com.android.databinding:adapters:1.3.1
-     +--- com.android.databinding:library:1.3 -> 1.3.1 (*)
-     \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-
-_releaseCompile - ## Internal use, do not manually configure ##
-+--- com.android.support:appcompat-v7:28.0.0
-|    +--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-compat:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:collections:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- android.arch.lifecycle:runtime:1.1.1
-|    |    |    +--- android.arch.lifecycle:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    +--- android.arch.core:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    \--- com.android.support:versionedparcelable:28.0.0
-|    |         +--- com.android.support:support-annotations:28.0.0
-|    |         \--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:cursoradapter:28.0.0
-|    |    \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-core-utils:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:documentfile:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
-|    |    |    |    +--- android.arch.core:runtime:1.1.1
-|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
-|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
-|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
-|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
-|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    +--- com.android.support:localbroadcastmanager:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:print:28.0.0
-|    |         \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-fragment:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:support-core-ui:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    |    +--- com.android.support:customview:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:viewpager:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:drawerlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:interpolator:28.0.0
-|    |    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
-|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
-|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0 (*)
-|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
-|    +--- com.android.support:support-vector-drawable:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    \--- com.android.support:animated-vector-drawable:28.0.0
-|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
-|         \--- com.android.support:support-core-ui:28.0.0 (*)
-+--- com.android.support.constraint:constraint-layout:1.1.3
-|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
-+--- project :double-click-java
-+--- com.jakewharton:butterknife:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    +--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    \--- com.android.support:support-compat:25.3.0 -> 28.0.0 (*)
-+--- com.android.databinding:library:1.3.1
-|    +--- com.android.support:support-v4:21.0.3
-|    |    \--- com.android.support:support-annotations:21.0.3 -> 28.0.0
-|    \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-+--- com.android.databinding:baseLibrary:2.3.0
-\--- com.android.databinding:adapters:1.3.1
-     +--- com.android.databinding:library:1.3 -> 1.3.1 (*)
-     \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-
-_releaseJackPlugin - ## Internal use, do not manually configure ##
-No dependencies
-
-_releaseUnitTestAnnotationProcessor - ## Internal use, do not manually configure ##
-No dependencies
-
-_releaseUnitTestApk - ## Internal use, do not manually configure ##
-No dependencies
-
-_releaseUnitTestCompile - ## Internal use, do not manually configure ##
-No dependencies
-
-_releaseUnitTestJackPlugin - ## Internal use, do not manually configure ##
-No dependencies
-
-androidJacocoAgent - The Jacoco agent to use to get coverage data.
-\--- org.jacoco:org.jacoco.agent:0.7.5.201505241946
-
-androidJacocoAnt - The Jacoco ant tasks to use to get execute Gradle tasks.
-\--- org.jacoco:org.jacoco.ant:0.7.5.201505241946
-     +--- org.jacoco:org.jacoco.core:0.7.5.201505241946
-     |    \--- org.ow2.asm:asm-debug-all:5.0.1
-     +--- org.jacoco:org.jacoco.report:0.7.5.201505241946
-     |    +--- org.jacoco:org.jacoco.core:0.7.5.201505241946 (*)
-     |    \--- org.ow2.asm:asm-debug-all:5.0.1
-     \--- org.jacoco:org.jacoco.agent:0.7.5.201505241946
-
-androidTestAnnotationProcessor - Classpath for the annotation processor for 'androidTest'.
-No dependencies
-
-androidTestApk - Classpath packaged with the compiled 'androidTest' classes.
-No dependencies
-
-androidTestCompile - Classpath for compiling the androidTest sources.
-No dependencies
-
-androidTestJackPlugin - Classpath for the 'androidTest' Jack plugins.
-No dependencies
-
-androidTestProvided - Classpath for only compiling the androidTest sources.
-No dependencies
-
-androidTestWearApp - Link to a wear app to embed for object 'androidTest'.
-No dependencies
-
-annotationProcessor - Classpath for the annotation processor for 'main'.
-+--- com.jakewharton:butterknife-compiler:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0
-|    +--- com.google.auto:auto-common:0.8
-|    |    \--- com.google.guava:guava:19.0
-|    \--- com.squareup:javapoet:1.9.0
-\--- com.android.databinding:compiler:2.3.0
-     +--- com.android.databinding:baseLibrary:2.3.0
-     \--- com.googlecode.juniversalchardet:juniversalchardet:1.0.3
-
-apk - Classpath packaged with the compiled 'main' classes.
-No dependencies
-
-archives - Configuration for archive artifacts.
-No dependencies
-
-compile - Classpath for compiling the main sources.
-+--- com.android.support:appcompat-v7:28.0.0
-|    +--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-compat:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:collections:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- android.arch.lifecycle:runtime:1.1.1
-|    |    |    +--- android.arch.lifecycle:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    +--- android.arch.core:common:1.1.1
-|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    \--- com.android.support:versionedparcelable:28.0.0
-|    |         +--- com.android.support:support-annotations:28.0.0
-|    |         \--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:collections:28.0.0 (*)
-|    +--- com.android.support:cursoradapter:28.0.0
-|    |    \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-core-utils:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:documentfile:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- android.arch.lifecycle:livedata:1.1.1
-|    |    |    |    +--- android.arch.core:runtime:1.1.1
-|    |    |    |    |    +--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    +--- android.arch.lifecycle:livedata-core:1.1.1
-|    |    |    |    |    +--- android.arch.lifecycle:common:1.1.1 (*)
-|    |    |    |    |    +--- android.arch.core:common:1.1.1 (*)
-|    |    |    |    |    \--- android.arch.core:runtime:1.1.1 (*)
-|    |    |    |    \--- android.arch.core:common:1.1.1 (*)
-|    |    |    \--- android.arch.lifecycle:viewmodel:1.1.1
-|    |    |         \--- com.android.support:support-annotations:26.1.0 -> 28.0.0
-|    |    +--- com.android.support:localbroadcastmanager:28.0.0
-|    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:print:28.0.0
-|    |         \--- com.android.support:support-annotations:28.0.0
-|    +--- com.android.support:support-fragment:28.0.0
-|    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    +--- com.android.support:support-core-ui:28.0.0
-|    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    |    +--- com.android.support:customview:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    +--- com.android.support:viewpager:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:coordinatorlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:drawerlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:slidingpanelayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:customview:28.0.0 (*)
-|    |    |    +--- com.android.support:interpolator:28.0.0
-|    |    |    |    \--- com.android.support:support-annotations:28.0.0
-|    |    |    +--- com.android.support:swiperefreshlayout:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    +--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    |    \--- com.android.support:interpolator:28.0.0 (*)
-|    |    |    +--- com.android.support:asynclayoutinflater:28.0.0
-|    |    |    |    +--- com.android.support:support-annotations:28.0.0
-|    |    |    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    |    |    \--- com.android.support:cursoradapter:28.0.0 (*)
-|    |    +--- com.android.support:support-core-utils:28.0.0 (*)
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    +--- com.android.support:loader:28.0.0 (*)
-|    |    \--- android.arch.lifecycle:viewmodel:1.1.1 (*)
-|    +--- com.android.support:support-vector-drawable:28.0.0
-|    |    +--- com.android.support:support-annotations:28.0.0
-|    |    \--- com.android.support:support-compat:28.0.0 (*)
-|    \--- com.android.support:animated-vector-drawable:28.0.0
-|         +--- com.android.support:support-vector-drawable:28.0.0 (*)
-|         \--- com.android.support:support-core-ui:28.0.0 (*)
-+--- com.android.support.constraint:constraint-layout:1.1.3
-|    \--- com.android.support.constraint:constraint-layout-solver:1.1.3
-+--- project :double-click-java
-+--- com.jakewharton:butterknife:8.8.1
-|    +--- com.jakewharton:butterknife-annotations:8.8.1
-|    |    \--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    +--- com.android.support:support-annotations:25.3.0 -> 28.0.0
-|    \--- com.android.support:support-compat:25.3.0 -> 28.0.0 (*)
-+--- com.android.databinding:library:1.3.1
-|    +--- com.android.support:support-v4:21.0.3
-|    |    \--- com.android.support:support-annotations:21.0.3 -> 28.0.0
-|    \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-+--- com.android.databinding:baseLibrary:2.3.0
-\--- com.android.databinding:adapters:1.3.1
-     +--- com.android.databinding:library:1.3 -> 1.3.1 (*)
-     \--- com.android.databinding:baseLibrary:2.3.0-dev -> 2.3.0
-
-debugAnnotationProcessor - Classpath for the annotation processor for 'debug'.
-No dependencies
-
-debugApk - Classpath packaged with the compiled 'debug' classes.
-No dependencies
-
-debugCompile - Classpath for compiling the debug sources.
-No dependencies
-
-debugJackPlugin - Classpath for the 'debug' Jack plugins.
-No dependencies
-
-debugProvided - Classpath for only compiling the debug sources.
-No dependencies
-
-debugWearApp - Link to a wear app to embed for object 'debug'.
-No dependencies
-
-default - Configuration for default artifacts.
-No dependencies
-
-default-mapping - Configuration for default mapping artifacts.
-No dependencies
-
-default-metadata - Metadata for the produced APKs.
-No dependencies
-
-jackPlugin - Classpath for the 'main' Jack plugins.
-No dependencies
-
-provided - Classpath for only compiling the main sources.
-No dependencies
-
-releaseAnnotationProcessor - Classpath for the annotation processor for 'release'.
-No dependencies
-
-releaseApk - Classpath packaged with the compiled 'release' classes.
-No dependencies
-
-releaseCompile - Classpath for compiling the release sources.
-No dependencies
-
-releaseJackPlugin - Classpath for the 'release' Jack plugins.
-No dependencies
-
-releaseProvided - Classpath for only compiling the release sources.
-No dependencies
-
-releaseWearApp - Link to a wear app to embed for object 'release'.
-No dependencies
-
-retrolambdaConfig
-\--- net.orfjackal.retrolambda:retrolambda:2.5.6
-
-testAnnotationProcessor - Classpath for the annotation processor for 'test'.
-No dependencies
-
-testApk - Classpath packaged with the compiled 'test' classes.
-No dependencies
-
-testCompile - Classpath for compiling the test sources.
-No dependencies
-
-testDebugAnnotationProcessor - Classpath for the annotation processor for 'testDebug'.
-No dependencies
-
-testDebugApk - Classpath packaged with the compiled 'testDebug' classes.
-No dependencies
-
-testDebugCompile - Classpath for compiling the testDebug sources.
-No dependencies
-
-testDebugJackPlugin - Classpath for the 'testDebug' Jack plugins.
-No dependencies
-
-testDebugProvided - Classpath for only compiling the testDebug sources.
-No dependencies
-
-testDebugWearApp - Link to a wear app to embed for object 'testDebug'.
-No dependencies
-
-testJackPlugin - Classpath for the 'test' Jack plugins.
-No dependencies
-
-testProvided - Classpath for only compiling the test sources.
-No dependencies
-
-testReleaseAnnotationProcessor - Classpath for the annotation processor for 'testRelease'.
-No dependencies
-
-testReleaseApk - Classpath packaged with the compiled 'testRelease' classes.
-No dependencies
-
-testReleaseCompile - Classpath for compiling the testRelease sources.
-No dependencies
-
-testReleaseJackPlugin - Classpath for the 'testRelease' Jack plugins.
-No dependencies
-
-testReleaseProvided - Classpath for only compiling the testRelease sources.
-No dependencies
-
-testReleaseWearApp - Link to a wear app to embed for object 'testRelease'.
-No dependencies
-
-testWearApp - Link to a wear app to embed for object 'test'.
-No dependencies
-
-wearApp - Link to a wear app to embed for object 'main'.
-No dependencies
-
-(*) - dependencies omitted (listed previously)
+Executing tasks: [build]
+
+Configuration on demand is an incubating feature.
+:buildSrc:compileJava NO-SOURCE
+:buildSrc:compileGroovy UP-TO-DATE
+:buildSrc:processResources UP-TO-DATE
+:buildSrc:classes UP-TO-DATE
+:buildSrc:jar UP-TO-DATE
+:buildSrc:assemble UP-TO-DATE
+:buildSrc:compileTestJava NO-SOURCE
+:buildSrc:compileTestGroovy NO-SOURCE
+:buildSrc:processTestResources NO-SOURCE
+:buildSrc:testClasses UP-TO-DATE
+:buildSrc:test NO-SOURCE
+:buildSrc:check UP-TO-DATE
+:buildSrc:build UP-TO-DATE
+   Welcome to < DebounceClick-plugin-v1.0.0 >  !
+The CompileOptions.bootClasspath property has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the CompileOptions.bootstrapClasspath property instead.
+The setTestClassesDir(File) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the setTestClassesDirs(FileCollection) method instead.
+The getTestClassesDir() method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the getTestClassesDirs() method instead.
+The ConfigurableReport.setDestination(Object) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the method ConfigurableReport.setDestination(File) instead.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+Jack is disabled, but one of the plugins you are using supports Java 8 language features.
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild UP-TO-DATE
+:app:checkDebugManifest
+:app:preReleaseBuild UP-TO-DATE
+:app:prepareComAndroidDatabindingAdapters131Library
+:app:prepareComAndroidDatabindingLibrary131Library
+:app:prepareComAndroidSupportAppcompatV72301Library
+:app:prepareComAndroidSupportConstraintConstraintLayout113Library
+:app:prepareComAndroidSupportSupportCompat2530Library
+:app:prepareComJakewhartonButterknife881Library
+:app:prepareComJakewhartonRxbindingRxbinding100Library
+:app:prepareIoReactivexRxandroid121Library
+:double-click-java:preBuild UP-TO-DATE
+:double-click-java:preReleaseBuild UP-TO-DATE
+:double-click-java:checkReleaseManifest
+:double-click-java:prepareReleaseDependencies
+:double-click-java:compileReleaseAidl UP-TO-DATE
+:double-click-java:compileReleaseNdk NO-SOURCE
+:double-click-java:compileLint UP-TO-DATE
+:double-click-java:copyReleaseLint NO-SOURCE
+:double-click-java:mergeReleaseShaders UP-TO-DATE
+:double-click-java:compileReleaseShaders UP-TO-DATE
+:double-click-java:generateReleaseAssets UP-TO-DATE
+:double-click-java:mergeReleaseAssets UP-TO-DATE
+:double-click-java:mergeReleaseProguardFiles UP-TO-DATE
+:double-click-java:packageReleaseRenderscript NO-SOURCE
+:double-click-java:compileReleaseRenderscript UP-TO-DATE
+:double-click-java:generateReleaseResValues UP-TO-DATE
+:double-click-java:generateReleaseResources UP-TO-DATE
+:double-click-java:packageReleaseResources UP-TO-DATE
+:double-click-java:processReleaseManifest UP-TO-DATE
+:double-click-java:generateReleaseBuildConfig UP-TO-DATE
+:double-click-java:processReleaseResources UP-TO-DATE
+:double-click-java:generateReleaseSources UP-TO-DATE
+:double-click-java:incrementalReleaseJavaCompilationSafeguard UP-TO-DATE
+:double-click-java:javaPreCompileRelease
+:double-click-java:compileReleaseJavaWithJavac UP-TO-DATE
+:double-click-java:processReleaseJavaRes NO-SOURCE
+:double-click-java:transformResourcesWithMergeJavaResForRelease UP-TO-DATE
+:double-click-java:transformClassesAndResourcesWithSyncLibJarsForRelease UP-TO-DATE
+:double-click-java:mergeReleaseJniLibFolders UP-TO-DATE
+:double-click-java:transformNativeLibsWithMergeJniLibsForRelease UP-TO-DATE
+:double-click-java:transformNativeLibsWithStripDebugSymbolForRelease UP-TO-DATE
+:double-click-java:transformNativeLibsWithSyncJniLibsForRelease UP-TO-DATE
+:double-click-java:bundleRelease UP-TO-DATE
+:app:prepareDebugDependencies
+:app:compileDebugRenderscript UP-TO-DATE
+:app:generateDebugResValues UP-TO-DATE
+:app:generateDebugResources UP-TO-DATE
+:app:mergeDebugResources UP-TO-DATE
+:app:dataBindingProcessLayoutsDebug UP-TO-DATE
+:app:compileDebugAidl UP-TO-DATE
+:app:generateDebugBuildConfig UP-TO-DATE
+:app:processDebugManifest UP-TO-DATE
+:app:processDebugResources UP-TO-DATE
+:app:generateDebugSources UP-TO-DATE
+:app:dataBindingExportBuildInfoDebug UP-TO-DATE
+:app:incrementalDebugJavaCompilationSafeguard UP-TO-DATE
+:app:javaPreCompileDebug
+:app:transformClassesAndDataBindingWithDataBindingMergeArtifactsForDebug UP-TO-DATE
+:app:compileDebugJavaWithJavac UP-TO-DATE
+:app:compileDebugNdk NO-SOURCE
+:app:compileDebugSources UP-TO-DATE
+:app:mergeDebugShaders UP-TO-DATE
+:app:compileDebugShaders UP-TO-DATE
+:app:generateDebugAssets UP-TO-DATE
+:app:mergeDebugAssets UP-TO-DATE
+:app:transformClassesWithDebounceClickTransformForDebug UP-TO-DATE
+:app:outputMappingForDebug SKIPPED
+:app:transformClassesWithRetrolambdaForDebug UP-TO-DATE
+:app:transformClassesWithDexForDebug UP-TO-DATE
+:app:mergeDebugJniLibFolders UP-TO-DATE
+:app:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
+:app:transformNativeLibsWithStripDebugSymbolForDebug UP-TO-DATE
+:app:processDebugJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
+:app:validateSigningDebug
+:app:packageDebug UP-TO-DATE
+:app:assembleDebug UP-TO-DATE
+:app:checkReleaseManifest
+:app:prepareReleaseDependencies
+:app:compileReleaseRenderscript UP-TO-DATE
+:app:generateReleaseResValues UP-TO-DATE
+:app:generateReleaseResources UP-TO-DATE
+:app:mergeReleaseResources UP-TO-DATE
+:app:dataBindingProcessLayoutsRelease UP-TO-DATE
+:app:compileReleaseAidl UP-TO-DATE
+:app:generateReleaseBuildConfig UP-TO-DATE
+:app:processReleaseManifest UP-TO-DATE
+:app:processReleaseResources UP-TO-DATE
+:app:generateReleaseSources UP-TO-DATE
+:app:dataBindingExportBuildInfoRelease UP-TO-DATE
+:app:incrementalReleaseJavaCompilationSafeguard UP-TO-DATE
+:app:javaPreCompileRelease
+:app:transformClassesAndDataBindingWithDataBindingMergeArtifactsForRelease UP-TO-DATE
+:app:compileReleaseJavaWithJavac UP-TO-DATE
+:app:compileReleaseNdk NO-SOURCE
+:app:compileReleaseSources UP-TO-DATE
+:app:lintVitalRelease
+:app:mergeReleaseShaders UP-TO-DATE
+:app:compileReleaseShaders UP-TO-DATE
+:app:generateReleaseAssets UP-TO-DATE
+:app:mergeReleaseAssets UP-TO-DATE
+:app:transformClassesWithDebounceClickTransformForRelease UP-TO-DATE
+:app:outputMappingForRelease SKIPPED
+:app:transformClassesWithRetrolambdaForRelease UP-TO-DATE
+:app:transformClassesWithDexForRelease UP-TO-DATE
+:app:mergeReleaseJniLibFolders UP-TO-DATE
+:app:transformNativeLibsWithMergeJniLibsForRelease UP-TO-DATE
+:app:transformNativeLibsWithStripDebugSymbolForRelease UP-TO-DATE
+:app:processReleaseJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForRelease UP-TO-DATE
+:app:packageRelease UP-TO-DATE
+:app:assembleRelease
+:app:assemble
+:app:lint
+Ran lint on variant debug: 20 issues found
+Ran lint on variant release: 20 issues found
+Wrote HTML report to file:///Users/susan/Downloads/DoubleClickPlugin/app/build/reports/lint-results.html
+Wrote XML report to file:///Users/susan/Downloads/DoubleClickPlugin/app/build/reports/lint-results.xml
+:app:lint FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:lint'.
+> Lint found errors in the project; aborting build.
+  
+  Fix the issues identified by lint, or add the following to your build script to proceed with errors:
+  ...
+  android {
+      lintOptions {
+          abortOnError false
+      }
+  }
+  ...
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2s
+87 actionable tasks: 20 executed, 67 up-to-date

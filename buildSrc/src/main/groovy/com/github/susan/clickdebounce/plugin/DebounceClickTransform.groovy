@@ -10,8 +10,8 @@ import com.android.build.api.transform.TransformOutputProvider
 import com.android.build.api.transform.Status
 import com.android.build.gradle.internal.pipeline.TransformManager
 import com.github.susan.clickdebounce.plugin.bean.TracedClass
+import com.github.susan.clickdebounce.plugin.utils.Logger
 import com.github.susan.clickdebounce.plugin.utils.Processor
-import org.apache.commons.io.IOUtils
 import org.gradle.api.Project
 import static com.google.common.base.Preconditions.checkNotNull
 import com.android.utils.FileUtils
@@ -76,6 +76,7 @@ class DebounceClickTransform extends Transform {
                         jarInput.scopes,
                         Format.JAR)
 
+                Logger.info("jar status = to be or not to be that is a question")
                 project.logger.error('input jar = ' + inputJar.path)
                 project.logger.error('output jar = ' + outputJar.path)
 

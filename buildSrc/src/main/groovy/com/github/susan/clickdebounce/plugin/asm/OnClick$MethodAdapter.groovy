@@ -20,7 +20,7 @@ class OnClick$MethodAdapter extends MethodVisitor implements Opcodes {
     }
 
     @Override
-    public void visitCode() {
+    void visitCode() {
         super.visitCode();
 
         if (traced) return;
