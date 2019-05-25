@@ -22,14 +22,12 @@ class DebounceClickTransform extends Transform {
 
     Project project
     Map<String, List<TracedClass>> tracedClassesMap
-    DebounceClickExtension extension
     private Status status
     private boolean isApp
 
-    DebounceClickTransform(p, tracedClassesMap, extension, isApp) {
+    DebounceClickTransform(p, tracedClassesMap, isApp) {
         this.project = p
         this.tracedClassesMap = tracedClassesMap
-        this.extension = extension
         this.isApp = isApp
     }
 
@@ -76,9 +74,8 @@ class DebounceClickTransform extends Transform {
                         jarInput.scopes,
                         Format.JAR)
 
-                Logger.info("jar status = to be or not to be that is a question")
-                project.logger.error('input jar = ' + inputJar.path)
-                project.logger.error('output jar = ' + outputJar.path)
+                Logger.info('input jar = ' + inputJar.path)
+                Logger.info('output jar = ' + outputJar.path)
 
                 if (invocation.isIncremental()) {
 
@@ -93,14 +90,14 @@ class DebounceClickTransform extends Transform {
                             break
                         case Status.ADDED:
                         case Status.CHANGED:
-                            Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer, extension)
+                            Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer)
                             break
                         case Status.REMOVED:
                             FileUtils.delete(outputJar)
                             break
                     }
                 } else {
-                    Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer, extension)
+                    Processor.transformJar(project, inputJar, outputJar, tracedClassesContainer)
                 }
             }
 
@@ -113,14 +110,14 @@ class DebounceClickTransform extends Transform {
                         directoryInput.scopes,
                         Format.DIRECTORY)
 
-                project.logger.error('input directory = ' + inputDir.path)
-                project.logger.error('output directory = ' + outputDir.path)
+                Logger.info('input directory = ' + inputDir.path)
+                Logger.info('output directory = ' + outputDir.path)
 
 
                 if (invocation.isIncremental()) {
                     directoryInput.changedFiles.each { File inputFile, Status status ->
 
-                        project.logger.error(" changed file =  ${inputFile.name} : ${status}")
+                        Logger.info(" changed file =  ${inputFile.name} : ${status}")
 
                         switch (status) {
                             case Status.NOTCHANGED:
@@ -129,7 +126,7 @@ class DebounceClickTransform extends Transform {
                             case Status.CHANGED:
                                 if (!inputFile.isDirectory()) {
                                     File outputFile = Utils.toOutputFile(outputDir, inputDir, inputFile)
-                                    Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer, extension)
+                                    Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer)
                                 }
                                 break
                             case Status.REMOVED:
@@ -141,7 +138,7 @@ class DebounceClickTransform extends Transform {
                 } else {
                     for (File inputFile : FileUtils.getAllFiles(inputDir)) {
                         File outputFile = Utils.toOutputFile(outputDir, inputDir, inputFile)
-                        Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer, extension)
+                        Processor.transformFile(project, inputFile, outputFile, tracedClassesContainer)
                     }
                 }
             }

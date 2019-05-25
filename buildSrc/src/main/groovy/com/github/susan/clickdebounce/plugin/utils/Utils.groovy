@@ -5,7 +5,6 @@ import com.android.build.gradle.AppExtension
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.utils.FileUtils
-import com.github.susan.clickdebounce.plugin.DebounceClickExtension
 import org.gradle.api.Project
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.MethodVisitor
@@ -28,7 +27,7 @@ class Utils implements Opcodes {
     }
 
     static def isRIgnoreFile(def fileName) {
-        //println  ('R$mipmap.class'==~'R\\$mipmap\\.class' )
+        //   ('R$mipmap.class'==~'R\\$mipmap\\.class' )
         def regex = ~'R\\$.*\\.class'
         def match = fileName =~ regex
         match.find()
@@ -42,9 +41,9 @@ class Utils implements Opcodes {
     }
 
 
-    static boolean isMatchCondition(Project project, DebounceClickExtension extension, String name) {
+    static boolean isMatchCondition(Project project, String name) {
         name.endsWith(SdkConstants.DOT_CLASS) &&
-                shouldModifyClass(project, extension, name) &&
+                shouldModifyClass(project, name) &&
                 !shouldExcludeFile(name)
     }
 
@@ -53,8 +52,8 @@ class Utils implements Opcodes {
      * @param className 形如 android.app.Fragment 的类名
      * @return
      */
-    static def shouldModifyClass(Project project, DebounceClickExtension extension, String className) {
-        def targetPackages = setIncludePackages(extension.includePackages, project)
+    static def shouldModifyClass(Project project, String className) {
+        def targetPackages = setIncludePackages(project."${Constant.USER_CONFIG}".includePackages, project)
         def pathName = path2Classname(className);
         for (i in targetPackages) {
             if (pathName.contains(i)) {

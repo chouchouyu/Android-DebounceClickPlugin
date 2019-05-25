@@ -48,11 +48,13 @@ class DebounceClickPlugin implements Plugin<Project> {
 
         def tracedClassesMap = new LinkedHashMap<String, List<TracedClass>>()
         AppExtension android = project.extensions.getByType(AppExtension)
-        android.registerTransform(new DebounceClickTransform(project, tracedClassesMap, extension,!hasLib))
+        android.registerTransform(new DebounceClickTransform(project, tracedClassesMap, !hasLib))
 
 
         project.afterEvaluate {
+            //logger enable
             Logger.setDebug(extension.debug)
+            
             Utils.forExtension(android) { variant ->
 
 
@@ -75,9 +77,9 @@ class DebounceClickPlugin implements Plugin<Project> {
                 startTime = System.nanoTime()
             }
             doLast {
-                println()
-                println " --> COST: ${TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime)} ms"
-                println()
+                Logger.info()
+                Logger.info(" --> COST: ${TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime)} ms")
+                Logger.info()
             }
         }
 

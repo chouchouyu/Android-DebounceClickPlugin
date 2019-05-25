@@ -13,13 +13,12 @@ import org.gradle.api.Project
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 import java.util.zip.ZipOutputStream
-import com.github.susan.clickdebounce.plugin.DebounceClickExtension
 
 class Processor {
 
     @PackageScope
     static void transformJar(Project project, File inputJar, File outputJar,
-                             List<TracedClass> tracedClass, DebounceClickExtension extension) throws IOException {
+                             List<TracedClass> tracedClass) throws IOException {
         Files.createParentDirs(outputJar)
 
         new ZipOutputStream(new FileOutputStream(outputJar)).withCloseable { outputStream ->
@@ -29,7 +28,7 @@ class Processor {
                 ZipEntry entry
                 while ((entry = inputStream.nextEntry) != null) {
                     if (!entry.isDirectory()) {
-                        byte[] newContent = modifyClass(project, entry.name, IOUtils.toByteArray(inputStream), tracedClass, extension)
+                        byte[] newContent = modifyClass(project, entry.name, IOUtils.toByteArray(inputStream), tracedClass)
 
                         outputStream.putNextEntry(new ZipEntry(entry.name))
                         outputStream.write(newContent)
@@ -40,11 +39,11 @@ class Processor {
         }
     }
 
-    static transformFile(Project project, File inputFile, File outputFile, List<TracedClass> tracedClasses, DebounceClickExtension extension) {
+    static transformFile(Project project, File inputFile, File outputFile, List<TracedClass> tracedClasses) {
 
         Files.createParentDirs(outputFile)
 
-        byte[] newContent = modifyClass(project, inputFile.path, inputFile.bytes, tracedClasses, extension)
+        byte[] newContent = modifyClass(project, inputFile.path, inputFile.bytes, tracedClasses)
 
         outputFile.withOutputStream {
             it.write(newContent)
@@ -56,10 +55,10 @@ class Processor {
      * 真正修改类中方法字节码
      */
     @PackageScope
-    static byte[] modifyClass(Project project, String name, byte[] bytes, List<TracedClass> tracedClasses, DebounceClickExtension extension) {
+    static byte[] modifyClass(Project project, String name, byte[] bytes, List<TracedClass> tracedClasses) {
         def weavedBytes = bytes
 
-        if (Utils.isMatchCondition(project, extension, name)) {
+        if (Utils.isMatchCondition(project, name)) {
             ClassReader classReader = new ClassReader(bytes)
             ClassWriter classWriter =
                     new CompactClassWriter(classReader,
