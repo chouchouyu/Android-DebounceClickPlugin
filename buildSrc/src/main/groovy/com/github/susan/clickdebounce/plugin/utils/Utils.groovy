@@ -7,7 +7,10 @@ import com.android.build.gradle.LibraryExtension
 import com.android.utils.FileUtils
 import com.github.susan.clickdebounce.plugin.DebounceClickExtension
 import org.gradle.api.Project
+import org.objectweb.asm.AnnotationVisitor
+import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 
 class Utils implements Opcodes {
 
@@ -119,9 +122,12 @@ class Utils implements Opcodes {
         return new File(outputDir, FileUtils.relativePossiblyNonExistingPath(inputFile, inputDir))
     }
 
-
     static boolean isPrivate(int access) {
         return (access & ACC_PRIVATE) != 0;
+    }
+
+    static boolean isSynthetic(int access) {
+        return (access & ACC_SYNTHETIC) != 0;
     }
 
     static boolean isPublic(int access) {
@@ -131,4 +137,33 @@ class Utils implements Opcodes {
     static boolean isStatic(int access) {
         return (access & ACC_STATIC) != 0;
     }
+
+    static String convertSignature(String name, String desc) {
+        Type method = Type.getType(desc);
+        StringBuilder sb = new StringBuilder();
+        sb.append(method.getReturnType().getClassName()).append(" ").append(name);
+        sb.append("(");
+        for (int i = 0; i < method.getArgumentTypes().length; i++) {
+            sb.append(method.getArgumentTypes()[i].getClassName());
+            if (i != method.getArgumentTypes().length - 1) {
+                sb.append(",");
+            }
+        }
+        sb.append(")");
+        return sb.toString();
+    }
+
+    static void addAnno(MethodVisitor mv) {
+        AnnotationVisitor annotationVisitor =
+                mv.visitAnnotation(trackAnnoClassName, true);
+        annotationVisitor.visitEnd();
+    }
+
+    public static
+    final String agentClassName = "com/github/susan/clickdebounce/java/ClickDebounceHandler";
+    public static
+    final String trackAnnoClassName = "Lcom/github/susan/clickdebounce/java/ClickDebounceMark;"
+    public static
+    final String extraAnnoClassName = "Lcom/github/susan/clickdebounce/java/ClickDebounceExtra;"
+
 }

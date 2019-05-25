@@ -5,7 +5,7 @@ import com.github.susan.clickdebounce.plugin.utils.Utils
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
-import com.github.susan.clickdebounce.plugin.utils.MethodHookMap
+import com.github.susan.clickdebounce.plugin.utils.Utils
 
 
 class ModifyClassAdapter extends ClassVisitor implements Opcodes {
@@ -43,10 +43,10 @@ class ModifyClassAdapter extends ClassVisitor implements Opcodes {
                 desc.equals("(Landroid/view/View;)V")) {
             if (name.equals("onClick")) {
                 methodVisitor = new OnClick$MethodAdapter(methodVisitor);
-                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+                tracedClass.addTracedMethod(Utils.convertSignature(name, desc));
             } else {
                 methodVisitor = new ExtraOnClick$MethodAdapter(methodVisitor);
-                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+                tracedClass.addTracedMethod(Utils.convertSignature(name, desc));
             }
 
         }
@@ -56,13 +56,13 @@ class ModifyClassAdapter extends ClassVisitor implements Opcodes {
 //                name.equals("onItemClick") && //
 //                desc.equals("(Landroid/widget/AdapterView;Landroid/view/View;IJ)V")) {
 //            methodVisitor = new ListView$OnItemClickListenerMethodAdapter(methodVisitor);
-//            tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+//            tracedClass.addTracedMethod(Utils.convertSignature(name, desc));
 //        }
 
-        if (name.trim().startsWith('lambda$') && Utils.isPrivate(access) && MethodHookMap.isSynthetic(access)) {
+        if (name.trim().startsWith('lambda$') && Utils.isPrivate(access) && Utils.isSynthetic(access)) {
             if (desc == '(Landroid/view/View;)V') {
                 methodVisitor = new OnClick$MethodAdapter(methodVisitor);
-                tracedClass.addTracedMethod(MethodHookMap.convertSignature(name, desc));
+                tracedClass.addTracedMethod(Utils.convertSignature(name, desc));
             }
         }
 

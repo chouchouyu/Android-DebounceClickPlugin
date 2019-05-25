@@ -1,13 +1,13 @@
 package com.github.susan.clickdebounce.plugin.asm
 
-import com.github.susan.clickdebounce.plugin.utils.MethodHookMap
+import com.github.susan.clickdebounce.plugin.utils.Utils
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
-import static com.github.susan.clickdebounce.plugin.utils.MethodHookMap.addAnno
-import static com.github.susan.clickdebounce.plugin.utils.MethodHookMap.trackAnnoClassName
+import static com.github.susan.clickdebounce.plugin.utils.Utils.addAnno
+import static com.github.susan.clickdebounce.plugin.utils.Utils.trackAnnoClassName
 
 class ListView$OnItemClickListenerMethodAdapter extends MethodVisitor implements Opcodes {
     private boolean traced
@@ -27,7 +27,7 @@ class ListView$OnItemClickListenerMethodAdapter extends MethodVisitor implements
         addAnno(mv);
 
         methodVisitor.visitVarInsn(ALOAD, 2)
-        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, MethodHookMap.agentClassName, "shouldDoClick", "(Landroid/view/View;)Z", false)
+        methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, Utils.agentClassName, "shouldDoClick", "(Landroid/view/View;)Z", false)
 
         Label label = new Label();
         methodVisitor.visitJumpInsn(IFNE, label);
