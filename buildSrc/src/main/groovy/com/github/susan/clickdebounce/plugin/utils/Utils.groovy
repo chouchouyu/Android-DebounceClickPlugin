@@ -155,15 +155,9 @@ class Utils implements Opcodes {
 
     static void addAnno(MethodVisitor mv) {
         AnnotationVisitor annotationVisitor =
-                mv.visitAnnotation(trackAnnoClassName, true);
+                mv.visitAnnotation(Constant.trackAnnoClassName, true);
         annotationVisitor.visitEnd();
     }
 
-    public static
-    final String agentClassName = "com/github/susan/clickdebounce/java/ClickDebounceHandler";
-    public static
-    final String trackAnnoClassName = "Lcom/github/susan/clickdebounce/java/ClickDebounceMark;"
-    public static
-    final String extraAnnoClassName = "Lcom/github/susan/clickdebounce/java/ClickDebounceExtra;"
 
 }
