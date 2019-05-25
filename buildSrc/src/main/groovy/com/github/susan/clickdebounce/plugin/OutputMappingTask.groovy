@@ -2,6 +2,7 @@ package com.github.susan.clickdebounce.plugin
 
 import com.github.susan.clickdebounce.plugin.bean.TracedClass
 import com.github.susan.clickdebounce.plugin.utils.Constant
+import com.github.susan.clickdebounce.plugin.utils.Logger
 import org.apache.commons.io.FileUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.RegularFileProperty
@@ -43,14 +44,14 @@ class OutputMappingTask extends DefaultTask {
                 Set<String> debouncedMethods = touchedTracedClass.tracedMethods
                 writer.writeLine "$className"
 
-                println className
+                Logger.info(className)
 
                 for (def methodSignature in debouncedMethods) {
                     writer.writeLine "    \u21E2  $methodSignature"
-                    println "    \u21E2  $methodSignature"
+                    Logger.info("    \u21E2  $methodSignature")
                 }
             }
         }
-        project.logger.error("Success wrote TXT mapping report to file://${outputMappingFile}")
+        Logger.info("Success wrote TXT mapping report to file://${outputMappingFile}")
     }
 }

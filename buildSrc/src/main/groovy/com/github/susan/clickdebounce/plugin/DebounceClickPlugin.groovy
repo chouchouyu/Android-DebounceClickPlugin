@@ -54,9 +54,8 @@ class DebounceClickPlugin implements Plugin<Project> {
         project.afterEvaluate {
             //logger enable
             Logger.setDebug(extension.debug)
-            
-            Utils.forExtension(android) { variant ->
 
+            Utils.forExtension(android) { variant ->
 
                 createWriteMappingTask(project, variant, tracedClassesMap)
             }
@@ -77,9 +76,9 @@ class DebounceClickPlugin implements Plugin<Project> {
                 startTime = System.nanoTime()
             }
             doLast {
-                Logger.info()
+                Logger.info(">>>>>>>>>>>>>>>>>>>>>>>>")
                 Logger.info(" --> COST: ${TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime)} ms")
-                Logger.info()
+                Logger.info("<<<<<<<<<<<<<<<<<<<<<<<<")
             }
         }
 

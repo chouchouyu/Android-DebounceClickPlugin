@@ -20,7 +20,7 @@ class Logger {
 
     def static error(Object msg) {
         try {
-            println("\033[40;31m" + "[SensorsAnalytics]: ${msg}" + "\033[0m")
+            println("\033[40;31m" + "[${Constant.USER_CONFIG}]: ${msg}" + "\033[0m")
         } catch (Exception e) {
             e.printStackTrace()
         }
@@ -34,7 +34,7 @@ class Logger {
             return
         }
         try {
-            println "[SensorsAnalytics]: ${msg}"
+            println "[${Constant.USER_CONFIG}]: ${msg}"
         } catch (Exception e) {
             e.printStackTrace()
         }
