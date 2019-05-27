@@ -2,6 +2,7 @@ package com.github.susan.debounceclick.plugin.asm
 
 import com.github.susan.debounceclick.plugin.bean.TracedClass
 import com.github.susan.debounceclick.plugin.utils.Logger
+import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
