@@ -44,7 +44,6 @@ class ExtraOnClick$MethodAdapter extends MethodVisitor implements Opcodes {
 
     @Override
     AnnotationVisitor visitAnnotation(String desc, boolean visible) {
-        Logger.error("ExtraOnClickMethodAdapte---------- - " + desc + " || " + desc.equals(Constant.extraAnnoClassName))
         traced = desc.equals(Constant.trackAnnoClassName)
         needTrace = desc.equals(Constant.extraAnnoClassName)
         return super.visitAnnotation(desc, visible)

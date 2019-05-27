@@ -117,7 +117,7 @@ class DebounceClickTransform extends Transform {
                 if (invocation.isIncremental()) {
                     directoryInput.changedFiles.each { File inputFile, Status status ->
 
-                        Logger.info(" changed file =  ${inputFile.name} : ${status}")
+                        Logger.info("changed file =  ${inputFile.name} : ${status}")
 
                         switch (status) {
                             case Status.NOTCHANGED:

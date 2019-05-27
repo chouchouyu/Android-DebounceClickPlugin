@@ -2,6 +2,8 @@ package com.github.susan.debounceclick.plugin.utils
 
 import com.github.susan.debounceclick.plugin.asm.CompactClassWriter
 import com.github.susan.debounceclick.plugin.asm.ModifyClassAdapter
+import com.github.susan.debounceclick.plugin.asm.PreCheckVisitorAdapter
+import com.github.susan.debounceclick.plugin.bean.MethodDelegate
 import com.github.susan.debounceclick.plugin.bean.TracedClass
 import com.google.common.io.Files
 import org.apache.commons.io.IOUtils
@@ -64,7 +66,8 @@ class Processor {
                     new CompactClassWriter(classReader,
                             ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS)
 
-            ModifyClassAdapter classAdapter = new ModifyClassAdapter(name,classWriter)
+            Map<String, List<MethodDelegate>> extramap = preCheckAndRetrieve(bytes)
+            ModifyClassAdapter classAdapter = new ModifyClassAdapter( classWriter, extramap)
             try {
                 classReader.accept(classAdapter, ClassReader.EXPAND_FRAMES)
                 weavedBytes = classWriter.toByteArray()
@@ -74,8 +77,22 @@ class Processor {
             }
         }
 
-       return weavedBytes
+        return weavedBytes
 
+    }
+
+
+    private static Map<String, List<MethodDelegate>> preCheckAndRetrieve(byte[] bytes) {
+
+        ClassReader classReader = new ClassReader(bytes)
+        PreCheckVisitorAdapter preCheckVisitorAdapter = new PreCheckVisitorAdapter()
+        try {
+            classReader.accept(preCheckVisitorAdapter, ClassReader.SKIP_FRAMES)
+        } catch (Exception e) {
+            println "Exception occurred when visit code \n " + e.printStackTrace()
+        }
+
+        return preCheckVisitorAdapter.getUnWeavedClassMap()
     }
 
 
