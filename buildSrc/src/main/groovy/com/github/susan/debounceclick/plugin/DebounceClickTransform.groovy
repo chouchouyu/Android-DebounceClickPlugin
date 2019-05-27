@@ -1,4 +1,4 @@
-package com.github.susan.clickdebounce.plugin
+package com.github.susan.debounceclick.plugin
 
 
 import com.android.build.api.transform.Format
@@ -9,13 +9,13 @@ import com.android.build.api.transform.TransformInvocation
 import com.android.build.api.transform.TransformOutputProvider
 import com.android.build.api.transform.Status
 import com.android.build.gradle.internal.pipeline.TransformManager
-import com.github.susan.clickdebounce.plugin.bean.TracedClass
-import com.github.susan.clickdebounce.plugin.utils.Logger
-import com.github.susan.clickdebounce.plugin.utils.Processor
+import com.github.susan.debounceclick.plugin.bean.TracedClass
+import com.github.susan.debounceclick.plugin.utils.Logger
+import com.github.susan.debounceclick.plugin.utils.Processor
 import org.gradle.api.Project
 import static com.google.common.base.Preconditions.checkNotNull
 import com.android.utils.FileUtils
-import com.github.susan.clickdebounce.plugin.utils.Utils
+import com.github.susan.debounceclick.plugin.utils.Utils
 
 
 class DebounceClickTransform extends Transform {

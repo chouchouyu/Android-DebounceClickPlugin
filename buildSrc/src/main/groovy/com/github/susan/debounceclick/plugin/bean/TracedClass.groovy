@@ -1,4 +1,4 @@
-package com.github.susan.clickdebounce.plugin.bean;
+package com.github.susan.debounceclick.plugin.bean;
 
 
 class TracedClass implements Serializable {

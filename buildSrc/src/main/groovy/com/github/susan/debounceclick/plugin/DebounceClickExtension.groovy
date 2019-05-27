@@ -1,4 +1,4 @@
-package com.github.susan.clickdebounce.plugin
+package com.github.susan.debounceclick.plugin
 
 class DebounceClickExtension {
     def includePackages = []

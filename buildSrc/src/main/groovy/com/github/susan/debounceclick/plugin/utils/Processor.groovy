@@ -1,8 +1,8 @@
-package com.github.susan.clickdebounce.plugin.utils
+package com.github.susan.debounceclick.plugin.utils
 
-import com.github.susan.clickdebounce.plugin.asm.CompactClassWriter
-import com.github.susan.clickdebounce.plugin.asm.ModifyClassAdapter
-import com.github.susan.clickdebounce.plugin.bean.TracedClass
+import com.github.susan.debounceclick.plugin.asm.CompactClassWriter
+import com.github.susan.debounceclick.plugin.asm.ModifyClassAdapter
+import com.github.susan.debounceclick.plugin.bean.TracedClass
 import com.google.common.io.Files
 import org.apache.commons.io.IOUtils
 import groovy.transform.PackageScope

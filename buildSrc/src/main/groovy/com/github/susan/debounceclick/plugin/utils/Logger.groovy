@@ -1,4 +1,4 @@
-package com.github.susan.clickdebounce.plugin.utils
+package com.github.susan.debounceclick.plugin.utils
 
 import java.lang.reflect.Array
 

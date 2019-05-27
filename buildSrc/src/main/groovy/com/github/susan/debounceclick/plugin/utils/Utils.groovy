@@ -1,4 +1,4 @@
-package com.github.susan.clickdebounce.plugin.utils
+package com.github.susan.debounceclick.plugin.utils
 
 import com.android.SdkConstants
 import com.android.build.gradle.AppExtension

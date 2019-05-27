@@ -1,8 +1,8 @@
-package com.github.susan.clickdebounce.plugin
+package com.github.susan.debounceclick.plugin
 
-import com.github.susan.clickdebounce.plugin.bean.TracedClass
-import com.github.susan.clickdebounce.plugin.utils.Constant
-import com.github.susan.clickdebounce.plugin.utils.Logger
+import com.github.susan.debounceclick.plugin.bean.TracedClass
+import com.github.susan.debounceclick.plugin.utils.Constant
+import com.github.susan.debounceclick.plugin.utils.Logger
 import org.apache.commons.io.FileUtils
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.RegularFileProperty

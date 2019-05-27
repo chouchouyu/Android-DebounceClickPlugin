@@ -1,10 +1,10 @@
-package com.github.susan.clickdebounce.plugin.asm
+package com.github.susan.debounceclick.plugin.asm
 
-import com.github.susan.clickdebounce.plugin.bean.TracedClass
+import com.github.susan.debounceclick.plugin.bean.TracedClass
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
-import com.github.susan.clickdebounce.plugin.utils.Utils
+import com.github.susan.debounceclick.plugin.utils.Utils
 
 
 class ModifyClassAdapter extends ClassVisitor implements Opcodes {

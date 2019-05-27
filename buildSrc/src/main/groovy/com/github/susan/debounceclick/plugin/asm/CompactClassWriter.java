@@ -1,4 +1,4 @@
-package com.github.susan.clickdebounce.plugin.asm;
+package com.github.susan.debounceclick.plugin.asm;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;

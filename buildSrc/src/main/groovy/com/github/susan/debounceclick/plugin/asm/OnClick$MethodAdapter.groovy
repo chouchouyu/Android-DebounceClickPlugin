@@ -1,12 +1,12 @@
-package com.github.susan.clickdebounce.plugin.asm
+package com.github.susan.debounceclick.plugin.asm
 
-import com.github.susan.clickdebounce.plugin.utils.Constant
+import com.github.susan.debounceclick.plugin.utils.Constant
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
-import static com.github.susan.clickdebounce.plugin.utils.Utils.addAnno
+import static com.github.susan.debounceclick.plugin.utils.Utils.addAnno
 
 class OnClick$MethodAdapter extends MethodVisitor implements Opcodes {
 

@@ -1,14 +1,14 @@
-package com.github.susan.clickdebounce.plugin
+package com.github.susan.debounceclick.plugin
 
 import com.android.build.gradle.LibraryPlugin
 import com.android.utils.FileUtils
 import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.api.BaseVariant
-import com.github.susan.clickdebounce.plugin.bean.TracedClass
-import com.github.susan.clickdebounce.plugin.utils.Constant
-import com.github.susan.clickdebounce.plugin.utils.Logger
-import com.github.susan.clickdebounce.plugin.utils.Utils
+import com.github.susan.debounceclick.plugin.bean.TracedClass
+import com.github.susan.debounceclick.plugin.utils.Constant
+import com.github.susan.debounceclick.plugin.utils.Logger
+import com.github.susan.debounceclick.plugin.utils.Utils
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
