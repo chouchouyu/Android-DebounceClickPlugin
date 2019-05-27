@@ -54,13 +54,17 @@ class Utils implements Opcodes {
      */
     static def shouldModifyClass(Project project, String className) {
         def targetPackages = setIncludePackages(project."${Constant.USER_CONFIG}".includePackages, project)
+        def excludePackages = project."${Constant.USER_CONFIG}".includePackages
         def pathName = path2Classname(className);
         for (i in targetPackages) {
             if (pathName.contains(i)) {
                 return true
-            }
-            if (pathName.contains('butterknife.internal.DebouncingOnClickListener')) {
-                return false
+            } else {
+                for (j in excludePackages) {
+                    if (pathName.contains(j)) {
+                        return false
+                    }
+                }
             }
         }
         return false
@@ -73,8 +77,6 @@ class Utils implements Opcodes {
 
     static def setIncludePackages(def extentPackage, Project project) {
         def includePackage = []
-//        def includePackage = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
-//                                  ,'com.facebook.react.uimanager.NativeViewHierarchyManager']
         AppExtension android = project.extensions.getByType(AppExtension)
         def appPackageName = getAppPackageName(android)
         includePackage.add(appPackageName)

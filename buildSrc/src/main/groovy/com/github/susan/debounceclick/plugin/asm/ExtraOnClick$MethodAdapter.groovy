@@ -1,6 +1,7 @@
 package com.github.susan.debounceclick.plugin.asm
 
 import com.github.susan.debounceclick.plugin.utils.Constant
+import com.github.susan.debounceclick.plugin.utils.Logger
 import org.objectweb.asm.AnnotationVisitor
 import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
@@ -17,6 +18,10 @@ class ExtraOnClick$MethodAdapter extends MethodVisitor implements Opcodes {
     ExtraOnClick$MethodAdapter(MethodVisitor methodVisitor) {
         super(Opcodes.ASM5, methodVisitor);
         this.methodVisitor = methodVisitor
+    }
+
+    boolean getNeedTrace() {
+        return needTrace
     }
 
     @Override
@@ -39,6 +44,7 @@ class ExtraOnClick$MethodAdapter extends MethodVisitor implements Opcodes {
 
     @Override
     AnnotationVisitor visitAnnotation(String desc, boolean visible) {
+        Logger.error("ExtraOnClickMethodAdapte---------- - " + desc + " || " + desc.equals(Constant.extraAnnoClassName))
         traced = desc.equals(Constant.trackAnnoClassName)
         needTrace = desc.equals(Constant.extraAnnoClassName)
         return super.visitAnnotation(desc, visible)

@@ -1,6 +1,7 @@
 package com.github.susan.debounceclick.plugin.asm
 
 import com.github.susan.debounceclick.plugin.bean.TracedClass
+import com.github.susan.debounceclick.plugin.utils.Logger
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes
@@ -44,8 +45,14 @@ class ModifyClassAdapter extends ClassVisitor implements Opcodes {
                 tracedClass.addTracedMethod(Utils.convertSignature(name, desc))
             } else {
                 // method form like XX(View view) with anno @ClickDebounceExtra
-                methodVisitor = new ExtraOnClick$MethodAdapter(methodVisitor)
-                tracedClass.addTracedMethod(Utils.convertSignature(name, desc))
+                ExtraOnClick$MethodAdapter extraOnClick$MethodAdapter = new ExtraOnClick$MethodAdapter(methodVisitor)
+                if (extraOnClick$MethodAdapter.needTrace) {
+                    Logger.info("ModifyClassAdapter " + extraOnClick$MethodAdapter.needTrace+"--------"+name+desc)
+                    tracedClass.addTracedMethod(Utils.convertSignature(name, desc))
+                } else {
+                    Logger.info("ModifyClassAdapter " + extraOnClick$MethodAdapter.needTrace+"--------"+name+desc)
+                }
+                methodVisitor = extraOnClick$MethodAdapter
             }
 
         }
