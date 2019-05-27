@@ -6,6 +6,8 @@
 rxbinding ok  , 因为和butterknife一起可以用可以去除 
 
 
+avatar!
+
 1.改名 ok 
 2.改暴击方法 觉得还是原来的好
 3.extra

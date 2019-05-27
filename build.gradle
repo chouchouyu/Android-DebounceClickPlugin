@@ -3,10 +3,11 @@
 buildscript {
 
     repositories {
-//        google()
-//        jcenter()
         mavenCentral()
-        jcenter {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/wusanm/maven'}
+        jcenter{
             url 'http://jcenter.bintray.com'
         }
 
@@ -14,13 +15,11 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
-        maven {
-            url '../repository'
-        }
-        google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
+        //引入上传 jcenter 的插件库
+        classpath 'com.novoda:bintray-release:0.9'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
         classpath 'org.aspectj:aspectjtools:1.8.6'
         classpath 'me.tatarka:gradle-retrolambda:3.7.1'
@@ -32,24 +31,18 @@ buildscript {
 
 allprojects {
     repositories {
-//        google()
-//        jcenter()
-//        jcenter{
-//            url 'http://jcenter.bintray.com'
-//        }
-//        mavenCentral()
-//        maven { url "https://jitpack.io" }
-//        maven {
-//            url 'https://maven.google.com/'
-//            name 'Google'
-//        }
         mavenCentral()
-        maven { url 'https://dl.bintray.com/wusanm/maven' }
-        mavenCentral()
+        google()
         maven { url 'https://maven.google.com' } //add this code
         jcenter()
-        maven {
-            url '../repository'
+        maven { url 'https://dl.bintray.com/wusanm/maven'}
+    }
+    //添加 utf-8 的支持，避免中文注释生成 Javadoc 文件出现编码错误
+    tasks.withType(Javadoc){
+        options{
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
         }
     }
 }

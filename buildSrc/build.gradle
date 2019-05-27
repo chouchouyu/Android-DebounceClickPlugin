@@ -21,17 +21,39 @@ dependencies {
 }
 
 
-apply plugin: 'maven'
-apply plugin: 'maven-publish'
+//apply plugin: 'maven'
+//apply plugin: 'maven-publish'
+//
+//
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            from components.java
+//            group 'com.cm'
+//            artifactId 'doubleclick'
+//            version '1.0.0'
+//        }
+//    }
+//}
 
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from components.java
-            group 'com.cm'
-            artifactId 'doubleclick'
-            version '1.0.0'
-        }
-    }
+/*
+// 以下开始是将Android Library上传到jcenter的相关配置
+apply plugin: 'com.novoda.bintray-release'//添加
+//项目主页
+def siteUrl = 'http://git.dev.cmrh.com/FrontEnd/Infors/InforsAndroidSdk'
+publish {
+    repoName = 'maven'//远程仓库名字,不指明，默认是上传到maven
+    userOrg = 'wusanm'//bintray.com的用户名
+    groupId = 'com.github.susan'//jcenter上的路径
+    artifactId = 'debounceclick-plugin'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'android plugin for view which prevent from debounces multiple clicks posted in a short time '//描述，不重要
+    website = siteUrl//项目主页
 }
+tasks.withType(Javadoc) {//防止编码问题
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+*/
+
