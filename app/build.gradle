@@ -11,7 +11,7 @@ DebounceClick {
 }
 android {
     compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
-    buildToolsVersion BUILDTOOLS_VERSION
+    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.cm.android.doubleclick"
         minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
