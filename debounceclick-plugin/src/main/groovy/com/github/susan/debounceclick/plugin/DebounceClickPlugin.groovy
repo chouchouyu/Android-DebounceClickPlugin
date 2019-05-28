@@ -27,17 +27,6 @@ class DebounceClickPlugin implements Plugin<Project> {
         project.logger.error("   Welcome to ${Constant.TAG}  !");
 
 
-        /*
-        project.repositories.maven {
-            url "https://jitpack.io"
-        }
-
-        //    project.configurations.implementation.dependencies.add(
-        //        project.dependencies.create(project.rootProject.findProject("click-debounce-runtime")))
-
-        project.configurations.implementation.dependencies.add(
-                project.dependencies.create('com.github.SmartDengg:asm-clickdebounce-runtime:1.0.0'))
-*/
 
         def hasApp = project.plugins.withType(AppPlugin)
         def hasLib = project.plugins.withType(LibraryPlugin)
@@ -45,6 +34,10 @@ class DebounceClickPlugin implements Plugin<Project> {
             throw new IllegalStateException("'android' or 'android-library' plugin required.")
         }
 
+
+        project.dependencies {
+            compile 'com.github.susan:debounceclick:1.0.0'
+        }
 
         def tracedClassesMap = new LinkedHashMap<String, List<TracedClass>>()
         AppExtension android = project.extensions.getByType(AppExtension)

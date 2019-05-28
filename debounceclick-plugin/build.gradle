@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -12,7 +13,9 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.tools.build:gradle:2.3.0'
+    compileOnly 'com.android.tools.build:gradle:2.3.0',{
+        exclude group:'org.ow2.asm'
+    }
     compile gradleApi()
     compile localGroovy()
     compile 'commons-io:commons-io:2.6'
@@ -21,22 +24,8 @@ dependencies {
 }
 
 
-//apply plugin: 'maven'
-//apply plugin: 'maven-publish'
-//
-//
-//publishing {
-//    publications {
-//        maven(MavenPublication) {
-//            from components.java
-//            group 'com.cm'
-//            artifactId 'doubleclick'
-//            version '1.0.0'
-//        }
-//    }
-//}
 
-/*
+
 // 以下开始是将Android Library上传到jcenter的相关配置
 apply plugin: 'com.novoda.bintray-release'//添加
 //项目主页
@@ -47,7 +36,7 @@ publish {
     groupId = 'com.github.susan'//jcenter上的路径
     artifactId = 'debounceclick-plugin'//项目名称
     publishVersion = '1.0.0'//版本号
-    desc = 'android plugin for view which prevent from debounces multiple clicks posted in a short time '//描述，不重要
+    desc = 'android plugin for debounceclick'//描述，不重要
     website = siteUrl//项目主页
 }
 tasks.withType(Javadoc) {//防止编码问题
@@ -55,5 +44,5 @@ tasks.withType(Javadoc) {//防止编码问题
     options.addStringOption('encoding', 'UTF-8')
     options.addStringOption('charSet', 'UTF-8')
 }
-*/
+
 
