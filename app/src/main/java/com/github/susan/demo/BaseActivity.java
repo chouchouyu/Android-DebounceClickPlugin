@@ -6,11 +6,6 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 
-/**
- * 创建时间:  2019/01/04 15:23 <br>
- * 作者:  SmartDengg <br>
- * 描述:
- */
 public abstract class BaseActivity extends Activity implements View.OnClickListener {
 
   @Override

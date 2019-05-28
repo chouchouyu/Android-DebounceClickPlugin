@@ -1,17 +1,14 @@
 package com.github.susan.demo;
 
 import android.app.Application;
+import com.github.susan.debounceclick.java.DebounceClickHandler;
 
-/**
- * 创建时间:  2018/03/23 15:43 <br>
- * 作者:  SmartDengg <br>
- * 描述:
- */
 public class MyApp extends Application {
 
     @Override
     public void onCreate() {
         super.onCreate();
+        DebounceClickHandler.FROZEN_WINDOW_MILLIS = 700;
         new TestJava();
     }
 }

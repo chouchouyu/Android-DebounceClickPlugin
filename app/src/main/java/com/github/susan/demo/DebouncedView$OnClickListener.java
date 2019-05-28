@@ -4,11 +4,6 @@ import android.view.View;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * 创建时间:  2018/03/23 16:11 <br>
- * 作者:  SmartDengg <br>
- * 描述:
- */
 public abstract class DebouncedView$OnClickListener implements View.OnClickListener {
 
   private final long debounceIntervalInMillis;

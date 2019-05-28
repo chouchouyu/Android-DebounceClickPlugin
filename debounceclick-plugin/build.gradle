@@ -25,7 +25,7 @@ dependencies {
 
 
 
-
+/*
 // 以下开始是将Android Library上传到jcenter的相关配置
 apply plugin: 'com.novoda.bintray-release'//添加
 //项目主页
@@ -44,5 +44,5 @@ tasks.withType(Javadoc) {//防止编码问题
     options.addStringOption('encoding', 'UTF-8')
     options.addStringOption('charSet', 'UTF-8')
 }
-
+*/
 

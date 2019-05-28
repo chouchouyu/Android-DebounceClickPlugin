@@ -5,12 +5,6 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
-
-/**
- * 创建时间:  2018/03/23 15:43 <br>
- * 作者:  SmartDengg <br>
- * 描述:
- */
 public class SecondActivity extends BaseActivity {
 
   @Override
