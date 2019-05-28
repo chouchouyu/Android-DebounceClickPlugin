@@ -10,12 +10,12 @@ DebounceClick {
     debug = true
 }
 android {
-    compileSdkVersion 28
-    buildToolsVersion '25.0.0'
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
     defaultConfig {
         applicationId "com.cm.android.doubleclick"
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

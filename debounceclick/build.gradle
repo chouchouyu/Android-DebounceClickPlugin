@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '25.0.0'
+    compileSdkVersion Integer.parseInt(COMPILE_SDK_VERSION)
+    buildToolsVersion BUILDTOOLS_VERSION
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
 
@@ -27,21 +27,18 @@ dependencies {
 }
 
 
-/** 以下开始是将Android Library上传到jcenter的相关配置**/
-
-apply plugin: 'com.novoda.bintray-release'//添加
-////项目主页
-def siteUrl = 'https://github.com/chouchouyu/Android-DebounceClickPlugin'
+apply plugin: 'com.novoda.bintray-release'
+def siteUrl = SITEURL
 publish {
-    repoName = 'maven'//远程仓库名字,不指明，默认是上传到maven
-    userOrg = 'wusanm'//bintray.com的用户名
-    groupId = 'com.github.susan'//jcenter上的路径
-    artifactId = 'debounceclick'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = ' debounceclick insert code part'//描述，不重要
-    website = siteUrl//项目主页
+    repoName = REPONAME
+    userOrg = USERORG
+    groupId = GROUPID
+    artifactId = 'debounceclick'
+    publishVersion = PUBLISHVERSION
+    desc = ' debounceclick insert code part'
+    website = siteUrl
 }
-tasks.withType(Javadoc) {//防止编码问题
+tasks.withType(Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')
     options.addStringOption('encoding', 'UTF-8')
     options.addStringOption('charSet', 'UTF-8')
