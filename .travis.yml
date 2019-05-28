@@ -1,0 +1,38 @@
+language: android
+jdk: oraclejdk8
+sudo: false
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-26.0.1
+    - android-26
+    - extra-android-m2repository
+    - extra-android-support
+  licenses:
+    - .+
+before_script:
+  - rm -f gradle.properties
+  - chmod +x gradlew
+script:
+  - ./gradlew assembleRelease  --stacktrace
+before_install:
+  - git config --local user.name "chouchouyu"
+  - git config --local user.email "18673104340@qq.com"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+deploy:
+  provider: releases
+  api_key:
+    secure: EZe6ySJEVyuXnBGYQgTwEminrkGp3nDVutAGi+jh8+I20NNqs7fededw0VKRccZskWEM6eT6bOP0D5qqCcZur6A1tUA+Nc8S5ZmVpkliZu+AMlbhmUMNOo104wvD/eKpJ2B0JGiBNHgwfCKT2AOHOiz/hAG1CTW1UOAoUMiK0hxr8KHwnqqfPGxPd8rh2/D3PwIBMNYdajP6MsQCzDfbG/BeZhaPlGAc5KIiayB4149yxXdT/pGPMLkvEftqoHPu4fpMOKk31RdQ8kJws5wco9wL2LZ8tuzvxGV26odJFST1yhSGOvNDHNO4cOKu0gd2y90MdRGJl5eIlaz6kH4OVi3GaMtdTPVKSeeNXN9G5xZ9e0I4kCdFUM0px15JkiSvC+Z5CXer4DL/w19rGcqebQzS/F92p+cCRpwst7DZMsAnIiB6Y30px75S6pQH3lFkQsmg2EsZYKZ+npLMHoMsI1NJJNjavdCPULwfjtLR9f5XVq3vJVLkMoAIUOIMi5vBlZhnD6lZ4fr9T8S+XS9l5grz4lA9THFpjbcfIHrof8SapAmSMaHs7MPPTUajxScRY+4Hm9rQpKmHisuWs9hpisiSuH15/zYN3kIJW1XmWJbvnI91yonBLujo16foOBEfgTyhR23LW8/HZjoLvc6Sg6x5oCKHg4FU+IDCa0aaN8E=
+  file: app/build/outputs/apk/app-release.apk
+  skip_cleanup: true
+  on:
+    tags: true
+git:
+  depth: 3
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
