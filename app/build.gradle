@@ -6,7 +6,7 @@ apply plugin: 'com.github.susan.debounceclick'
 
 DebounceClick {
     //if your project contains rxbinding and without butterKnife
-    includePackages = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
+    includePackages = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe','butterknife.internal.DebouncingOnClickListener']
     excludePackages=[]
     debug = true
 }
