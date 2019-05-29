@@ -54,7 +54,7 @@ class Utils implements Opcodes {
      */
     static def shouldModifyClass(Project project, String className) {
         def targetPackages = setIncludePackages(project."${Constant.USER_CONFIG}".includePackages, project)
-        def excludePackages = project."${Constant.USER_CONFIG}".includePackages
+        def excludePackages = project."${Constant.USER_CONFIG}".excludePackages
         def pathName = path2Classname(className);
         for (i in targetPackages) {
             if (pathName.contains(i)) {

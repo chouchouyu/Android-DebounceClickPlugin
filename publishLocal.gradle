@@ -1,0 +1,17 @@
+// 发布到本地测试用
+group = 'com.lancewu'
+version = '1.0.0'
+project.archivesBaseName = 'greendao-gradle-plugin'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // 发布到本地路径直接测试
+            repository(url:uri('../repo'))
+        }
+    }
+    doLast {
+        // 删除生成的build/lib文件夹
+        delete libsDir
+    }
+}
