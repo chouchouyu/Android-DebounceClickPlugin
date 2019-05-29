@@ -58,6 +58,7 @@ class Utils implements Opcodes {
         def pathName = path2Classname(className);
         for (i in targetPackages) {
             if (pathName.contains(i)) {
+                Logger.info(" scaning pathName contains-> " + pathName)
                 return true
             } else {
                 for (j in excludePackages) {

@@ -59,7 +59,6 @@ class Processor {
     @PackageScope
     static byte[] modifyClass(Project project, String name, byte[] bytes, List<TracedClass> tracedClasses) {
         def weavedBytes = bytes
-
         if (Utils.isMatchCondition(project, name)) {
             ClassReader classReader = new ClassReader(bytes)
             ClassWriter classWriter =

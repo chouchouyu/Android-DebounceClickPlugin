@@ -74,8 +74,8 @@ class DebounceClickTransform extends Transform {
                         jarInput.scopes,
                         Format.JAR)
 
-                Logger.info('input jar = ' + inputJar.path)
-                Logger.info('output jar = ' + outputJar.path)
+//                Logger.info('input jar = ' + inputJar.path)
+//                Logger.info('output jar = ' + outputJar.path)
 
                 if (invocation.isIncremental()) {
 
@@ -110,8 +110,8 @@ class DebounceClickTransform extends Transform {
                         directoryInput.scopes,
                         Format.DIRECTORY)
 
-                Logger.info('input directory = ' + inputDir.path)
-                Logger.info('output directory = ' + outputDir.path)
+//                Logger.info('input directory = ' + inputDir.path)
+//                Logger.info('output directory = ' + outputDir.path)
 
 
                 if (invocation.isIncremental()) {

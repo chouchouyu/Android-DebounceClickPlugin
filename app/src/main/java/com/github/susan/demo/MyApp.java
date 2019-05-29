@@ -8,7 +8,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        DebounceClickHandler.FROZEN_WINDOW_MILLIS = 700;
+        DebounceClickHandler.FROZEN_WINDOW_MILLIS = 700L;
         new TestJava();
     }
 }
