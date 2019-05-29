@@ -8,9 +8,10 @@
 * 基于ASM在编译期自动在代码中添加暴力点击事件判断（下毒）。
 
 ## 效果
-###接入前
+
+### 接入前
 ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/before.png)
-###接入后
+### 接入后
 ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/after.png)
 
 关键代码-> [DebounceClickHandler](https://github.com/chouchouyu/Android-DebounceClickPlugin/blob/master/debounceclick/src/main/java/com/github/susan/debounceclick/java/DebounceClickHandler.java)
