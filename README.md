@@ -17,6 +17,7 @@
 关键代码-> [DebounceClickHandler](https://github.com/chouchouyu/Android-DebounceClickPlugin/blob/master/debounceclick/src/main/java/com/github/susan/debounceclick/java/DebounceClickHandler.java)
 
 ## 用法
+[ ![Download](https://api.bintray.com/packages/wusanm/maven/debounceclick-plugin/images/download.svg?version=1.0.0) ](https://bintray.com/wusanm/maven/debounceclick-plugin/1.0.0/link)
 1. 在项目根目录下的build.gradle 添加
 ```
     dependencies {
