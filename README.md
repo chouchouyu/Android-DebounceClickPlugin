@@ -4,6 +4,7 @@
 
 >
 * 是一个致力于解决应用中解决`onClick(View view)`被多次调用问题的插件。
+* 完全替代你项目中的doubleClickUtil,一键自动填充前后点击时间间隔判断
 * 并当前Android最常使用的三分库：`butterknife`,`databanding`,`rxbinding`,以及`lambda表达式`提供了解决方案。
 * 基于ASM在编译期自动在代码中添加暴力点击事件判断（下毒）。
 
@@ -12,7 +13,10 @@
 ### 接入前
 ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/before.png)
 ### 接入后
+
 ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/after.png)
+
+自动添加if语句，再也不用一个个手动添加了doubleClickUtil
 
 关键代码-> [DebounceClickHandler](https://github.com/chouchouyu/Android-DebounceClickPlugin/blob/master/debounceclick/src/main/java/com/github/susan/debounceclick/java/DebounceClickHandler.java)
 
@@ -59,7 +63,21 @@ DebounceClick {
 
 **如果发现没生效，欢迎跟给我提issue。:-D**
 
-
+## 不想处理的方法
+  添加@DebounceClickMark即可
+![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/passMethod.png)
+ ## 修改间隔时间
+ 在项目编译成功，并生成Mapping文件后，在Application项目下做全局设置
+ ```
+      public class MyApp extends Application {
+      
+          @Override
+          public void onCreate() {
+              super.onCreate();
+              DebounceClickHandler.FROZEN_WINDOW_MILLIS = 700L;
+        
+          }
+```
 
 # butterknife 
 考虑butterknife自带有DebouncingOnClickListener(但是不是通过毫秒判断的)，
@@ -104,21 +122,7 @@ DebounceClick {
  databanding会引入的点击事件并非是`View.OnClickListener -> onClick(View view)`的方法，所以本插件添加注解`@DebounceClickExtra`专门处理方法不是`onClick`的方法。
 ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/extrClickMethod.png)
  如上图所示`onXXClick方`法会被处理，而没有注释的`onwithoutClick`不会被处理。
-  ## 不想处理的方法
-  添加@DebounceClickMark即可
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/passMethod.png)
- ## 修改间隔时间
- 在项目编译成功，并生成Mapping文件后，在Application项目下做全局设置
- ```
-      public class MyApp extends Application {
-      
-          @Override
-          public void onCreate() {
-              super.onCreate();
-              DebounceClickHandler.FROZEN_WINDOW_MILLIS = 700L;
-        
-          }
-```
+
 # Thanks to
 * [SmartDengg/sug-debounce](https://github.com/SmartDengg/sug-debounce)
 * [JieYuShi/Luffy](https://github.com/JieYuShi/Luffy)
