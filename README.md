@@ -1,6 +1,6 @@
-# Android-DebounceClickPlugin
+# Android-DebounceClickPlugin  ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logo.png)
 
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logo.png)
+
 
 >
 * 是一个致力于解决应用中解决`onClick(View view)`被多次调用问题的插件。
