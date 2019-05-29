@@ -1,4 +1,5 @@
 #debounceclick 
+![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logo.png)
 >
 * 是一个致力于解决应用中解决`onClick(View view)`被多次调用问题的插件。
 * 并当前Android最常使用的三分库：`butterknife`,`databanding`,`rxbinding`,以及`lambda表达式`提供了解决方案。
