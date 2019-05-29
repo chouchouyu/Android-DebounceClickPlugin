@@ -4,7 +4,7 @@
 
 >
 * 是一个致力于解决应用中解决`onClick(View view)`被多次调用问题的插件。
-* 完全替代你项目中的doubleClickUtil,一键自动填充前后点击时间间隔判断
+* 完全替代你项目中的DoubleClickUtil,一键自动填充前后点击时间间隔判断
 * 并当前Android最常使用的三分库：`butterknife`,`databanding`,`rxbinding`,以及`lambda表达式`提供了解决方案。
 * 基于ASM在编译期自动在代码中添加暴力点击事件判断（下毒）。
 
@@ -16,7 +16,7 @@
 
 ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/after.png)
 
-自动添加if语句，再也不用一个个手动添加了doubleClickUtil
+**自动添加if语句，再也不用一个个手动调用DoubleClickUtil**
 
 关键代码-> [DebounceClickHandler](https://github.com/chouchouyu/Android-DebounceClickPlugin/blob/master/debounceclick/src/main/java/com/github/susan/debounceclick/java/DebounceClickHandler.java)
 
