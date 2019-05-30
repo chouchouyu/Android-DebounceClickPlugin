@@ -28,7 +28,7 @@ public class ButterKnifeActivity extends Activity {
         DialogUtil.show2Button(this, "确定退出当前账号吗?", "确定", "取消", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Debounce", v.getId() + "id----show2Button");
+                Log.e("Debounce", v.getId() + "id----show2Button");
             }
         }, null);
     }

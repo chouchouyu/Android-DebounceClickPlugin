@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
-//apply plugin: com.github.susan.debounceclick.plugin.DebounceClickPlugin
+apply plugin: com.github.susan.debounceclick.plugin.DebounceClickPlugin
 apply plugin: 'me.tatarka.retrolambda'
-//apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.jakewharton.butterknife'
 
-//DebounceClick {
-//    //if your project contains rxbinding and without butterKnife
-//    includePackages = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe']
-//    debug = true
-//}
+DebounceClick {
+    //if your project contains rxbinding and without butterKnife
+    includePackages = ['com.jakewharton.rxbinding.view.ViewClickOnSubscribe','butterknife.internal.DebouncingOnClickListener']
+    debug = true
+}
 android {
     compileSdkVersion 28
     buildToolsVersion '25.0.0'

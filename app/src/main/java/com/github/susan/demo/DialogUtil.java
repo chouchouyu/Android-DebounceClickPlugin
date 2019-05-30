@@ -24,7 +24,7 @@ public class DialogUtil {
             @Override
             public void onClick(View v) {
                 if (confirmListener != null) {
-                    Log.d("Debounce", v.getId() + "id----confirm");
+                    Log.e("Debounce", v.getId() + "id----confirm");
                     confirmListener.onClick(v);
                 }
                 dialog.dismiss();
