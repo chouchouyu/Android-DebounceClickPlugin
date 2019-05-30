@@ -49,11 +49,8 @@ public class DebounceClickHandler {
 //    }
 
     public static boolean shouldDoClick(View targetView) {
-        StackTraceElement element = getStackInfor(targetView.getId());
-        RuntimeException here = new RuntimeException("here");
-        here.fillInStackTrace();
-        Log.d("Debounce", "targetView->" + targetView.getId());
-        Log.d("Debounce", "viewWeakHashMap->" + viewWeakHashMap.size());
+        int stackLayer = getStackLayer(targetView.getId());
+        Log.d("Debounce", "stackLayer->" +stackLayer);
         FrozenView frozenView = viewWeakHashMap.get(targetView);
         final long now = now();
 
@@ -61,16 +58,13 @@ public class DebounceClickHandler {
             Log.d("Debounce", "frozenView == null");
             frozenView = new FrozenView(targetView);
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
-            frozenView.setStackTraceElement(element.hashCode());
+            frozenView.setStackTraceLayer(stackLayer);
             viewWeakHashMap.put(targetView, frozenView);
             return true;
         }
-
-        Log.d("Debounce", "frozenView ->" + frozenView.getFrozenWindowTime());
-        Log.d("Debounce", "hashCode ->" + element.hashCode());
-        Log.d("Debounce", "getStackTraceElementhashCode ->" + frozenView.getStackTraceElementhashCode());
-        Log.d("Debounce", "|   "+(element.hashCode() == frozenView.getStackTraceElementhashCode())+"");
-        if (now >= frozenView.getFrozenWindowTime() && element.hashCode() == frozenView.getStackTraceElementhashCode()) {
+        Log.d("Debounce", "FrozenWindowTime ->" + frozenView.getFrozenWindowTime());
+        Log.d("Debounce", "FrozenWindowTime now->" + now);
+        if (now >= frozenView.getFrozenWindowTime() || frozenView.getStackTraceLayer() != stackLayer) {
             Log.d("Debounce", "frozenView -> now >= frozenView.getFrozenWindowTime()");
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
             return true;
@@ -80,18 +74,21 @@ public class DebounceClickHandler {
     }
 
 
-    private static StackTraceElement getStackInfor(int s) {
+    private static int getStackLayer(int s) {
         StackTraceElement[] stackTraceElements = Looper.getMainLooper().getThread().getStackTrace();
         Log.e("stackTrace->", s + " == " + stackTraceToString(stackTraceElements));
         List<StackTraceElement> list = Arrays.asList(stackTraceElements);
         int androidClickIndex = 0;
+        int debounceIndex = 0;
         for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i).getClassName().equals("android.view.View$PerformClick") && list.get(i).getMethodName().equals("run")) {
+            if (list.get(i).getClassName().equals("android.view.View") && list.get(i).getMethodName().equals("performClick")) {
                 androidClickIndex = i;
-                break;
+            }
+            if (list.get(i).getClassName().equals("com.github.susan.debounceclick.java.DebounceClickHandler") && list.get(i).getMethodName().equals("shouldDoClick")) {
+                debounceIndex = i;
             }
         }
-        return list.get(androidClickIndex - 1);
+        return debounceIndex-androidClickIndex;
 
     }
 
@@ -120,7 +117,7 @@ public class DebounceClickHandler {
     private static class FrozenView extends WeakReference<View> {
         private long FrozenWindowTime;
         private Object host;
-        private int stackTraceElementhashCode;
+        private int stackTraceLayer;
 
         public Object getHost() {
             return host;
@@ -142,12 +139,12 @@ public class DebounceClickHandler {
             this.FrozenWindowTime = expirationTime;
         }
 
-        public void setStackTraceElement(int hashCode) {
-            stackTraceElementhashCode = hashCode;
+        public void setStackTraceLayer(int layer) {
+            stackTraceLayer = layer;
         }
 
-        public int getStackTraceElementhashCode() {
-            return stackTraceElementhashCode;
+        public int getStackTraceLayer() {
+            return stackTraceLayer;
         }
     }
 }
