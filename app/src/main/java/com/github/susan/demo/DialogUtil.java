@@ -20,12 +20,11 @@ public class DialogUtil {
         confirm.setText(confirmText);
         cancel.setText(cancelText);
         final Dialog dialog = showFullScreenDialog(context, view, false);
-        Log.d("TESTSTTST", "1");
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (confirmListener != null) {
-                    Log.d("TESTSTTST", v.getId() + "id----confirm");
+                    Log.d("Debounce", v.getId() + "id----confirm");
                     confirmListener.onClick(v);
                 }
                 dialog.dismiss();
@@ -34,7 +33,7 @@ public class DialogUtil {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TESTSTTST", v.getId() + "id----cancel");
+                Log.d("Debounce", v.getId() + "id----cancel");
                 if (cancelListener != null) {
                     cancelListener.onClick(v);
                 }

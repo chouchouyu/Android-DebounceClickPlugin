@@ -5,13 +5,13 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../Downloads/gradle-3.3" />
+        <option name="gradleHome" value="$USER_HOME$/Downloads/gradle-3.3" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/debounceclick" />
-            <option value="$PROJECT_DIR$/debounceclick-plugin" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/double-click-java" />
           </set>
         </option>
         <option name="useQualifiedModuleNames" value="true" />

@@ -35,9 +35,9 @@ class DebounceClickPlugin implements Plugin<Project> {
         }
 
 
-        project.dependencies {
-            compile 'com.github.susan:debounceclick:1.0.0'
-        }
+//        project.dependencies {
+//            compile 'com.github.susan:debounceclick:1.0.0'
+//        }
 
         def tracedClassesMap = new LinkedHashMap<String, List<TracedClass>>()
         AppExtension android = project.extensions.getByType(AppExtension)

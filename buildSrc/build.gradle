@@ -1,0 +1,37 @@
+apply plugin: 'groovy'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+    maven {
+        url "https://maven.google.com"
+    }
+}
+
+dependencies {
+    compile 'com.android.tools.build:gradle:2.3.0'
+    compile gradleApi()
+    compile localGroovy()
+    compile 'commons-io:commons-io:2.6'
+    compile 'org.ow2.asm:asm:6.0'
+    compile 'org.ow2.asm:asm-commons:6.0'
+}
+
+
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            group 'com.cm'
+            artifactId 'doubleclick'
+            version '1.0.0'
+        }
+    }
+}

@@ -36,13 +36,17 @@ public class MainActivity extends Activity
         findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RxBinidingActivity.class));
+                if (DebounceClickHandler.shouldDoClick(v, this)) {
+//                    startActivity(new Intent(MainActivity.this, RxBinidingActivity.class));
+                }
+
             }
         });
     }
 
     @Override
     public void onClick(View v) {
+
         startActivity(new Intent(MainActivity.this, SecondActivity.class));
     }
 

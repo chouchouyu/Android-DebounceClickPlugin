@@ -1,1 +1,1 @@
-include ':app', ':debounceclick-plugin', ':debounceclick'
+include ':app', ':buildSrc', ':double-click-java'

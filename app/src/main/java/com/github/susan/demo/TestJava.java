@@ -3,7 +3,6 @@ package com.github.susan.demo;
 import android.view.View;
 import android.widget.Toast;
 import com.github.susan.debounceclick.java.DebounceClickExtra;
-import com.github.susan.debounceclick.java.DebounceClickHandler;
 import com.github.susan.debounceclick.java.DebounceClickMark;
 
 public class TestJava {
@@ -18,6 +17,9 @@ public class TestJava {
     }
 
     public void onwithoutClick(View view) {
+//        if (!DebounceClickHandler.shouldDoClick(view, this)) {
+//            return;
+//        }
         Toast.makeText(view.getContext(), "TestJava onXXClick with ClickDebounceExtra", Toast.LENGTH_LONG).show();
     }
 }
