@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="520px"
+        android:layout_height="270px"
+        android:layout_gravity="center"
+        android:layout_marginBottom="109px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialog_2button_text"
+            android:layout_width="500px"
+            android:layout_height="184px"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="通知"
+            android:textColor="#3F4A58"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#dddddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="85px"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dialog_2button_cancel"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:text="取消"
+                android:textSize="42px" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="4px"
+                android:layout_marginTop="11px"
+                android:background="#dddddd" />
+
+            <Button
+                android:id="@+id/dialog_2button_confirm"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:text="确定"
+                android:textSize="42px" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

@@ -1,12 +1,15 @@
 package com.github.susan.demo;
 
-        import android.app.Activity;
-        import android.os.Bundle;
-        import android.widget.Button;
-        import android.widget.Toast;
-        import butterknife.BindView;
-        import butterknife.ButterKnife;
-        import butterknife.OnClick;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import com.github.susan.debounceclick.java.DebounceClickMark;
 
 public class ButterKnifeActivity extends Activity {
 
@@ -22,6 +25,11 @@ public class ButterKnifeActivity extends Activity {
 
     @OnClick(R.id.button)
     public void onViewClicked() {
-        Toast.makeText(ButterKnifeActivity.this,"butterKnife clicked",Toast.LENGTH_SHORT).show();
+        DialogUtil.show2Button(this, "确定退出当前账号吗?", "确定", "取消", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TESTSTTST", v.getId() + "id----show2Button");
+            }
+        }, null);
     }
 }
