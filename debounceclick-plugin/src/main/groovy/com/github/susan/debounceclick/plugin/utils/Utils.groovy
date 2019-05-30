@@ -56,16 +56,15 @@ class Utils implements Opcodes {
         def targetPackages = setIncludePackages(project."${Constant.USER_CONFIG}".includePackages, project)
         def excludePackages = project."${Constant.USER_CONFIG}".excludePackages
         def pathName = path2Classname(className);
+        for (i in excludePackages) {
+            if (pathName.contains(i)) {
+                return false
+            }
+        }
         for (i in targetPackages) {
             if (pathName.contains(i)) {
                 Logger.info(" scaning pathName contains-> " + pathName)
                 return true
-            } else {
-                for (j in excludePackages) {
-                    if (pathName.contains(j)) {
-                        return false
-                    }
-                }
             }
         }
         return false
