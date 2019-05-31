@@ -17,7 +17,7 @@ public class DebounceClickHandler {
     /**
      * Frozen window in millions, apps may override it.
      */
-    public static long FROZEN_WINDOW_MILLIS = 300L;
+    public static long FROZEN_WINDOW_MILLIS = 700L;
 
     private static final String TAG = DebounceClickHandler.class.getSimpleName();
 
