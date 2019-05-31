@@ -1,4 +1,4 @@
-# Android-DebounceClickPlugin  ![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logo.png)
+# Android-DebounceClickPlugin  ![[logo]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logo.png)
 ```
 public abstract class NoDoubleClickListener implements View.OnClickListener {
 
@@ -28,20 +28,20 @@ public abstract class NoDoubleClickListener implements View.OnClickListener {
 
 ## 效果
 ### 接入前
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/before.png)
+![[before]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/before.png)
 ### 接入后
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/after.png)
+![[after]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/after.png)
 ##### 它将在`gradle build `时，自动在每个onClick(View)添加if语句判断 
 
 
 
 ## 用法
-[ ![Download](https://api.bintray.com/packages/wusanm/maven/debounceclick-plugin/images/download.svg?version=1.0.0) ](https://bintray.com/wusanm/maven/debounceclick-plugin/1.0.0/link)
+[ ![Download](https://api.bintray.com/packages/wusanm/maven/debounceclick-plugin/images/download.svg?version=1.0.1) ](https://bintray.com/wusanm/maven/debounceclick-plugin/1.0.0/link)
 1. 在项目根目录下的build.gradle 添加
 ```
     dependencies {
        ...
-        classpath 'com.github.susan:debounceclick-plugin:1.0.0'
+        classpath 'com.github.susan:debounceclick-plugin:1.0.1'
          ...
          }
 ```
@@ -60,15 +60,15 @@ DebounceClick {
 ```
 
 * 默认情况下，扫描文件的目录来自于module下的AndroidManifest.xml下package所声明的目录
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/packageName.png)
+![[packageName]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/packageName.png)
 * includePackages(添加修改文件路径)/excludePackages(排除修改文件路径)
 
 * debug = true 显示编译过程中详细日志
 
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logger.png)
+![[logger]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logger.png)
 
 2. 如果编译通过。更改过了信息会显示在`module/build/outputs/DebounceClick/mapping`下
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/Mapping.png)
+![[Mapping]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/Mapping.png)
 
 一般如果文件中有内容就说明插件生效，
 
@@ -80,7 +80,7 @@ DebounceClick {
 
 ## 不想处理的方法
   添加@DebounceClickMark即可
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/passMethod.png)
+![[passMethod]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/passMethod.png)
 ## 修改间隔时间
  在项目编译成功，并生成Mapping文件后，在Application项目下做全局设置
  ```
@@ -136,7 +136,7 @@ DebounceClick {
 
 ## databanding
  databanding会引入的点击事件并非是`View.OnClickListener -> onClick(View view)`的方法，所以本插件添加注解`@DebounceClickExtra`专门处理方法不是`onClick`的方法。
-![[见图]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/extrClickMethod.png)
+![[extrClickMethod]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/extrClickMethod.png)
  如上图所示`onXXClick方`法会被处理，而没有注释的`onwithoutClick`不会被处理。
 
 
