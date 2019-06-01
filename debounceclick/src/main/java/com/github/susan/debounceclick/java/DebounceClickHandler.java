@@ -1,6 +1,7 @@
 package com.github.susan.debounceclick.java;
 
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
@@ -12,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class DebounceClickHandler {
+
 
     /**
      * Frozen window in millions, apps may override it.
@@ -27,14 +29,20 @@ public class DebounceClickHandler {
         FrozenView frozenView = viewWeakHashMap.get(targetView);
         final long now = now();
 
+        Log.d(TAG, " View id:" + targetView.getId());
+        Log.d(TAG, " View stackLayer:" + stackLayer);
         if (frozenView == null) {
+            Log.d(TAG, " frozenView is null ");
             frozenView = new FrozenView(targetView);
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
             frozenView.setStackTraceLayer(stackLayer);
             viewWeakHashMap.put(targetView, frozenView);
             return true;
         }
+
+        Log.d(TAG, "last time:" + frozenView.getFrozenWindowTime() + " current time:" + now);
         if (now >= frozenView.getFrozenWindowTime() || frozenView.getStackTraceLayer() != stackLayer) {
+            Log.d(TAG, " frozenView shouldDoClick ");
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
             return true;
         }
@@ -56,7 +64,7 @@ public class DebounceClickHandler {
                 debounceIndex = i;
             }
         }
-        return debounceIndex-androidClickIndex;
+        return debounceIndex - androidClickIndex;
 
     }
 

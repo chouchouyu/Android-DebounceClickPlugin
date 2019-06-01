@@ -25,7 +25,7 @@ dependencies {
 
 
 
-
+ 
 apply plugin: 'com.novoda.bintray-release'
 def siteUrl = SITEURL
 publish {
@@ -42,5 +42,5 @@ tasks.withType(Javadoc) {
 	options.addStringOption('encoding', 'UTF-8')
 	options.addStringOption('charSet', 'UTF-8')
 }
-
+ 
 
