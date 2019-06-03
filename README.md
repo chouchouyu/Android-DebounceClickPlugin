@@ -36,7 +36,7 @@ public abstract class NoDoubleClickListener implements View.OnClickListener {
 
 
 ## 用法
-[ ![Download](https://api.bintray.com/packages/wusanm/maven/debounceclick-plugin/images/download.svg?version=1.0.1) ](https://bintray.com/wusanm/maven/debounceclick-plugin/1.0.0/link)
+[ ![Download](https://api.bintray.com/packages/wusanm/maven/debounceclick-plugin/images/download.svg?version=1.0.2) ](https://bintray.com/wusanm/maven/debounceclick-plugin/1.0.2/link)
 1. 在项目根目录下的build.gradle 添加
 ```
     dependencies {
@@ -138,6 +138,10 @@ DebounceClick {
  databanding会引入的点击事件并非是`View.OnClickListener -> onClick(View view)`的方法，所以本插件添加注解`@DebounceClickExtra`专门处理方法不是`onClick`的方法。
 ![[extrClickMethod]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/extrClickMethod.png)
  如上图所示`onXXClick方`法会被处理，而没有注释的`onwithoutClick`不会被处理。
+ 
+## Logcat(1.0.2+)
+可以通过Logcat `DebounceClickHandler` 查看插件运行情况
+![[logcat]](https://raw.githubusercontent.com/chouchouyu/Android-DebounceClickPlugin/master/files/logcat.png)
 
 
 # Thanks to
