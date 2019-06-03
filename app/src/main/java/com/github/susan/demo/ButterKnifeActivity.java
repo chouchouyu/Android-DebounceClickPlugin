@@ -1,12 +1,12 @@
 package com.github.susan.demo;
 
-        import android.app.Activity;
-        import android.os.Bundle;
-        import android.widget.Button;
-        import android.widget.Toast;
-        import butterknife.BindView;
-        import butterknife.ButterKnife;
-        import butterknife.OnClick;
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ButterKnifeActivity extends Activity {
 
@@ -22,6 +22,7 @@ public class ButterKnifeActivity extends Activity {
 
     @OnClick(R.id.button)
     public void onViewClicked() {
-        Toast.makeText(ButterKnifeActivity.this,"butterKnife clicked",Toast.LENGTH_SHORT).show();
+        Toast.makeText(ButterKnifeActivity.this, "butterKnife clicked", Toast.LENGTH_SHORT).show();
     }
+
 }
