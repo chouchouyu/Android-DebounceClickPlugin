@@ -16,6 +16,13 @@ public abstract class NoDoubleClickListener implements View.OnClickListener {
 
     protected abstract void onNoDoubleClick(View view);
 }
+
+submitButton.setOnClickListener(new NoDoubleClickListener() {  
+        @Override  
+        public void onNoDoubleClick(View v) {  
+            submitOrder();  
+        }  
+}); 
 ```
 >
  * 这段代码是不是很熟悉....
