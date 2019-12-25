@@ -37,17 +37,22 @@ public class DebounceClickHandler {
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
             frozenView.setStackTraceLayer(stackLayer);
             viewWeakHashMap.put(targetView, frozenView);
+            Log.d(TAG, "shouldDoClick --- true");
             return true;
         }
 
         Log.d(TAG, "last time:" + frozenView.getFrozenWindowTime() + " current time:" + now);
-        if (now >= frozenView.getFrozenWindowTime() || frozenView.getStackTraceLayer() != stackLayer) {
+        if (now >= frozenView.getFrozenWindowTime() || frozenView.getStackTraceLayer() !=
+                stackLayer) {
             Log.d(TAG, " frozenView shouldDoClick ");
             frozenView.setFrozenWindow(now + FROZEN_WINDOW_MILLIS);
+            Log.d(TAG, "shouldDoClick --- true");
             return true;
+        } else {
+            Log.d(TAG, "shouldDoClick --- false");
+            return false;
         }
 
-        return false;
     }
 
 
@@ -57,10 +62,13 @@ public class DebounceClickHandler {
         int androidClickIndex = 0;
         int debounceIndex = 0;
         for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i).getClassName().equals("android.view.View") && list.get(i).getMethodName().equals("performClick")) {
+            if (list.get(i).getClassName().equals("android.view.View") && list.get(i)
+                    .getMethodName().equals("performClick")) {
                 androidClickIndex = i;
             }
-            if (list.get(i).getClassName().equals("com.github.susan.debounceclick.java.DebounceClickHandler") && list.get(i).getMethodName().equals("shouldDoClick")) {
+            if (list.get(i).getClassName().equals("com.github.susan.debounceclick.java" +
+                    ".DebounceClickHandler") && list.get(i).getMethodName().equals
+                    ("shouldDoClick")) {
                 debounceIndex = i;
             }
         }
@@ -68,7 +76,13 @@ public class DebounceClickHandler {
 
     }
 
-    //05-30 20:32:45.345 10716-10716/com.cm.android.doubleclick E/stackTrace->: 2131492965 == [com.github.susan.demo.DebounceClickHandler:shouldDoClick(51)][com.github.susan.demo.MainActivity:onClick(51)][android.view.View:performClick(5198)][android.view.View$PerformClick:run(21147)][android.os.Handler:handleCallback(739)][android.os.Handler:dispatchMessage(95)][android.os.Looper:loop(148)][android.app.ActivityThread:main(5417)][java.lang.reflect.Method:invoke(-2)][com.android.internal.os.ZygoteInit$MethodAndArgsCaller:run(726)][com.android.internal.os.ZygoteInit:main(616)]
+    //05-30 20:32:45.345 10716-10716/com.cm.android.doubleclick E/stackTrace->: 2131492965 ==
+    // [com.github.susan.demo.DebounceClickHandler:shouldDoClick(51)][com.github.susan.demo
+    // .MainActivity:onClick(51)][android.view.View:performClick(5198)][android.view
+    // .View$PerformClick:run(21147)][android.os.Handler:handleCallback(739)][android.os
+    // .Handler:dispatchMessage(95)][android.os.Looper:loop(148)][android.app.ActivityThread:main
+    // (5417)][java.lang.reflect.Method:invoke(-2)][com.android.internal.os
+    // .ZygoteInit$MethodAndArgsCaller:run(726)][com.android.internal.os.ZygoteInit:main(616)]
     public static String stackTraceToString(final StackTraceElement[] stackTrace) {
         if ((stackTrace == null) || (stackTrace.length < 4)) {
             return "";
